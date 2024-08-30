@@ -5,7 +5,7 @@ var speed = 2000
 
 var has_double_jumped: bool = false
 
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	if is_on_floor():
 		has_double_jumped = false
 	_handle_input(delta)
