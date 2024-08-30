@@ -78,7 +78,7 @@ func calc_is_on_ground() -> bool:
 		velocity.y = 0	#might be better to put this somewhere else
 		is_coyote_completed = false
 		return true
-	elif is_coyote_completed or has_jumped or has_double_jumped:	#prevents gravity calculation being inaccurate
+	elif is_coyote_completed or has_jumped or has_double_jumped or Input.is_action_pressed("move_back"):	#prevents gravity calculation being inaccurate
 		return false
 	elif coyote_timer.is_stopped():
 		coyote_timer.start()
