@@ -35,19 +35,19 @@ var second_fall_gravity: float = ((-2.0 * second_jump_height_px) / (second_jump_
 var has_double_jumped: bool = false
 
 func _physics_process(delta: float) -> void:
-	var is_on_floor = is_on_floor()
-	if is_on_floor:
+	var is_on_ground = is_on_floor()
+	if is_on_ground:
 		has_double_jumped = false
-	_handle_input(delta, is_on_floor)
+	_handle_input(delta, is_on_ground)
 	move_and_slide()
 
-func _handle_input(delta: float, is_on_floor: bool):
+func _handle_input(delta: float, is_on_ground: bool):
 	var hor_input = Input.get_axis("move_left", "move_right")
 	velocity.x = hor_input * speed
-	if not is_on_floor:
+	if not is_on_ground:
 		velocity.y += get_current_gravity() * delta
 	if Input.is_action_just_pressed("move_jump"):
-		if is_on_floor:
+		if is_on_ground:
 			velocity.y = jump_velocity
 		elif not has_double_jumped:
 			velocity.y = second_jump_velocity
