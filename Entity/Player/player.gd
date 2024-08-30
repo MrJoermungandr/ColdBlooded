@@ -40,11 +40,18 @@ var second_fall_gravity: float = ((-2.0 * second_jump_height_px) / (second_jump_
 var has_jumped: bool = false
 var has_double_jumped: bool = false
 
+var is_normal_hitbox_enabled: bool = true
+@onready
+var normal_collision: CollisionShape2D = $NormalCollision
+@onready
+var vertical_pinch_collision: CollisionShape2D = $VerticalPinchCollision
+
 func _ready() -> void:
 	coyote_timer.one_shot = true
 	coyote_timer.wait_time = coyote_time_seconds
 	coyote_timer.timeout.connect(_on_coyote_complete)
 	add_child(coyote_timer)
+	vertical_pinch_collision.set_deferred("disabled", true)
 
 func _physics_process(delta: float) -> void:
 	var is_on_ground = calc_is_on_ground()
@@ -63,14 +70,17 @@ func _handle_input(delta: float, is_on_ground: bool):
 		if is_on_ground:
 			velocity.y = jump_velocity
 			has_jumped = true
+			_use_vertical_pinch_hitbox()
 		elif not has_double_jumped:
 			velocity.y = second_jump_velocity
+			_use_vertical_pinch_hitbox()
 			has_double_jumped = true
 
 func get_current_gravity() -> float:
 	if velocity.y < 0.0:	# ternary statement is back, hell yeah!
 		return second_jump_gravity if has_double_jumped else jump_gravity
 	else:
+		if not is_normal_hitbox_enabled: _use_normal_hitbox()
 		return second_fall_gravity if has_double_jumped else fall_gravity
 
 func calc_is_on_ground() -> bool:
@@ -87,3 +97,13 @@ func calc_is_on_ground() -> bool:
 
 func _on_coyote_complete():
 	is_coyote_completed = true
+
+func _use_vertical_pinch_hitbox():
+	is_normal_hitbox_enabled = false
+	normal_collision.set_deferred("disabled", true)
+	vertical_pinch_collision.set_deferred("disabled", false)
+
+func _use_normal_hitbox():
+	is_normal_hitbox_enabled = true
+	normal_collision.set_deferred("disabled", false)
+	vertical_pinch_collision.set_deferred("disabled", true)
