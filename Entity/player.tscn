@@ -23,6 +23,7 @@ height = 26.0
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_hm2ln")
+speed = 200
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_iovcc")
