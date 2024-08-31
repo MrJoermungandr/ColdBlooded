@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://begacd8q0v2sq"]
+
+[ext_resource type="Script" path="res://Level/Asset/Finish/Finish.gd" id="1_3m7gq"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_uomx5"]
+size = Vector2(50, 50)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xqgte"]
+size = Vector2(50, 51)
+
+[node name="Finish" type="Node2D"]
+script = ExtResource("1_3m7gq")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("PlaceholderTexture2D_uomx5")
+
+[node name="Area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area"]
+position = Vector2(1, 1.5)
+shape = SubResource("RectangleShape2D_xqgte")

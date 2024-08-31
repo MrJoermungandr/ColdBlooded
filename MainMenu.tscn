@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=3 uid="uid://c1qaipsjjdl13"]
+
+[ext_resource type="Script" path="res://MainMenu/MainMenu.gd" id="1_bni3a"]
+[ext_resource type="PackedScene" uid="uid://bxv734r6d0msq" path="res://MainMenu/LevelSelect.tscn" id="2_n3grw"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_7hrbl"]
+font_size = 96
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bni3a")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -100.0
+offset_right = 200.0
+offset_bottom = 100.0
+grow_vertical = 2
+theme_override_constants/margin_left = 30
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="MovementTest" parent="MarginContainer/GridContainer" instance=ExtResource("2_n3grw")]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_right = 103.0
+offset_bottom = 23.0
+text = "Cold Blooded"
+label_settings = SubResource("LabelSettings_7hrbl")
