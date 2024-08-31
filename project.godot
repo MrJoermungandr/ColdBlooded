@@ -11,8 +11,14 @@ config_version=5
 [application]
 
 config/name="ColdBlooded"
+run/main_scene="res://MainMenu.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+LeaderboardManager="*res://SingletonLeaderboardManager.gd"
+GameManger="*res://SingletonGameManger.gd"
 
 [input]
 

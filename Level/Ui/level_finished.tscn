@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://sf35vh2gxjxu"]
+
+[ext_resource type="Script" path="res://Level/Ui/level_finished/level_finished.gd" id="1_kg50c"]
+
+[node name="LevelFinished" type="CenterContainer"]
+z_index = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_kg50c")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+text = "BWOAH"
