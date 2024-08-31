@@ -17,9 +17,6 @@ var second_jump_height_px: float = 54
 var second_jump_time_to_peak: float = 0.4
 @export
 var second_jump_time_to_descend: float = 0.3
-@export
-var second_jump_window_seconds: float  = 0.2
-var second_jump_timer: Timer = Timer.new()
 
 @onready
 var jump_velocity: float = ((2.0 * jump_height_px) / jump_time_to_peak) * -1
@@ -57,9 +54,6 @@ func _ready() -> void:
 	coyote_timer.wait_time = coyote_time_seconds
 	coyote_timer.timeout.connect(_on_coyote_complete)
 	add_child(coyote_timer)
-	second_jump_timer.one_shot = true
-	second_jump_timer.wait_time = second_jump_window_seconds
-	add_child(second_jump_timer)
 	vertical_pinch_collision.set_deferred("disabled", true)
 
 func _physics_process(delta: float) -> void:
@@ -83,14 +77,10 @@ func _handle_jump_and_glide(delta: float, is_on_ground: bool):
 			velocity.y = jump_velocity
 			has_jumped = true
 			_use_vertical_pinch_hitbox()
-			second_jump_timer.start()
 		elif not has_double_jumped:
-			if second_jump_timer.is_stopped():
-				second_jump_timer.start()
-			else:
-				velocity.y = second_jump_velocity
-				_use_vertical_pinch_hitbox()
-				has_double_jumped = true
+			velocity.y = second_jump_velocity
+			_use_vertical_pinch_hitbox()
+			has_double_jumped = true
 	if Input.is_action_pressed("move_jump"):
 		if not is_on_ground and velocity.y > 0.0:
 			velocity.y = glide_gravity
