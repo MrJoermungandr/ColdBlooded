@@ -3,11 +3,6 @@ extends CharacterBody2D
 @export
 var speed = 2000
 
-@export
-var coyote_time_seconds: float = 0.1
-var coyote_timer: Timer = Timer.new()
-var is_coyote_completed: bool = false
-
 @export_group("Jump")
 @export
 var jump_height_px: float = 90
@@ -36,6 +31,11 @@ var second_jump_velocity: float = ((2.0 * second_jump_height_px) / second_jump_t
 var second_jump_gravity: float = ((-2.0 * second_jump_height_px) / (second_jump_time_to_peak * second_jump_time_to_peak)) * -1
 @onready
 var second_fall_gravity: float = ((-2.0 * second_jump_height_px) / (second_jump_time_to_descend * second_jump_time_to_descend)) * -1
+
+@export
+var coyote_time_seconds: float = 0.1
+var coyote_timer: Timer = Timer.new()
+var is_coyote_completed: bool = false
 
 var has_jumped: bool = false
 var has_double_jumped: bool = false
