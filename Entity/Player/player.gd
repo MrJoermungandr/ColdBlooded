@@ -3,11 +3,6 @@ extends CharacterBody2D
 @export
 var speed = 2000
 
-@export
-var coyote_time_seconds: float = 0.1
-var coyote_timer: Timer = Timer.new()
-var is_coyote_completed: bool = false
-
 @export_group("Jump")
 @export
 var jump_height_px: float = 90
@@ -22,6 +17,9 @@ var second_jump_height_px: float = 54
 var second_jump_time_to_peak: float = 0.4
 @export
 var second_jump_time_to_descend: float = 0.3
+@export
+var second_jump_window_seconds: float  = 0.2
+var second_jump_timer: Timer = Timer.new()
 
 @onready
 var jump_velocity: float = ((2.0 * jump_height_px) / jump_time_to_peak) * -1
@@ -37,6 +35,14 @@ var second_jump_gravity: float = ((-2.0 * second_jump_height_px) / (second_jump_
 @onready
 var second_fall_gravity: float = ((-2.0 * second_jump_height_px) / (second_jump_time_to_descend * second_jump_time_to_descend)) * -1
 
+@export
+var coyote_time_seconds: float = 0.1
+var coyote_timer: Timer = Timer.new()
+var is_coyote_completed: bool = false
+
+@export
+var glide_gravity: float = 80
+
 var has_jumped: bool = false
 var has_double_jumped: bool = false
 
@@ -51,6 +57,9 @@ func _ready() -> void:
 	coyote_timer.wait_time = coyote_time_seconds
 	coyote_timer.timeout.connect(_on_coyote_complete)
 	add_child(coyote_timer)
+	second_jump_timer.one_shot = true
+	second_jump_timer.wait_time = second_jump_window_seconds
+	add_child(second_jump_timer)
 	vertical_pinch_collision.set_deferred("disabled", true)
 
 func _physics_process(delta: float) -> void:
@@ -66,15 +75,25 @@ func _handle_input(delta: float, is_on_ground: bool):
 	velocity.x = hor_input * speed
 	if not is_on_ground:
 		velocity.y += get_current_gravity() * delta
+	_handle_jump_and_glide(delta, is_on_ground)
+	
+func _handle_jump_and_glide(delta: float, is_on_ground: bool):
 	if Input.is_action_just_pressed("move_jump"):
 		if is_on_ground:
 			velocity.y = jump_velocity
 			has_jumped = true
 			_use_vertical_pinch_hitbox()
+			second_jump_timer.start()
 		elif not has_double_jumped:
-			velocity.y = second_jump_velocity
-			_use_vertical_pinch_hitbox()
-			has_double_jumped = true
+			if second_jump_timer.is_stopped():
+				second_jump_timer.start()
+			else:
+				velocity.y = second_jump_velocity
+				_use_vertical_pinch_hitbox()
+				has_double_jumped = true
+	if Input.is_action_pressed("move_jump"):
+		if not is_on_ground and velocity.y > 0.0:
+			velocity.y = glide_gravity
 
 func get_current_gravity() -> float:
 	if velocity.y < 0.0:	# ternary statement is back, hell yeah!
