@@ -75,7 +75,7 @@ func _handle_input(delta: float, is_on_ground: bool):
 	if not is_on_ground:
 		velocity.y += get_current_gravity() * delta
 	_handle_jump_and_glide(is_on_ground)
-	if Input.is_action_pressed(&"attack_primary"):
+	if Input.is_action_just_pressed(&"attack_primary"):
 		animation_player.play(&"attack")
 		await animation_player.animation_finished
 
