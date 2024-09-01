@@ -14,11 +14,6 @@ func _ready() -> void:
 	collision_mask = collision_mask_override
 	area_entered.connect(_on_area_entered)
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
 func _on_area_entered(hitbox: Hitbox):
 	if hitbox == null or hitbox.owner == owner:
 		return
