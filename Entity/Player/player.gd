@@ -68,7 +68,7 @@ func _ready() -> void:
 	vertical_pinch_collision.set_deferred("disabled", true)
 	_init_state_machine()
 
-func _init_state_machine():	
+func _init_state_machine():
 	state_machine.add_transition(idle_state, move_state, &"move_started")
 	state_machine.add_transition(move_state, idle_state, &"move_ended")
 	state_machine.add_transition(state_machine.ANYSTATE, attack_state, &"atk_started")
@@ -86,9 +86,6 @@ func _handle_input(delta: float, is_on_ground: bool):
 	else:
 		velocity.y = 0
 	_handle_jump_and_glide(is_on_ground)
-	if Input.is_action_just_pressed(&"attack_primary"):
-		state_machine.dispatch(&"atk_started")
-		return
 
 func _handle_jump_and_glide(is_on_ground: bool):
 	if Input.is_action_just_pressed("move_jump"):
