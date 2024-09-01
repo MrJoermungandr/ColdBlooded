@@ -66,6 +66,8 @@ func _ready() -> void:
 	vertical_pinch_collision.set_deferred("disabled", true)
 	_init_state_machine()
 
+#region states
+
 func _init_state_machine():
 	state_machine = LimboHSM.new()
 	add_child(state_machine)
@@ -86,11 +88,6 @@ func _init_state_machine():
 	
 	state_machine.initialize(self)
 	state_machine.set_active(true)
-
-func _physics_process(delta: float) -> void:
-	pass
-
-#region states
 
 func _idle_ready():
 	label.text = "idle"
