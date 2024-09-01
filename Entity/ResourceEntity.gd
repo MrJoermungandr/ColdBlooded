@@ -1,3 +1,4 @@
+class_name EntityResource
 extends Resource
 
 @export
