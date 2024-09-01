@@ -1,0 +1,53 @@
+[gd_scene load_steps=11 format=3 uid="uid://biyepj0wc6lid"]
+
+[ext_resource type="Texture2D" uid="uid://c5v52yx7dpet8" path="res://Entity/Dawg/tile_0002.png" id="1_2gfny"]
+[ext_resource type="Script" path="res://Entity/Scripts/Agent.gd" id="1_ovl54"]
+[ext_resource type="Texture2D" uid="uid://bb8e3reqwvian" path="res://Entity/Dawg/tile_0003.png" id="2_1s38v"]
+[ext_resource type="Script" path="res://Entity/ResourceEntity.gd" id="2_dh287"]
+
+[sub_resource type="Resource" id="Resource_1kyr4"]
+script = ExtResource("2_dh287")
+health = 10
+attack_damage = 5
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_unvjb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_2gfny")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_1s38v")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jkquf"]
+size = Vector2(20, 22)
+
+[sub_resource type="BlackboardPlan" id="BlackboardPlan_nl4sc"]
+
+[sub_resource type="BehaviorTree" id="BehaviorTree_m8umg"]
+blackboard_plan = SubResource("BlackboardPlan_nl4sc")
+
+[sub_resource type="BlackboardPlan" id="BlackboardPlan_adeud"]
+
+[node name="Dawg" type="CharacterBody2D" groups=["damageable"]]
+script = ExtResource("1_ovl54")
+entity_resource = SubResource("Resource_1kyr4")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_unvjb")
+animation = &"walk"
+frame = 1
+frame_progress = 0.322454
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_jkquf")
+
+[node name="BTPlayer" type="BTPlayer" parent="."]
+behavior_tree = SubResource("BehaviorTree_m8umg")
+blackboard_plan = SubResource("BlackboardPlan_adeud")

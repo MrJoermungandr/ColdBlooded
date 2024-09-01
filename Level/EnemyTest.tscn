@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=4 uid="uid://bl02ivg1kub5k"]
+[gd_scene load_steps=10 format=4 uid="uid://bl02ivg1kub5k"]
 
 [ext_resource type="Script" path="res://Level/Level.gd" id="1_qxmr5"]
 [ext_resource type="PackedScene" uid="uid://binwmx30pxpv0" path="res://Entity/player.tscn" id="2_1jrbp"]
 [ext_resource type="Texture2D" uid="uid://djhjbje7s0eqv" path="res://Level/MovementTest/tilemap.png" id="3_6kr4e"]
 [ext_resource type="PackedScene" uid="uid://begacd8q0v2sq" path="res://Level/Asset/Finish.tscn" id="4_34vmi"]
 [ext_resource type="PackedScene" uid="uid://6b01or2cjsi4" path="res://Level/EnemyTest/dummy_enemy.tscn" id="5_x0pt6"]
+[ext_resource type="Script" path="res://Entity/ResourceEntity.gd" id="6_whugy"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yg0h4"]
 texture = ExtResource("3_6kr4e")
@@ -249,6 +250,11 @@ tile_size = Vector2i(18, 18)
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_yg0h4")
 
+[sub_resource type="Resource" id="Resource_v4t7f"]
+script = ExtResource("6_whugy")
+health = 10
+attack_damage = 5
+
 [node name="EnemyTest" type="Node2D"]
 script = ExtResource("1_qxmr5")
 
@@ -265,3 +271,7 @@ position = Vector2(1113, 368)
 
 [node name="DummyEnemy" parent="." instance=ExtResource("5_x0pt6")]
 position = Vector2(322, 621)
+
+[node name="DummyEnemy2" parent="." instance=ExtResource("5_x0pt6")]
+position = Vector2(229, 476)
+entity_resource = SubResource("Resource_v4t7f")

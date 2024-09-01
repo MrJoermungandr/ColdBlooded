@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://binwmx30pxpv0"]
+[gd_scene load_steps=20 format=3 uid="uid://binwmx30pxpv0"]
 
 [ext_resource type="Script" path="res://Entity/Player/player.gd" id="1_hm2ln"]
 [ext_resource type="Texture2D" uid="uid://c21udg7pfslrp" path="res://Entity/Player/tile_0000.png" id="2_106a1"]
@@ -6,6 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://xm1pbqlx3mra" path="res://Entity/Player/tile_0001.png" id="3_bnknf"]
 [ext_resource type="Script" path="res://Entity/Scripts/hitbox.gd" id="4_0157h"]
 [ext_resource type="Script" path="res://Entity/Scripts/hurtbox.gd" id="5_w8u03"]
+[ext_resource type="Script" path="res://Entity/Player/idle_state.gd" id="7_u6mp2"]
+[ext_resource type="Script" path="res://Entity/Player/attack_primary_state.gd" id="7_u46eh"]
+[ext_resource type="Script" path="res://Entity/Player/move_state.gd" id="8_flhde"]
 
 [sub_resource type="Resource" id="Resource_b576n"]
 script = ExtResource("2_eg8ip")
@@ -45,21 +48,6 @@ size = Vector2(26, 10)
 [sub_resource type="CircleShape2D" id="CircleShape2D_upbp2"]
 radius = 9.05539
 
-[sub_resource type="Animation" id="Animation_cx2j7"]
-resource_name = "attack"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Hitbox/CollisionShape2D:disabled")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.4, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [true, false, true, true]
-}
-
 [sub_resource type="Animation" id="Animation_0y6x3"]
 length = 0.001
 tracks/0/type = "value"
@@ -73,6 +61,21 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_cx2j7"]
+resource_name = "attack"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Hitbox/CollisionShape2D:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.4, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [true, false, true, true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_rolf6"]
@@ -126,3 +129,21 @@ debug_color = Color(0.884314, 3.34509e-06, 3.85046e-07, 0.419608)
 libraries = {
 "": SubResource("AnimationLibrary_rolf6")
 }
+
+[node name="Label" type="Label" parent="."]
+offset_left = -20.0
+offset_top = -42.0
+offset_right = 20.0
+offset_bottom = -19.0
+text = "State"
+
+[node name="LimboHSM" type="LimboHSM" parent="."]
+
+[node name="idle" type="LimboState" parent="LimboHSM"]
+script = ExtResource("7_u6mp2")
+
+[node name="move" type="LimboState" parent="LimboHSM"]
+script = ExtResource("8_flhde")
+
+[node name="attack" type="LimboState" parent="LimboHSM"]
+script = ExtResource("7_u46eh")

@@ -54,30 +54,37 @@ var vertical_pinch_collision: CollisionShape2D = $VerticalPinchCollision
 @onready 
 var animation_player: AnimationPlayer = $AnimationPlayer
 
+@onready var state_machine: LimboHSM = $LimboHSM
+@onready var attack_state: LimboState = $LimboHSM/attack
+@onready var idle_state: LimboState = $LimboHSM/idle
+@onready var move_state: LimboState = $LimboHSM/move
+
 func _ready() -> void:
 	coyote_timer.one_shot = true
 	coyote_timer.wait_time = coyote_time_seconds
 	coyote_timer.timeout.connect(_on_coyote_complete)
 	add_child(coyote_timer)
 	vertical_pinch_collision.set_deferred("disabled", true)
+	_init_state_machine()
 
-func _physics_process(delta: float) -> void:
-	var is_on_ground = calc_is_on_ground()
-	if is_on_ground:
-		has_double_jumped = false
-		has_jumped = false
-	_handle_input(delta, is_on_ground)
-	move_and_slide()
+func _init_state_machine():
+	state_machine.add_transition(idle_state, move_state, &"move_started")
+	state_machine.add_transition(move_state, idle_state, &"move_ended")
+	state_machine.add_transition(state_machine.ANYSTATE, attack_state, &"atk_started")
+	state_machine.add_transition(attack_state, move_state, attack_state.EVENT_FINISHED)
+	state_machine.initial_state = idle_state
+	
+	state_machine.initialize(self)
+	state_machine.set_active(true)
 
 func _handle_input(delta: float, is_on_ground: bool):
 	var hor_input = Input.get_axis("move_left", "move_right")
 	velocity.x = hor_input * speed
 	if not is_on_ground:
 		velocity.y += get_current_gravity() * delta
+	else:
+		velocity.y = 0
 	_handle_jump_and_glide(is_on_ground)
-	if Input.is_action_just_pressed(&"attack_primary"):
-		animation_player.play(&"attack")
-		await animation_player.animation_finished
 
 func _handle_jump_and_glide(is_on_ground: bool):
 	if Input.is_action_just_pressed("move_jump"):

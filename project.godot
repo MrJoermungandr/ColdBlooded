@@ -20,6 +20,10 @@ config/icon="res://icon.svg"
 LeaderboardManager="*res://SingletonLeaderboardManager.gd"
 GameManger="*res://SingletonGameManger.gd"
 
+[global_group]
+
+damageable="should implement _take_damage(amount: int, knockback: Vector 2)"
+
 [input]
 
 move_forward={
