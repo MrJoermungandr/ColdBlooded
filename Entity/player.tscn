@@ -1,8 +1,16 @@
-[gd_scene load_steps=7 format=3 uid="uid://binwmx30pxpv0"]
+[gd_scene load_steps=17 format=3 uid="uid://binwmx30pxpv0"]
 
 [ext_resource type="Script" path="res://Entity/Player/player.gd" id="1_hm2ln"]
 [ext_resource type="Texture2D" uid="uid://c21udg7pfslrp" path="res://Entity/Player/tile_0000.png" id="2_106a1"]
+[ext_resource type="Script" path="res://Entity/ResourceEntity.gd" id="2_eg8ip"]
 [ext_resource type="Texture2D" uid="uid://xm1pbqlx3mra" path="res://Entity/Player/tile_0001.png" id="3_bnknf"]
+[ext_resource type="Script" path="res://Entity/Scripts/hitbox.gd" id="4_0157h"]
+[ext_resource type="Script" path="res://Entity/Scripts/hurtbox.gd" id="5_w8u03"]
+
+[sub_resource type="Resource" id="Resource_b576n"]
+script = ExtResource("2_eg8ip")
+health = 10
+attack_damage = 5
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_iovcc"]
 animations = [{
@@ -26,17 +34,67 @@ height = 26.0
 radius = 4.0
 height = 26.0
 
+[sub_resource type="Resource" id="Resource_v4dkc"]
+script = ExtResource("2_eg8ip")
+health = 10
+attack_damage = 5
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jidqh"]
+size = Vector2(26, 10)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_upbp2"]
+radius = 9.05539
+
+[sub_resource type="Animation" id="Animation_cx2j7"]
+resource_name = "attack"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Hitbox/CollisionShape2D:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.4, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [true, false, true, true]
+}
+
+[sub_resource type="Animation" id="Animation_0y6x3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Hitbox/CollisionShape2D:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rolf6"]
+_data = {
+"RESET": SubResource("Animation_0y6x3"),
+"attack": SubResource("Animation_cx2j7")
+}
+
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_hm2ln")
+entity_resource = SubResource("Resource_b576n")
 speed = 200
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_iovcc")
 animation = &"walk"
 frame_progress = 0.965387
+flip_h = true
 
 [node name="NormalCollision" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_ibbhd")
+debug_color = Color(0.00528639, 0.345461, 0.773411, 0.42)
 
 [node name="VerticalPinchCollision" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_4vxxc")
@@ -46,3 +104,25 @@ zoom = Vector2(2, 2)
 process_callback = 0
 position_smoothing_enabled = true
 drag_horizontal_enabled = true
+
+[node name="Hitbox" type="Area2D" parent="."]
+script = ExtResource("4_0157h")
+entity_resource = SubResource("Resource_v4dkc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(13, 8)
+shape = SubResource("RectangleShape2D_jidqh")
+disabled = true
+debug_color = Color(2.83971e-06, 0.582084, 0.0397779, 0.419608)
+
+[node name="Hurtbox" type="Area2D" parent="."]
+script = ExtResource("5_w8u03")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+shape = SubResource("CircleShape2D_upbp2")
+debug_color = Color(0.884314, 3.34509e-06, 3.85046e-07, 0.419608)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_rolf6")
+}
