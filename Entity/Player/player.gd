@@ -1,6 +1,9 @@
 extends CharacterBody2D
 
 @export
+var entity_resource: EntityResource
+
+@export
 var speed = 2000
 
 @export_group("Jump")
@@ -48,6 +51,8 @@ var is_normal_hitbox_enabled: bool = true
 var normal_collision: CollisionShape2D = $NormalCollision
 @onready
 var vertical_pinch_collision: CollisionShape2D = $VerticalPinchCollision
+@onready 
+var animation_player: AnimationPlayer = $AnimationPlayer
 
 func _ready() -> void:
 	coyote_timer.one_shot = true
@@ -70,7 +75,10 @@ func _handle_input(delta: float, is_on_ground: bool):
 	if not is_on_ground:
 		velocity.y += get_current_gravity() * delta
 	_handle_jump_and_glide(delta, is_on_ground)
-	
+	if Input.is_action_pressed(&"attack_primary"):
+		animation_player.play(&"attack")
+		await animation_player.animation_finished
+
 func _handle_jump_and_glide(delta: float, is_on_ground: bool):
 	if Input.is_action_just_pressed("move_jump"):
 		if is_on_ground:
