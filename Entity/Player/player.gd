@@ -54,19 +54,36 @@ var vertical_pinch_collision: CollisionShape2D = $VerticalPinchCollision
 @onready 
 var animation_player: AnimationPlayer = $AnimationPlayer
 
+@onready 
+var state_machine: LimboHSM = $LimboHSM
+@onready 
+var idle_state: LimboState = $LimboHSM/Idle
+@onready 
+var move_state: LimboState = $LimboHSM/Move
+
 func _ready() -> void:
 	coyote_timer.one_shot = true
 	coyote_timer.wait_time = coyote_time_seconds
 	coyote_timer.timeout.connect(_on_coyote_complete)
 	add_child(coyote_timer)
 	vertical_pinch_collision.set_deferred("disabled", true)
+	_init_state_machine()
+
+func _init_state_machine():
+	state_machine.initial_state = idle_state
+	
+	state_machine.add_transition(idle_state, move_state, &"movement_started")
+	state_machine.add_transition(move_state, idle_state, &"movement_ended")
+	
+	state_machine.initialize(self)
+	state_machine.set_active(true)
 
 func _physics_process(delta: float) -> void:
-	var is_on_ground = calc_is_on_ground()
-	if is_on_ground:
-		has_double_jumped = false
-		has_jumped = false
-	_handle_input(delta, is_on_ground)
+	#var is_on_ground = calc_is_on_ground()
+	#if is_on_ground:
+		#has_double_jumped = false
+		#has_jumped = false
+	#_handle_input(delta, is_on_ground)
 	move_and_slide()
 
 func _handle_input(delta: float, is_on_ground: bool):
