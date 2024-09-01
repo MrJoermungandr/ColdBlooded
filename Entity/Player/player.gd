@@ -53,7 +53,6 @@ var normal_collision: CollisionShape2D = $NormalCollision
 var vertical_pinch_collision: CollisionShape2D = $VerticalPinchCollision
 @onready 
 var animation_player: AnimationPlayer = $AnimationPlayer
-@onready var label: Label = $Label
 
 @onready var state_machine: LimboHSM = $LimboHSM
 @onready var attack_state: LimboState = $LimboHSM/attack

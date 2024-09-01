@@ -1,16 +1,8 @@
 extends LimboState
 
-## Called once, when state is initialized.
-func _setup() -> void:
-	pass
-
 ## Called when state is entered.
 func _enter() -> void:
 	$"../../Label".text = "idle"
-
-## Called when state is exited.
-func _exit() -> void:
-	pass
 
 ## Called each frame when this state is active. # TODO maybe play some idle animation or smth
 func _update(delta: float) -> void:
