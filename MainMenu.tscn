@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://c1qaipsjjdl13"]
+[gd_scene load_steps=5 format=3 uid="uid://c1qaipsjjdl13"]
 
 [ext_resource type="Script" path="res://MainMenu/MainMenu.gd" id="1_bni3a"]
 [ext_resource type="PackedScene" uid="uid://bxv734r6d0msq" path="res://MainMenu/LevelSelect.tscn" id="2_n3grw"]
+[ext_resource type="PackedScene" uid="uid://bqxcehbigqa27" path="res://MainMenu/Leaderboard/LeaderboardEntry.tscn" id="3_x3xl8"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_7hrbl"]
 font_size = 96
@@ -15,26 +16,117 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_bni3a")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="Titel" type="Label" parent="."]
 layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_top = -100.0
-offset_right = 200.0
-offset_bottom = 100.0
-grow_vertical = 2
-theme_override_constants/margin_left = 30
-
-[node name="GridContainer" type="GridContainer" parent="MarginContainer"]
-layout_mode = 2
-
-[node name="MovementTest" parent="MarginContainer/GridContainer" instance=ExtResource("2_n3grw")]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="."]
-layout_mode = 0
-offset_right = 103.0
-offset_bottom = 23.0
+offset_right = 1152.0
+offset_bottom = 132.0
 text = "Cold Blooded"
 label_settings = SubResource("LabelSettings_7hrbl")
+
+[node name="Profile" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -1152.0
+offset_bottom = 31.0
+grow_horizontal = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Profile"]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="Button" type="Button" parent="Profile/HBoxContainer"]
+layout_mode = 2
+text = "Log In"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -575.0
+offset_top = -194.0
+offset_right = 577.0
+offset_bottom = 267.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Levels" type="PanelContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="HBoxContainer/Levels"]
+layout_mode = 2
+columns = 3
+
+[node name="MovementTest" parent="HBoxContainer/Levels/GridContainer" instance=ExtResource("2_n3grw")]
+layout_mode = 2
+
+[node name="EnemyTest" parent="HBoxContainer/Levels/GridContainer" instance=ExtResource("2_n3grw")]
+layout_mode = 2
+
+[node name="EnemyTest2" parent="HBoxContainer/Levels/GridContainer" instance=ExtResource("2_n3grw")]
+layout_mode = 2
+
+[node name="EnemyTest3" parent="HBoxContainer/Levels/GridContainer" instance=ExtResource("2_n3grw")]
+layout_mode = 2
+
+[node name="EnemyTest4" parent="HBoxContainer/Levels/GridContainer" instance=ExtResource("2_n3grw")]
+layout_mode = 2
+
+[node name="VSeparator" type="VSeparator" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="Leaderboard" type="PanelContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/Leaderboard"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/Leaderboard/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer/Leaderboard/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+text = "Leaderboard"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="HBoxContainer/Leaderboard/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/Leaderboard/MarginContainer/VBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="LeaderboardEntry" parent="HBoxContainer/Leaderboard/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" instance=ExtResource("3_x3xl8")]
+layout_mode = 2
+
+[node name="Settings" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.881076
+anchor_top = 0.28858
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="Arrange" type="HBoxContainer" parent="Settings"]
+layout_direction = 3
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+
+[node name="Button" type="Button" parent="Settings/Arrange"]
+layout_mode = 2
+text = "Settings"
+
+[node name="Button2" type="Button" parent="Settings/Arrange"]
+layout_mode = 2
+text = "Credits"

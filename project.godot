@@ -24,6 +24,10 @@ GameManger="*res://SingletonGameManger.gd"
 
 damageable="should implement _take_damage(amount: int, knockback: Vector 2)"
 
+[gui]
+
+theme/custom="res://Master.theme"
+
 [input]
 
 move_forward={

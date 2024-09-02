@@ -17,18 +17,23 @@ func _ready():
 
 
 func submit_new_run(run:LevelRun):
+	#TODO update the other params like coins
+	
+	
+	#if its a new pb then submit
 	if save.runs.find_key(run.level_name):
 		var old_run= save.runs.get(run.level_name)
 		if old_run.level_time > run.level_time:
 			save.runs[run.level_name]=run
+		else:
+			#no pb so we can savely return from the function
+			ResourceSaver.save(save)
+			return
 	else:
-		var exists:Array
-		exists.append(run)
 		save.runs[run.level_name]=run
-	#TODO update the other params
 	
-	#TODO if logged in submit to leaderboard
+	#submit the run to leaderboard
+	LeaderboardManager.submit_pb(run)
 	
 	#finally save resource
 	ResourceSaver.save(save)
-	
