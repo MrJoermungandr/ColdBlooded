@@ -79,10 +79,11 @@ func _init_state_machine():
 
 func _handle_input(delta: float, is_on_ground: bool):
 	var hor_input = Input.get_axis("move_left", "move_right")
-	velocity.x = hor_input * speed
 	if not is_on_ground:
 		velocity.y += get_current_gravity() * delta
+		velocity.x = velocity.slerp(Vector2(velocity.x if is_zero_approx(hor_input) else hor_input * speed, velocity.y) * 0.9, .2).x
 	else:
+		velocity.x = hor_input * speed
 		velocity.y = 0
 	_handle_jump_and_glide(is_on_ground)
 
