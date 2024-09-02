@@ -59,6 +59,10 @@ var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var idle_state: LimboState = $LimboHSM/idle
 @onready var move_state: LimboState = $LimboHSM/move
 
+var is_flipped = false
+
+@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+
 func _ready() -> void:
 	coyote_timer.one_shot = true
 	coyote_timer.wait_time = coyote_time_seconds
@@ -79,10 +83,17 @@ func _init_state_machine():
 
 func _handle_input(delta: float, is_on_ground: bool):
 	var hor_input = Input.get_axis("move_left", "move_right")
-	velocity.x = hor_input * speed
+	if hor_input > 0.0:
+		animated_sprite_2d.flip_h = false
+		is_flipped = false
+	elif hor_input < 0.0:    # prevents facing a side by default
+		animated_sprite_2d.flip_h = true
+		is_flipped = true
 	if not is_on_ground:
 		velocity.y += get_current_gravity() * delta
+		velocity.x = lerp(velocity.x, (velocity.x if is_zero_approx(hor_input) else hor_input * speed) * 0.7, .2)
 	else:
+		velocity.x = hor_input * speed
 		velocity.y = 0
 	_handle_jump_and_glide(is_on_ground)
 
