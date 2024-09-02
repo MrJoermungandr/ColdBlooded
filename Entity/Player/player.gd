@@ -88,7 +88,7 @@ func _handle_input(delta: float, is_on_ground: bool):
 		animated_sprite_2d.flip_h = true
 	if not is_on_ground:
 		velocity.y += get_current_gravity() * delta
-		velocity.x = velocity.slerp(Vector2(velocity.x if is_zero_approx(hor_input) else hor_input * speed, velocity.y) * 0.9, .2).x
+		velocity.x = lerp(velocity.x, (velocity.x if is_zero_approx(hor_input) else hor_input * speed) * 0.7, .2)
 	else:
 		velocity.x = hor_input * speed
 		velocity.y = 0
