@@ -4,6 +4,8 @@ extends CharacterBody2D
 @export
 var entity_resource: EntityResource
 
+var is_flipped: bool = false
+
 signal death
 
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
