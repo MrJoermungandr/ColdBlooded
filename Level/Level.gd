@@ -32,14 +32,17 @@ func _process(delta):
 
 func on_level_finished():
 	var finish_time:float=elapsed_time
-	#TODO game pause
+	
+	#pause game
+	get_tree().paused = true
+	
 	#initialize new run
 	var level_name:String=get_name()
 	var level_run = LevelRun.new()
 	level_run.construct(level_name,finish_time)
 	#TODO maybe manipulate other fields in run
+	
 	#register run in GameManager
-	get_tree().paused = true
 	GameManger.submit_new_run(level_run)
 	#show winscreen
 	finish_ui.set_finished(level_run)

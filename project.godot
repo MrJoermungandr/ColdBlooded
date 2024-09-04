@@ -17,8 +17,8 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-LeaderboardManager="*res://SingletonLeaderboardManager.gd"
 GameManger="*res://SingletonGameManger.gd"
+LeaderboardManager="*res://SingletonLeaderboardManager.gd"
 
 [global_group]
 

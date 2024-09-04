@@ -1,10 +1,12 @@
-extends Panel
+extends PanelContainer
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	get_node("Label").text=get_name()
-	get_node("Button").pressed.connect(on_play_pressed)
+	get_node("VerticalEntrys/LevelName/Label").text=get_name()
+	get_node("VerticalEntrys/PlayLevel/Button").pressed.connect(on_play_pressed)
+	if GameManger.save.runs.has(get_name()):
+		get_node("VerticalEntrys/LocalRecord").record_time=GameManger.save.runs[get_name()].level_time
 
 
 func on_play_pressed():
