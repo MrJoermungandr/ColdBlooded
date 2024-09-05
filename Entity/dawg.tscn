@@ -1,9 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://biyepj0wc6lid"]
+[gd_scene load_steps=17 format=3 uid="uid://biyepj0wc6lid"]
 
 [ext_resource type="Texture2D" uid="uid://c5v52yx7dpet8" path="res://Entity/Dawg/tile_0002.png" id="1_2gfny"]
 [ext_resource type="Script" path="res://Entity/Scripts/Agent.gd" id="1_ovl54"]
 [ext_resource type="Texture2D" uid="uid://bb8e3reqwvian" path="res://Entity/Dawg/tile_0003.png" id="2_1s38v"]
 [ext_resource type="Script" path="res://Entity/ResourceEntity.gd" id="2_dh287"]
+[ext_resource type="Script" path="res://ai/tasks/select_random_nearby_pos.gd" id="5_fukba"]
+[ext_resource type="Script" path="res://ai/tasks/move.gd" id="6_1r1mm"]
 
 [sub_resource type="Resource" id="Resource_1kyr4"]
 script = ExtResource("2_dh287")
@@ -28,17 +30,46 @@ animations = [{
 size = Vector2(20, 22)
 
 [sub_resource type="BlackboardPlan" id="BlackboardPlan_nl4sc"]
+var/speed/name = &"speed"
+var/speed/type = 3
+var/speed/value = 0.0
+var/speed/hint = 1
+var/speed/hint_string = "10,1000,10"
+
+[sub_resource type="BTAction" id="BTAction_cve18"]
+script = ExtResource("5_fukba")
+range_min = 300.0
+range_max = 500.0
+position_var = &"target_pos"
+
+[sub_resource type="BTAction" id="BTAction_p7bpl"]
+script = ExtResource("6_1r1mm")
+target_position_var = &"target_pos"
+speed_var = &"speed"
+tolerance = 50.0
+
+[sub_resource type="BTWait" id="BTWait_dq8eu"]
+duration = 3.0
+
+[sub_resource type="BTSequence" id="BTSequence_kocuj"]
+children = [SubResource("BTAction_cve18"), SubResource("BTAction_p7bpl"), SubResource("BTWait_dq8eu")]
 
 [sub_resource type="BehaviorTree" id="BehaviorTree_m8umg"]
 blackboard_plan = SubResource("BlackboardPlan_nl4sc")
+root_task = SubResource("BTSequence_kocuj")
 
 [sub_resource type="BlackboardPlan" id="BlackboardPlan_adeud"]
+var/speed/name = &"speed"
+var/speed/type = 3
+var/speed/value = 200.0
+var/speed/hint = 1
+var/speed/hint_string = "10,1000,10"
 
 [node name="Dawg" type="CharacterBody2D" groups=["damageable"]]
 script = ExtResource("1_ovl54")
 entity_resource = SubResource("Resource_1kyr4")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_unvjb")
 animation = &"walk"
 frame = 1
