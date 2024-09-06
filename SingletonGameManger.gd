@@ -21,8 +21,8 @@ func submit_new_run(run:LevelRun):
 	
 	
 	#if its a new pb then submit
-	if save.runs.find_key(run.level_name):
-		var old_run= save.runs.get(run.level_name)
+	if save.runs.has(run.level_name):
+		var old_run= save.runs[run.level_name]
 		if old_run.level_time > run.level_time:
 			save.runs[run.level_name]=run
 		else:
