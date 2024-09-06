@@ -20,6 +20,15 @@ config/icon="res://icon.svg"
 GameManger="*res://SingletonGameManger.gd"
 LeaderboardManager="*res://SingletonLeaderboardManager.gd"
 
+[display]
+
+window/size/viewport_width=640
+window/size/viewport_height=360
+window/size/window_width_override=1280
+window/size/window_height_override=720
+window/stretch/mode="viewport"
+window/stretch/scale_mode="integer"
+
 [file_customization]
 
 folder_colors={
@@ -79,3 +88,7 @@ attack_primary={
 
 2d_physics/layer_1="World"
 2d_physics/layer_2="DamageInteraction"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0

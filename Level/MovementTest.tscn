@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=4 uid="uid://mr5ntgl2j1yq"]
+[gd_scene load_steps=8 format=4 uid="uid://mr5ntgl2j1yq"]
 
 [ext_resource type="Script" path="res://Level/Level.gd" id="1_7jure"]
 [ext_resource type="PackedScene" uid="uid://binwmx30pxpv0" path="res://Entity/player.tscn" id="2_i8my7"]
 [ext_resource type="Texture2D" uid="uid://djhjbje7s0eqv" path="res://Level/MovementTest/tilemap.png" id="3_82jmt"]
 [ext_resource type="PackedScene" uid="uid://begacd8q0v2sq" path="res://Level/Asset/Finish.tscn" id="4_s3c2s"]
+[ext_resource type="Texture2D" uid="uid://boh2odfcmbroh" path="res://Level/Asset/Background/Background.png" id="5_jbq5j"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yg0h4"]
 texture = ExtResource("3_82jmt")
@@ -261,3 +262,12 @@ tile_set = SubResource("TileSet_1sqs2")
 
 [node name="Finish" parent="." instance=ExtResource("4_s3c2s")]
 position = Vector2(1113, 368)
+
+[node name="Parallax2D" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.7, 0.7)
+repeat_size = Vector2(656, 0)
+repeat_times = 131
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D"]
+position = Vector2(374.025, 564.495)
+texture = ExtResource("5_jbq5j")
