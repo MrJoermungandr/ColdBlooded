@@ -19,14 +19,13 @@ func _generate_name() -> String:
 func _setup() -> void:
 	start_position = agent.position
 
-
 # Called each time this task is exited.
 func _exit() -> void:
 	pass
 
 
 # Called each time this task is ticked (aka executed).
-func _tick(_delta: float) -> Status:
+func _tick(delta: float) -> Status:
 	var target_pos: Vector2 = blackboard.get_var(target_position_var, Vector2.ZERO)
 	if target_pos.distance_to(agent.global_position) < tolerance:
 		return SUCCESS
@@ -36,7 +35,9 @@ func _tick(_delta: float) -> Status:
 	var dir: Vector2 = agent.global_position.direction_to(target_pos)
 
 	var desired_velocity: Vector2 = dir.normalized() * speed
-	agent._set_velocity(desired_velocity)
+	agent.move(desired_velocity, delta)
+	if agent.is_path_blocked():
+		return FAILURE
 	agent.update_facing()
 	return RUNNING
 	#if walk_left:

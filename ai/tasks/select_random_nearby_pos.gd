@@ -19,7 +19,6 @@ func _generate_name() -> String:
 		range_min, range_max,
 		LimboUtility.decorate_var(position_var)]
 
-
 # Called each time this task is ticked (aka executed).
 func _tick(_delta: float) -> Status:
 	var pos: Vector2

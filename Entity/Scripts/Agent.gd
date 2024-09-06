@@ -15,14 +15,16 @@ signal death
 
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 @onready var bt_player: BTPlayer = $BTPlayer
+@onready var ray_cast = $Sprite/RayCast2D
 
-func _physics_process(delta: float) -> void:
+func is_path_blocked() -> bool:
+	return ray_cast.is_colliding()
+
+func move(new_velocity: Vector2, delta: float) -> void:
+	velocity = lerp(velocity, new_velocity, 0.2)
 	if not is_on_floor():
 		velocity.y += GRAVITY * delta
 	move_and_slide()
-
-func _set_velocity(new_velocity: Vector2) -> void:
-	velocity = lerp(velocity, new_velocity, 0.2)
 
 func _take_damage(amount: int, knockback: Vector2):
 	apply_knockback(knockback)
