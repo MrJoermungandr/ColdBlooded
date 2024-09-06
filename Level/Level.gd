@@ -34,7 +34,6 @@ func on_level_finished():
 	var finish_time:float=elapsed_time
 	
 	#pause game
-	get_tree().paused = true
 	
 	#initialize new run
 	var level_name:String=get_name()
@@ -44,5 +43,7 @@ func on_level_finished():
 	
 	#register run in GameManager
 	GameManger.submit_new_run(level_run)
+	
+	get_tree().paused = true
 	#show winscreen
 	finish_ui.set_finished(level_run)

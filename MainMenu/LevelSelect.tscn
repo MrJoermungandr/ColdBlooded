@@ -30,7 +30,13 @@ text = "Node name goes here"
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="LeaderboardEntry" parent="VerticalEntrys/TopPositions" instance=ExtResource("2_cgwsy")]
+[node name="LeaderboardEntry1" parent="VerticalEntrys/TopPositions" instance=ExtResource("2_cgwsy")]
+layout_mode = 2
+
+[node name="LeaderboardEntry2" parent="VerticalEntrys/TopPositions" instance=ExtResource("2_cgwsy")]
+layout_mode = 2
+
+[node name="LeaderboardEntry3" parent="VerticalEntrys/TopPositions" instance=ExtResource("2_cgwsy")]
 layout_mode = 2
 
 [node name="LocalRecord" parent="VerticalEntrys" instance=ExtResource("2_cgwsy")]
