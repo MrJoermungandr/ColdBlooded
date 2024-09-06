@@ -7,7 +7,7 @@
 bg_color = Color(0.413853, 0.635443, 0.736934, 1)
 
 [node name="LevelSelect" type="PanelContainer"]
-custom_minimum_size = Vector2(200, 200)
+custom_minimum_size = Vector2(150, 150)
 offset_right = 200.0
 offset_bottom = 200.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_5e0uy")
