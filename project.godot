@@ -17,12 +17,24 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-LeaderboardManager="*res://SingletonLeaderboardManager.gd"
 GameManger="*res://SingletonGameManger.gd"
+LeaderboardManager="*res://SingletonLeaderboardManager.gd"
+
+[file_customization]
+
+folder_colors={
+"res://Entity/": "purple",
+"res://Level/": "blue",
+"res://MainMenu/": "teal"
+}
 
 [global_group]
 
 damageable="should implement _take_damage(amount: int, knockback: Vector 2)"
+
+[gui]
+
+theme/custom="res://Master.theme"
 
 [input]
 

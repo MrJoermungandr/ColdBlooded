@@ -1,30 +1,52 @@
-[gd_scene load_steps=3 format=3 uid="uid://bxv734r6d0msq"]
+[gd_scene load_steps=4 format=3 uid="uid://bxv734r6d0msq"]
 
 [ext_resource type="Script" path="res://MainMenu/LevelSelect/LevelSelect.gd" id="1_t4k1d"]
+[ext_resource type="PackedScene" uid="uid://bqxcehbigqa27" path="res://MainMenu/Leaderboard/LeaderboardEntry.tscn" id="2_cgwsy"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5e0uy"]
 bg_color = Color(0.413853, 0.635443, 0.736934, 1)
 
-[node name="LevelSelect" type="Panel"]
+[node name="LevelSelect" type="PanelContainer"]
 custom_minimum_size = Vector2(200, 200)
+offset_right = 200.0
+offset_bottom = 200.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_5e0uy")
 script = ExtResource("1_t4k1d")
 
-[node name="Label" type="Label" parent="."]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+[node name="VerticalEntrys" type="VBoxContainer" parent="."]
+layout_mode = 2
+alignment = 1
+
+[node name="LevelName" type="HBoxContainer" parent="VerticalEntrys"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="Label" type="Label" parent="VerticalEntrys/LevelName"]
+layout_mode = 2
 text = "Node name goes here"
 
-[node name="Button" type="Button" parent="."]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -8.0
-offset_top = -8.0
-grow_horizontal = 0
-grow_vertical = 0
+[node name="TopPositions" type="VBoxContainer" parent="VerticalEntrys"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="LeaderboardEntry1" parent="VerticalEntrys/TopPositions" instance=ExtResource("2_cgwsy")]
+layout_mode = 2
+
+[node name="LeaderboardEntry2" parent="VerticalEntrys/TopPositions" instance=ExtResource("2_cgwsy")]
+layout_mode = 2
+
+[node name="LeaderboardEntry3" parent="VerticalEntrys/TopPositions" instance=ExtResource("2_cgwsy")]
+layout_mode = 2
+
+[node name="LocalRecord" parent="VerticalEntrys" instance=ExtResource("2_cgwsy")]
+layout_mode = 2
+
+[node name="PlayLevel" type="HBoxContainer" parent="VerticalEntrys"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+
+[node name="Button" type="Button" parent="VerticalEntrys/PlayLevel"]
+layout_mode = 2
 text = "play"
