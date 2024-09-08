@@ -18,7 +18,6 @@ signal death
 @onready var ray_cast = $Sprite/RayCast2D
 
 func _ready():
-	print("set inital pos as: " + str(position))
 	bt_player.blackboard.set_var(&"inital_pos", position)
 
 func is_path_blocked() -> bool:

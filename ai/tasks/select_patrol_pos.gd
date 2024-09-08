@@ -38,7 +38,7 @@ func _tick(_delta: float) -> Status:
 		return FAILURE
 	else:
 		var offset = fallback_steps_px
-		while offset < position_left_relative - tolerance:
+		while offset < position_left_relative:
 			var pos = Vector2((initial_pos.x - position_left_relative) + offset, agent.global_position.y)
 			if not agent.is_good_position(pos):
 				offset += fallback_steps_px
