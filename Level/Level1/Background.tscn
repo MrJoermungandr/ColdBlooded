@@ -10,6 +10,7 @@
 [node name="Sky" type="Parallax2D" parent="."]
 scroll_scale = Vector2(0.7, 1)
 repeat_size = Vector2(656, 0)
+autoscroll = Vector2(3.46, 0)
 repeat_times = 5
 
 [node name="Sprite2D" type="Sprite2D" parent="Sky"]
