@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://biyepj0wc6lid"]
+[gd_scene load_steps=21 format=3 uid="uid://biyepj0wc6lid"]
 
 [ext_resource type="Texture2D" uid="uid://c5v52yx7dpet8" path="res://Entity/Dawg/tile_0002.png" id="1_2gfny"]
 [ext_resource type="Script" path="res://Entity/Scripts/Agent.gd" id="1_ovl54"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://Entity/ResourceEntity.gd" id="2_dh287"]
 [ext_resource type="Script" path="res://ai/tasks/select_patrol_pos.gd" id="5_uv7ph"]
 [ext_resource type="Script" path="res://ai/tasks/move.gd" id="6_1r1mm"]
+[ext_resource type="Script" path="res://ai/tasks/select_random_nearby_pos.gd" id="6_grgrg"]
 
 [sub_resource type="Resource" id="Resource_1kyr4"]
 script = ExtResource("2_dh287")
@@ -36,12 +37,24 @@ var/speed/value = 0.0
 var/speed/hint = 1
 var/speed/hint_string = "10,1000,10"
 
+[sub_resource type="BTWait" id="BTWait_m3eic"]
+duration = 3.0
+
 [sub_resource type="BTAction" id="BTAction_5y1qu"]
 script = ExtResource("5_uv7ph")
-position_left_relative = 100.0
-position_right_relative = 300.0
-tolerance = 36.0
+position_left_relative = 200.0
+position_right_relative = 200.0
+fallback_steps_px = 18.0
 position_var = &"target_pos"
+
+[sub_resource type="BTAction" id="BTAction_yq17s"]
+script = ExtResource("6_grgrg")
+range_min = -200.0
+range_max = 200.0
+position_var = &"target_pos"
+
+[sub_resource type="BTSelector" id="BTSelector_cji42"]
+children = [SubResource("BTAction_5y1qu"), SubResource("BTAction_yq17s")]
 
 [sub_resource type="BTAction" id="BTAction_rm2ps"]
 script = ExtResource("6_1r1mm")
@@ -49,16 +62,16 @@ target_position_var = &"target_pos"
 speed_var = &"speed"
 tolerance = 50.0
 
-[sub_resource type="BTWait" id="BTWait_m3eic"]
-duration = 3.0
-
 [sub_resource type="BTSequence" id="BTSequence_fjdvl"]
 custom_name = "Patrol"
-children = [SubResource("BTAction_5y1qu"), SubResource("BTAction_rm2ps"), SubResource("BTWait_m3eic")]
+children = [SubResource("BTSelector_cji42"), SubResource("BTAction_rm2ps")]
+
+[sub_resource type="BTSequence" id="BTSequence_i7tgf"]
+children = [SubResource("BTWait_m3eic"), SubResource("BTSequence_fjdvl")]
 
 [sub_resource type="BehaviorTree" id="BehaviorTree_m8umg"]
 blackboard_plan = SubResource("BlackboardPlan_nl4sc")
-root_task = SubResource("BTSequence_fjdvl")
+root_task = SubResource("BTSequence_i7tgf")
 
 [sub_resource type="BlackboardPlan" id="BlackboardPlan_adeud"]
 var/speed/name = &"speed"
