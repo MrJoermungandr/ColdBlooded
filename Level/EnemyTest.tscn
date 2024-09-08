@@ -278,4 +278,4 @@ position = Vector2(229, 476)
 entity_resource = SubResource("Resource_v4t7f")
 
 [node name="Dawg" parent="." instance=ExtResource("7_f7qf4")]
-position = Vector2(267, 587)
+position = Vector2(268, 619)
