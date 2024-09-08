@@ -1,9 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://dfkbaywuheaxy"]
+[gd_scene load_steps=5 format=3 uid="uid://btm0vhy5xqhri"]
 
-[ext_resource type="Texture2D" uid="uid://boh2odfcmbroh" path="res://Level/Level1/Background/Background.png" id="1_5mn13"]
-[ext_resource type="Texture2D" uid="uid://dic86ujvd443q" path="res://Level/Level1/Background/Himmel.png" id="1_da4ro"]
-[ext_resource type="Texture2D" uid="uid://t7vmwvpjxwg4" path="res://Level/Level1/Background/Middleground.png" id="3_4jy3t"]
-[ext_resource type="Texture2D" uid="uid://bauhe1ommv17e" path="res://Level/Level1/Background/Foreground.png" id="4_0cvhd"]
+[ext_resource type="Texture2D" uid="uid://cv41a6hhfditi" path="res://Level/Level2/Background/HimmelLVL2.png" id="1_ta7k0"]
+[ext_resource type="Texture2D" uid="uid://ba170xnx5xryw" path="res://Level/Level2/Background/BackgroundLVL2.png" id="2_gh20n"]
+[ext_resource type="Texture2D" uid="uid://cfslyv2al3ji1" path="res://Level/Level2/Background/MiddlegroundLVL2.png" id="3_mwub5"]
+[ext_resource type="Texture2D" uid="uid://bauhe1ommv17e" path="res://Level/Level1/Background/Foreground.png" id="4_bk1dl"]
 
 [node name="Background" type="Node2D"]
 
@@ -14,7 +14,7 @@ autoscroll = Vector2(3.46, 0)
 repeat_times = 5
 
 [node name="Sprite2D" type="Sprite2D" parent="Sky"]
-texture = ExtResource("1_da4ro")
+texture = ExtResource("1_ta7k0")
 
 [node name="Background" type="Parallax2D" parent="."]
 scroll_scale = Vector2(0.8, 1)
@@ -22,7 +22,7 @@ repeat_size = Vector2(656, 0)
 repeat_times = 5
 
 [node name="Sprite2D" type="Sprite2D" parent="Background"]
-texture = ExtResource("1_5mn13")
+texture = ExtResource("2_gh20n")
 
 [node name="Middleground" type="Parallax2D" parent="."]
 scroll_scale = Vector2(0.9, 1)
@@ -30,11 +30,12 @@ repeat_size = Vector2(659, 0)
 repeat_times = 5
 
 [node name="Sprite2D" type="Sprite2D" parent="Middleground"]
-texture = ExtResource("3_4jy3t")
+texture = ExtResource("3_mwub5")
 
 [node name="Foreground" type="Parallax2D" parent="."]
+visible = false
 repeat_size = Vector2(985, 0)
 repeat_times = 5
 
 [node name="Sprite2D" type="Sprite2D" parent="Foreground"]
-texture = ExtResource("4_0cvhd")
+texture = ExtResource("4_bk1dl")

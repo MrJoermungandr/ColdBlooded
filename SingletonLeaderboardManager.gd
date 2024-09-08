@@ -28,7 +28,7 @@ func _ready():
 func submit_pb(run:LevelRun):
 	if !is_logged_in:
 		return
-	post_requester.request_completed.connect(check_logged_in,ConnectFlags.CONNECT_ONE_SHOT)
+	post_requester.request_completed.connect(response_test,ConnectFlags.CONNECT_ONE_SHOT)
 	var jwt=GameManger.save.jwt
 	#DOESNT WORK NOBODY KNOWS WHY
 	post_requester.request(API_URL+"/times/submit/"+run.level_name,["Authorization: Bearer"+ jwt,"Content-Type: application/json"],HTTPClient.METHOD_POST,JSON.stringify({"level_time":run.level_time}))
