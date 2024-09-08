@@ -1,6 +1,6 @@
 extends Node
 
-const API_URL:String="http://localhost:3000"
+const API_URL:String="https://coldblooded.belohnend.de"
 
 @onready
 var post_requester=HTTPRequest.new()
