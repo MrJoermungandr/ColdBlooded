@@ -1,9 +1,8 @@
 [gd_scene load_steps=20 format=3 uid="uid://binwmx30pxpv0"]
 
 [ext_resource type="Script" path="res://Entity/Player/player.gd" id="1_hm2ln"]
-[ext_resource type="Texture2D" uid="uid://c21udg7pfslrp" path="res://Entity/Player/tile_0000.png" id="2_106a1"]
 [ext_resource type="Script" path="res://Entity/ResourceEntity.gd" id="2_eg8ip"]
-[ext_resource type="Texture2D" uid="uid://xm1pbqlx3mra" path="res://Entity/Player/tile_0001.png" id="3_bnknf"]
+[ext_resource type="Texture2D" uid="uid://c1utwha3n65dq" path="res://Entity/penguintest.png" id="3_sjjum"]
 [ext_resource type="Script" path="res://Entity/Scripts/hitbox.gd" id="4_0157h"]
 [ext_resource type="Script" path="res://Entity/Scripts/hurtbox.gd" id="5_w8u03"]
 [ext_resource type="Script" path="res://Entity/Player/idle_state.gd" id="7_u6mp2"]
@@ -15,18 +14,19 @@ script = ExtResource("2_eg8ip")
 health = 10
 attack_damage = 5
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_iovcc"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_vmd24"]
+atlas = ExtResource("3_sjjum")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5yipp"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_106a1")
-}, {
-"duration": 1.0,
-"texture": ExtResource("3_bnknf")
+"texture": SubResource("AtlasTexture_vmd24")
 }],
 "loop": true,
-"name": &"walk",
-"speed": 5.0
+"name": &"default",
+"speed": 10.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ibbhd"]
@@ -91,10 +91,21 @@ entity_resource = SubResource("Resource_b576n")
 speed = 200
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_iovcc")
-animation = &"walk"
-frame_progress = 0.965387
-flip_h = true
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_5yipp")
+metadata/_aseprite_wizard_config_ = {
+"layer": "",
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": true,
+"slice": "",
+"source": "res://Entity/Player/penguintest.ase"
+}
+metadata/_aseprite_wizard_interface_config_ = {
+"layer_section": true
+}
+metadata/_aseprite_wizard_source_file_hash_ = "1499a1e7516221a4707e3e85c0d77bd1"
 
 [node name="NormalCollision" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_ibbhd")
