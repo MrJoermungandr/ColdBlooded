@@ -85,6 +85,7 @@ _data = {
 }
 
 [node name="Player" type="CharacterBody2D"]
+position = Vector2(0, -14.555)
 script = ExtResource("1_hm2ln")
 entity_resource = SubResource("Resource_b576n")
 speed = 200
