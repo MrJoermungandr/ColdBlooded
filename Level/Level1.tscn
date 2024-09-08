@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://ccg6asre5jqbl"]
+
+[ext_resource type="Script" path="res://Level/Level.gd" id="1_6n3cb"]
+
+[node name="Level1" type="Node2D"]
+script = ExtResource("1_6n3cb")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]

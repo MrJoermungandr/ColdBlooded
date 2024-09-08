@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dic86ujvd443q"
-path="res://.godot/imported/Himmel.png-c0e2f2f9dcc6f9bc7633d719e463bf41.ctex"
+uid="uid://cfslyv2al3ji1"
+path="res://.godot/imported/MiddlegroundLVL2.png-89ec8a830fd614d3c64842d4e649c2c9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Level/Asset/Background/Himmel.png"
-dest_files=["res://.godot/imported/Himmel.png-c0e2f2f9dcc6f9bc7633d719e463bf41.ctex"]
+source_file="res://Level/Level2/Background/MiddlegroundLVL2.png"
+dest_files=["res://.godot/imported/MiddlegroundLVL2.png-89ec8a830fd614d3c64842d4e649c2c9.ctex"]
 
 [params]
 
