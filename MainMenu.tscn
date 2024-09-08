@@ -47,10 +47,10 @@ layout_mode = 2
 [node name="EnemyTest" parent="Middle/Levels/GridContainer" instance=ExtResource("2_n3grw")]
 layout_mode = 2
 
-[node name="EnemyTest2" parent="Middle/Levels/GridContainer" instance=ExtResource("2_n3grw")]
+[node name="Level1" parent="Middle/Levels/GridContainer" instance=ExtResource("2_n3grw")]
 layout_mode = 2
 
-[node name="EnemyTest3" parent="Middle/Levels/GridContainer" instance=ExtResource("2_n3grw")]
+[node name="Level2" parent="Middle/Levels/GridContainer" instance=ExtResource("2_n3grw")]
 layout_mode = 2
 
 [node name="VSeparator" type="VSeparator" parent="Middle"]

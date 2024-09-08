@@ -1,10 +1,13 @@
-[gd_scene load_steps=8 format=4 uid="uid://mr5ntgl2j1yq"]
+[gd_scene load_steps=11 format=4 uid="uid://mr5ntgl2j1yq"]
 
 [ext_resource type="Script" path="res://Level/Level.gd" id="1_7jure"]
 [ext_resource type="PackedScene" uid="uid://binwmx30pxpv0" path="res://Entity/player.tscn" id="2_i8my7"]
+[ext_resource type="Texture2D" uid="uid://dic86ujvd443q" path="res://Level/Level1/Background/Himmel.png" id="2_mpcqo"]
 [ext_resource type="Texture2D" uid="uid://djhjbje7s0eqv" path="res://Level/MovementTest/tilemap.png" id="3_82jmt"]
 [ext_resource type="PackedScene" uid="uid://begacd8q0v2sq" path="res://Level/Asset/Finish.tscn" id="4_s3c2s"]
-[ext_resource type="Texture2D" uid="uid://boh2odfcmbroh" path="res://Level/Asset/Background/Background.png" id="5_jbq5j"]
+[ext_resource type="Texture2D" uid="uid://t7vmwvpjxwg4" path="res://Level/Level1/Background/Middleground.png" id="4_umoqw"]
+[ext_resource type="Texture2D" uid="uid://boh2odfcmbroh" path="res://Level/Level1/Background/Background.png" id="5_jbq5j"]
+[ext_resource type="Texture2D" uid="uid://bauhe1ommv17e" path="res://Level/Level1/Background/Foreground.png" id="5_olm7k"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yg0h4"]
 texture = ExtResource("3_82jmt")
@@ -252,22 +255,47 @@ sources/0 = SubResource("TileSetAtlasSource_yg0h4")
 [node name="MovementTest" type="Node2D"]
 script = ExtResource("1_7jure")
 
+[node name="ParallaxLayers" type="Node2D" parent="."]
+
+[node name="Sky" type="Parallax2D" parent="ParallaxLayers"]
+scroll_scale = Vector2(0.7, 0)
+repeat_size = Vector2(656, 0)
+repeat_times = 131
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayers/Sky"]
+texture = ExtResource("2_mpcqo")
+
+[node name="Background" type="Parallax2D" parent="ParallaxLayers"]
+scroll_scale = Vector2(0.8, 0)
+repeat_size = Vector2(656, 0)
+repeat_times = 131
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayers/Background"]
+texture = ExtResource("5_jbq5j")
+
+[node name="Middleground" type="Parallax2D" parent="ParallaxLayers"]
+scroll_scale = Vector2(0.9, 0)
+repeat_size = Vector2(656, 0)
+repeat_times = 131
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayers/Middleground"]
+texture = ExtResource("4_umoqw")
+
+[node name="Foreground" type="Parallax2D" parent="ParallaxLayers"]
+scroll_scale = Vector2(1, 0)
+scroll_offset = Vector2(0, -51)
+repeat_size = Vector2(984, 0)
+repeat_times = 131
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayers/Foreground"]
+texture = ExtResource("5_olm7k")
+
 [node name="Player" parent="." instance=ExtResource("2_i8my7")]
-position = Vector2(61, 584)
+position = Vector2(62, 618)
 
 [node name="TileMap" type="TileMapLayer" parent="."]
-position = Vector2(1, 0)
 tile_map_data = PackedByteArray("AAAAACMAAAACAAAAAAABACMAAAACAAAAAAACACMAAAACAAAAAAADACMAAAACAAAAAAAEACMAAAACAAAAAAAFACMAAAACAAAAAAAGACMAAAACAAAAAAAHACMAAAACAAAAAAAIACMAAAACAAAAAAAJACMAAAACAAAAAAAKACMAAAACAAAAAAALACMAAAACAAAAAAAMACMAAAACAAAAAAANACMAAAACAAAAAAAOACMAAAACAAAAAAAPACMAAAACAAAAAAAQACMAAAACAAAAAAARACMAAAACAAAAAAASACMAAAACAAAAAAATACMAAAACAAAAAAAUACMAAAACAAAAAAAVACMAAAACAAAAAAAWACMAAAACAAAAAAAXACMAAAACAAAAAAAYACMAAAACAAAAAAAZACMAAAACAAAAAAAaACMAAAACAAAAAAAbACMAAAACAAAAAAAcACMAAAACAAAAAAAdACMAAAACAAAAAAAeACMAAAACAAAAAAAfACMAAAACAAAAAAAgACMAAAACAAAAAAAhACMAAAACAAAAAAAiACMAAAACAAAAAAAjACMAAAACAAAAAAAkACMAAAACAAAAAAAlACMAAAACAAAAAAAmACMAAAACAAAAAAAnACMAAAACAAAAAAAoACMAAAACAAAAAAApACMAAAACAAAAAAAqACMAAAACAAAAAAArACMAAAACAAAAAAAsACMAAAACAAAAAAAtACMAAAACAAAAAAAuACMAAAACAAAAAAAvACMAAAACAAAAAAAwACMAAAACAAAAAAAxACMAAAACAAAAAAAyACMAAAACAAAAAAAzACMAAAACAAAAAAA0ACMAAAACAAAAAAA1ACMAAAACAAAAAAA2ACMAAAACAAAAAAA3ACMAAAACAAAAAAA4ACMAAAACAAAAAAA5ACMAAAACAAAAAAA6ACMAAAACAAAAAAA7ACMAAAACAAAAAAA8ACMAAAACAAAAAAA9ACMAAAACAAAAAAA+ACMAAAACAAAAAAA/ACMAAAACAAAAAAALACAAAAACAAAAAAAMACAAAAACAAAAAAAPAB0AAAACAAAAAAAQAB0AAAACAAAAAAARAB0AAAACAAAAAAAbACIAAAAAAAAAAAAbACEAAAAAAAAAAAAbACAAAAAAAAAAAAAbAB8AAAAAAAAAAAAbAB4AAAAAAAAAAAAbAB0AAAAJAAgAAAAcAB0AAAAAAAgAAAAlACIAAAAAAAAAAAAlACEAAAAAAAAAAAAlACAAAAAAAAAAAAAlAB8AAAAAAAAAAAAlAB4AAAAAAAAAAAAlAB0AAAAAAAAAAAAkABwAAAABAAgAAAAlABwAAAAAAAgAAAAmABwAAAAIAAgAAAAuACIAAAAAAAAAAAAuACEAAAAAAAAAAAAuACAAAAAAAAAAAAAuAB8AAAAAAAAAAAAuAB4AAAAAAAAAAAAuAB0AAAAAAAAAAAAuABwAAAAAAAAAAAA1ACIAAAAAAAAAAAA1ACEAAAAAAAAAAAA1ACAAAAAAAAAAAAA1AB8AAAAAAAAAAAA1AB4AAAAAAAAAAAA1AB0AAAAAAAAAAAA1ABwAAAAAAAAAAAA1ABsAAAAAAAAAAAAtABsAAAABAAgAAAAuABsAAAACAAgAAAAvABsAAAAGAAgAAAA0ABoAAAABAAgAAAA1ABoAAAAEAAgAAAA2ABoAAAAEAAgAAAA8ACIAAAAAAAAAAAA8ACEAAAAAAAAAAAA8ACAAAAAAAAAAAAA8AB8AAAAAAAAAAAA8AB4AAAAAAAAAAAA8AB0AAAAAAAAAAAA8ABwAAAAAAAAAAAA8ABsAAAAAAAAAAAA8ABoAAAAAAAAAAAA7ABkAAAABAAgAAAA8ABkAAAAGAAgAAAA9ABkAAAACAAgAAAAKACAAAAABAAAAAAAIABkAAAADAAAAAAAHABkAAAACAAAAAAAGABkAAAACAAAAAAAFABkAAAACAAAAAAAEABkAAAACAAAAAAADABkAAAACAAAAAAACABkAAAACAAAAAAAAABkAAAABAAAAAAABABkAAAACAAAAAAAAABUAAAABAAAAAAABABUAAAACAAAAAAACABUAAAACAAAAAAADABUAAAACAAAAAAAEABUAAAADAAAAAAAHABYAAAACAAYAAAAHABUAAAACAAYAAAAHABQAAAACAAYAAAAHABMAAAACAAEAAAAGABUAAAABAAEAAAA=")
 tile_set = SubResource("TileSet_1sqs2")
 
 [node name="Finish" parent="." instance=ExtResource("4_s3c2s")]
 position = Vector2(1113, 368)
-
-[node name="Parallax2D" type="Parallax2D" parent="."]
-scroll_scale = Vector2(0.7, 0.7)
-repeat_size = Vector2(656, 0)
-repeat_times = 131
-
-[node name="Sprite2D" type="Sprite2D" parent="Parallax2D"]
-position = Vector2(374.025, 564.495)
-texture = ExtResource("5_jbq5j")
