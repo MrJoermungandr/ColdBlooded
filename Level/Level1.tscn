@@ -1,0 +1,49 @@
+[gd_scene load_steps=9 format=3 uid="uid://ccg6asre5jqbl"]
+
+[ext_resource type="Script" path="res://Level/Level.gd" id="1_6n3cb"]
+[ext_resource type="PackedScene" uid="uid://binwmx30pxpv0" path="res://Entity/player.tscn" id="2_ei7nv"]
+[ext_resource type="PackedScene" uid="uid://dfkbaywuheaxy" path="res://Level/Level1/Background.tscn" id="3_3ne41"]
+[ext_resource type="PackedScene" uid="uid://begacd8q0v2sq" path="res://Level/Asset/Finish.tscn" id="4_dbkcu"]
+[ext_resource type="PackedScene" uid="uid://boc1xvuxh2gmr" path="res://Level/Asset/Checkpoint.tscn" id="5_ug2k1"]
+[ext_resource type="Environment" uid="uid://cv3wc6n7j5pm7" path="res://Background.tres" id="6_riapk"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_xo0i3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k4b2o"]
+size = Vector2(8.055, 1)
+
+[node name="Level1" type="Node2D"]
+script = ExtResource("1_6n3cb")
+
+[node name="Background" parent="." instance=ExtResource("3_3ne41")]
+position = Vector2(0, -52.115)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+
+[node name="Player" parent="." instance=ExtResource("2_ei7nv")]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="StaticBody2D"]
+visible = false
+position = Vector2(168, 49.25)
+rotation = 3.14159
+scale = Vector2(495, -99.5)
+mesh = SubResource("QuadMesh_xo0i3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(168, 49.25)
+rotation = 3.14159
+scale = Vector2(495, -99.5)
+shape = SubResource("RectangleShape2D_k4b2o")
+
+[node name="Finish" parent="." instance=ExtResource("4_dbkcu")]
+position = Vector2(515, -36)
+
+[node name="Checkpoint" parent="." instance=ExtResource("5_ug2k1")]
+position = Vector2(229, -22)
+
+[node name="Workaround forBackground" type="WorldEnvironment" parent="."]
+environment = ExtResource("6_riapk")
+
+[node name="WorkaroundForBackground" type="Camera3D" parent="."]
