@@ -5,6 +5,7 @@ extends BTAction
 var walk_range: Vector2
 var start_position: Vector2
 var walk_left = false
+var frames_since_blocked: int = 0
 
 @export var target_position_var = &"target_pos"
 @export var speed_var = &"speed"
@@ -23,6 +24,8 @@ func _setup() -> void:
 func _exit() -> void:
 	pass
 
+func _enter() -> void:
+	frames_since_blocked = 0
 
 # Called each time this task is ticked (aka executed).
 func _tick(delta: float) -> Status:
@@ -36,9 +39,13 @@ func _tick(delta: float) -> Status:
 
 	var desired_velocity: Vector2 = dir.normalized() * speed
 	agent.move(desired_velocity, delta)
-	if agent.is_path_blocked():
-		return FAILURE
 	agent.update_facing()
+	if agent.is_path_blocked():
+		frames_since_blocked += 1
+		if frames_since_blocked > 3:
+			return FAILURE
+		return RUNNING
+	frames_since_blocked = 0
 	return RUNNING
 	#if walk_left:
 		#if agent.position.x - walk_range <= 0:
