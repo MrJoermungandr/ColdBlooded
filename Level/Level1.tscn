@@ -1,16 +1,19 @@
 [gd_scene load_steps=9 format=3 uid="uid://ccg6asre5jqbl"]
 
-[ext_resource type="Script" path="res://Level/Level.gd" id="1_6n3cb"]
+[ext_resource type="Script" path="res://Level/Scripts/Level.gd" id="1_6n3cb"]
 [ext_resource type="PackedScene" uid="uid://binwmx30pxpv0" path="res://Entity/player.tscn" id="2_ei7nv"]
-[ext_resource type="PackedScene" uid="uid://dfkbaywuheaxy" path="res://Level/Level1/Background.tscn" id="3_3ne41"]
+[ext_resource type="PackedScene" uid="uid://dfkbaywuheaxy" path="res://Level/Environments/NorthPole/Background.tscn" id="3_3ne41"]
 [ext_resource type="PackedScene" uid="uid://begacd8q0v2sq" path="res://Level/Asset/Finish.tscn" id="4_dbkcu"]
 [ext_resource type="PackedScene" uid="uid://boc1xvuxh2gmr" path="res://Level/Asset/Checkpoint.tscn" id="5_ug2k1"]
-[ext_resource type="Environment" uid="uid://cv3wc6n7j5pm7" path="res://Background.tres" id="6_riapk"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_xo0i3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k4b2o"]
 size = Vector2(8.055, 1)
+
+[sub_resource type="Environment" id="Environment_f5ie6"]
+background_mode = 1
+background_color = Color(0.243137, 0.576471, 0.803922, 1)
 
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_6n3cb")
@@ -44,6 +47,6 @@ position = Vector2(515, -36)
 position = Vector2(229, -22)
 
 [node name="Workaround forBackground" type="WorldEnvironment" parent="."]
-environment = ExtResource("6_riapk")
+environment = SubResource("Environment_f5ie6")
 
 [node name="WorkaroundForBackground" type="Camera3D" parent="."]

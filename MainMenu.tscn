@@ -1,10 +1,10 @@
 [gd_scene load_steps=7 format=3 uid="uid://c1qaipsjjdl13"]
 
-[ext_resource type="Script" path="res://MainMenu/MainMenu.gd" id="1_bni3a"]
-[ext_resource type="FontFile" uid="uid://bi5m1ovicc5rf" path="res://MainMenu/Kenney Blocks.ttf" id="2_7x7ub"]
-[ext_resource type="PackedScene" uid="uid://bngpt0xvcvvgr" path="res://MainMenu/Profile.tscn" id="2_lryu7"]
-[ext_resource type="PackedScene" uid="uid://bxv734r6d0msq" path="res://MainMenu/LevelSelect.tscn" id="2_n3grw"]
-[ext_resource type="PackedScene" uid="uid://bqxcehbigqa27" path="res://MainMenu/Leaderboard/LeaderboardEntry.tscn" id="3_x3xl8"]
+[ext_resource type="Script" path="res://Ui/MainMenu.gd" id="1_bni3a"]
+[ext_resource type="FontFile" uid="uid://bi5m1ovicc5rf" path="res://Ui/Kenney Blocks.ttf" id="2_7x7ub"]
+[ext_resource type="PackedScene" uid="uid://bngpt0xvcvvgr" path="res://Ui/Profile.tscn" id="2_lryu7"]
+[ext_resource type="PackedScene" uid="uid://bxv734r6d0msq" path="res://Ui/LevelSelect.tscn" id="2_n3grw"]
+[ext_resource type="PackedScene" uid="uid://bqxcehbigqa27" path="res://Ui/Leaderboard/LeaderboardEntry.tscn" id="3_x3xl8"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_7hrbl"]
 font = ExtResource("2_7x7ub")

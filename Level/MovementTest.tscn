@@ -1,13 +1,13 @@
 [gd_scene load_steps=11 format=4 uid="uid://mr5ntgl2j1yq"]
 
-[ext_resource type="Script" path="res://Level/Level.gd" id="1_7jure"]
+[ext_resource type="Script" path="res://Level/Scripts/Level.gd" id="1_7jure"]
 [ext_resource type="PackedScene" uid="uid://binwmx30pxpv0" path="res://Entity/player.tscn" id="2_i8my7"]
-[ext_resource type="Texture2D" uid="uid://dic86ujvd443q" path="res://Level/Level1/Background/Himmel.png" id="2_mpcqo"]
+[ext_resource type="Texture2D" uid="uid://dic86ujvd443q" path="res://Level/Environments/NorthPole/Background/Himmel.png" id="2_mpcqo"]
 [ext_resource type="Texture2D" uid="uid://djhjbje7s0eqv" path="res://Level/MovementTest/tilemap.png" id="3_82jmt"]
 [ext_resource type="PackedScene" uid="uid://begacd8q0v2sq" path="res://Level/Asset/Finish.tscn" id="4_s3c2s"]
-[ext_resource type="Texture2D" uid="uid://t7vmwvpjxwg4" path="res://Level/Level1/Background/Middleground.png" id="4_umoqw"]
-[ext_resource type="Texture2D" uid="uid://boh2odfcmbroh" path="res://Level/Level1/Background/Background.png" id="5_jbq5j"]
-[ext_resource type="Texture2D" uid="uid://bauhe1ommv17e" path="res://Level/Level1/Background/Foreground.png" id="5_olm7k"]
+[ext_resource type="Texture2D" uid="uid://t7vmwvpjxwg4" path="res://Level/Environments/NorthPole/Background/Middleground.png" id="4_umoqw"]
+[ext_resource type="Texture2D" uid="uid://boh2odfcmbroh" path="res://Level/Environments/NorthPole/Background/Background.png" id="5_jbq5j"]
+[ext_resource type="Texture2D" uid="uid://bauhe1ommv17e" path="res://Level/Environments/NorthPole/Background/Foreground.png" id="5_olm7k"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yg0h4"]
 texture = ExtResource("3_82jmt")

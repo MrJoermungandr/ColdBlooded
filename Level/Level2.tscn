@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=4 uid="uid://707ehuyv6s8i"]
 
-[ext_resource type="Script" path="res://Level/Level.gd" id="1_oen83"]
+[ext_resource type="Script" path="res://Level/Scripts/Level.gd" id="1_oen83"]
 [ext_resource type="PackedScene" uid="uid://binwmx30pxpv0" path="res://Entity/player.tscn" id="2_bht7k"]
 [ext_resource type="PackedScene" uid="uid://btm0vhy5xqhri" path="res://Level/Environments/OilPlatform/Background.tscn" id="2_waxc0"]
 [ext_resource type="TileSet" uid="uid://dplfv3tgpgl4f" path="res://Level/Environments/OilPlatform/OilPlatformSmall.tres" id="5_4ndqp"]

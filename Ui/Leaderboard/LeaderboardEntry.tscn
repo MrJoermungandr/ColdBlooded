@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://bqxcehbigqa27"]
+
+[ext_resource type="Script" path="res://Ui/Leaderboard/LeaderboardEntry/LeaderboardEntry.gd" id="1_v845s"]
+
+[node name="LeaderboardEntry" type="HBoxContainer"]
+script = ExtResource("1_v845s")
+
+[node name="Rank" type="Label" parent="."]
+layout_mode = 2
+text = "1: 🏆"
+
+[node name="Name" type="Label" parent="."]
+layout_mode = 2
+
+[node name="Time" type="Label" parent="."]
+layout_mode = 2
+text = "Time"
