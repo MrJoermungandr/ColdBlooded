@@ -1,0 +1,43 @@
+[gd_resource type="TileSet" load_steps=9 format=3 uid="uid://dplfv3tgpgl4f"]
+
+[ext_resource type="Texture2D" uid="uid://bj12rkkr1glyl" path="res://Level/Environments/OilPlatform/28x25OilPlatform.png" id="1_ywunn"]
+[ext_resource type="Texture2D" uid="uid://cbg3am35ofoye" path="res://Level/Environments/OilPlatform/Tiles/RelingS.png" id="2_mmk0o"]
+[ext_resource type="Texture2D" uid="uid://cp637glvdvytt" path="res://Level/Environments/OilPlatform/Tiles/StahlBlauRelingHalbS.png" id="3_cdacu"]
+[ext_resource type="Texture2D" uid="uid://daj61kda4l3cw" path="res://Level/Environments/OilPlatform/Tiles/StahlRotRelingHalbS.png" id="4_v1rlj"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0pwq7"]
+texture = ExtResource("1_ywunn")
+texture_region_size = Vector2i(28, 25)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iqwyx"]
+texture = ExtResource("2_mmk0o")
+texture_region_size = Vector2i(28, 13)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, -6)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fwxsf"]
+texture = ExtResource("3_cdacu")
+texture_region_size = Vector2i(28, 17)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, -4)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_amedp"]
+texture = ExtResource("4_v1rlj")
+texture_region_size = Vector2i(28, 17)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, -4)
+
+[resource]
+tile_size = Vector2i(28, 25)
+sources/0 = SubResource("TileSetAtlasSource_0pwq7")
+sources/1 = SubResource("TileSetAtlasSource_iqwyx")
+sources/2 = SubResource("TileSetAtlasSource_fwxsf")
+sources/3 = SubResource("TileSetAtlasSource_amedp")

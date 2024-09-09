@@ -38,6 +38,8 @@ enabled=PackedStringArray("res://addons/AsepriteWizard/plugin.cfg")
 folder_colors={
 "res://Entity/": "purple",
 "res://Level/": "blue",
+"res://Level/Environments/": "red",
+"res://Level/Ui/": "teal",
 "res://MainMenu/": "teal"
 }
 

@@ -1,8 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://707ehuyv6s8i"]
+[gd_scene load_steps=9 format=4 uid="uid://707ehuyv6s8i"]
 
 [ext_resource type="Script" path="res://Level/Level.gd" id="1_oen83"]
 [ext_resource type="PackedScene" uid="uid://binwmx30pxpv0" path="res://Entity/player.tscn" id="2_bht7k"]
-[ext_resource type="PackedScene" uid="uid://btm0vhy5xqhri" path="res://Level/Level2/Background.tscn" id="2_waxc0"]
+[ext_resource type="PackedScene" uid="uid://btm0vhy5xqhri" path="res://Level/Environments/OilPlatform/Background.tscn" id="2_waxc0"]
+[ext_resource type="TileSet" uid="uid://dplfv3tgpgl4f" path="res://Level/Environments/OilPlatform/OilPlatformSmall.tres" id="5_4ndqp"]
+[ext_resource type="TileSet" uid="uid://88qlf7f1eruq" path="res://Level/Environments/OilPlatform/OilPlatformFull.tres" id="5_g3y1p"]
 
 [sub_resource type="Environment" id="Environment_yik13"]
 background_mode = 1
@@ -17,7 +19,7 @@ size = Vector2(8.055, 1)
 script = ExtResource("1_oen83")
 
 [node name="Background" parent="." instance=ExtResource("2_waxc0")]
-position = Vector2(0, -94.075)
+position = Vector2(0, -178.64)
 
 [node name="Player" parent="." instance=ExtResource("2_bht7k")]
 
@@ -40,3 +42,11 @@ position = Vector2(168, 49.25)
 rotation = 3.14159
 scale = Vector2(495, -99.5)
 shape = SubResource("RectangleShape2D_1u3kb")
+
+[node name="Test" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAD+////EwAAAAAAAAD9////EwAAAAAAAAD9//7/EwAAAAAAAAD8//7/EwAAAAAAAAD8////EwAAAAAAAAD+//7/EwAAAAAAAAD+//3/EwAAAAAAAAD9//3/EwAAAAAAAAD8//3/EwAAAAAAAAABAP//EwACAAAAAAABAP7/EwACAAAAAAABAP3/EwACAAAAAAACAP//EwACAAAAAAACAP7/EwACAAAAAAACAP3/EwACAAAAAAABAPz/EwADAAAAAAACAPz/EwADAAAAAAACAPv/EwABAAEAAAD+//z/EwABAAEAAAD8//z/HQAAAAAAAAD9//z/HQAAAAAAAAD9//v/HwAAAAAAAAA=")
+tile_set = ExtResource("5_g3y1p")
+
+[node name="SmallerTest" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAD8////AAABAAAAAAD6////AAABAAAAAAD3//v/AwAAAAAAAAD2//v/AwAAAAAAAAD1//v/AwAAAAAAAAD4//v/AAAAAAAAAAD3//n/AQAAAAAAAAD2//n/AQAAAAAAAAD1//r/AgAAAAAAAAD2//r/AwAAAAAAAAA=")
+tile_set = ExtResource("5_4ndqp")

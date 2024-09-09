@@ -1,0 +1,43 @@
+[gd_resource type="TileSet" load_steps=9 format=3 uid="uid://88qlf7f1eruq"]
+
+[ext_resource type="Texture2D" uid="uid://ibcsb6h4j4j0" path="res://Level/Environments/OilPlatform/42x38OilPlatform.png" id="1_y1c26"]
+[ext_resource type="Texture2D" uid="uid://ms0lderkvufs" path="res://Level/Environments/OilPlatform/Tiles/StahlRotRelingHalb.png" id="2_p8slw"]
+[ext_resource type="Texture2D" uid="uid://bq3frckwdqtiu" path="res://Level/Environments/OilPlatform/Tiles/StahlBlauRelingHalb.png" id="3_38edp"]
+[ext_resource type="Texture2D" uid="uid://4l7ff1oiqyjs" path="res://Level/Environments/OilPlatform/Tiles/Reling.png" id="4_qbmwp"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kpy5r"]
+texture = ExtResource("1_y1c26")
+texture_region_size = Vector2i(42, 38)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8p8dc"]
+texture = ExtResource("2_p8slw")
+texture_region_size = Vector2i(42, 26)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, -6)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_apsr3"]
+texture = ExtResource("3_38edp")
+texture_region_size = Vector2i(42, 26)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, -6)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4rpp2"]
+texture = ExtResource("4_qbmwp")
+texture_region_size = Vector2i(42, 20)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, -9)
+
+[resource]
+tile_size = Vector2i(42, 38)
+sources/19 = SubResource("TileSetAtlasSource_kpy5r")
+sources/29 = SubResource("TileSetAtlasSource_8p8dc")
+sources/30 = SubResource("TileSetAtlasSource_apsr3")
+sources/31 = SubResource("TileSetAtlasSource_4rpp2")
+tile_proxies/coords_level = [[11, Vector2i(0, 0)], [19, Vector2i(0, 0)], [12, Vector2i(0, 0)], [19, Vector2i(1, 0)], [13, Vector2i(0, 0)], [19, Vector2i(2, 0)], [14, Vector2i(0, 0)], [19, Vector2i(3, 0)], [16, Vector2i(0, 0)], [19, Vector2i(0, 1)], [17, Vector2i(0, 0)], [19, Vector2i(1, 1)], [18, Vector2i(0, 0)], [19, Vector2i(2, 1)], [20, Vector2i(0, 0)], [28, Vector2i(0, 0)], [21, Vector2i(0, 0)], [28, Vector2i(1, 0)], [22, Vector2i(0, 0)], [28, Vector2i(2, 0)], [23, Vector2i(0, 0)], [28, Vector2i(3, 0)], [24, Vector2i(0, 0)], [28, Vector2i(0, 1)], [25, Vector2i(0, 0)], [28, Vector2i(1, 1)], [26, Vector2i(0, 0)], [28, Vector2i(2, 1)]]
