@@ -21,4 +21,4 @@ func _on_area_entered(hitbox: Hitbox):
 		owner.take_damage(hitbox.entity_resource.attack_damage, _calc_knockback(hitbox))
 
 func _calc_knockback(hitbox: Hitbox) -> Vector2:
-	return Vector2(0.5,0.5) if not hitbox.owner.is_flipped > 0.0 else Vector2(-0.5, 0.5) # We stan Ternary Statements
+	return Vector2(0.5,0.5) if not hitbox.owner.scale.x > 0.0 else Vector2(-0.5, 0.5) # We stan Ternary Statements

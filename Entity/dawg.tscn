@@ -1,12 +1,14 @@
-[gd_scene load_steps=21 format=3 uid="uid://biyepj0wc6lid"]
+[gd_scene load_steps=25 format=3 uid="uid://biyepj0wc6lid"]
 
 [ext_resource type="Texture2D" uid="uid://c5v52yx7dpet8" path="res://Entity/Dawg/tile_0002.png" id="1_2gfny"]
 [ext_resource type="Script" path="res://Entity/Scripts/Agent.gd" id="1_ovl54"]
 [ext_resource type="Texture2D" uid="uid://bb8e3reqwvian" path="res://Entity/Dawg/tile_0003.png" id="2_1s38v"]
 [ext_resource type="Script" path="res://Entity/ResourceEntity.gd" id="2_dh287"]
+[ext_resource type="Script" path="res://Entity/Scripts/hitbox.gd" id="5_0h4rt"]
 [ext_resource type="Script" path="res://ai/tasks/select_patrol_pos.gd" id="5_uv7ph"]
 [ext_resource type="Script" path="res://ai/tasks/move.gd" id="6_1r1mm"]
 [ext_resource type="Script" path="res://ai/tasks/select_random_nearby_pos.gd" id="6_grgrg"]
+[ext_resource type="Script" path="res://Entity/Scripts/hurtbox.gd" id="6_hbkb7"]
 
 [sub_resource type="Resource" id="Resource_1kyr4"]
 script = ExtResource("2_dh287")
@@ -28,6 +30,12 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jkquf"]
+size = Vector2(20, 22)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w4opf"]
+size = Vector2(20, 22)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v8jcb"]
 size = Vector2(20, 22)
 
 [sub_resource type="BlackboardPlan" id="BlackboardPlan_nl4sc"]
@@ -97,6 +105,23 @@ target_position = Vector2(27, 0)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_jkquf")
+
+[node name="Hitbox" type="Area2D" parent="."]
+script = ExtResource("5_0h4rt")
+entity_resource = SubResource("Resource_1kyr4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(20, -1)
+shape = SubResource("RectangleShape2D_w4opf")
+disabled = true
+debug_color = Color(1, 0, 0, 0.419608)
+
+[node name="Hurtbox" type="Area2D" parent="."]
+script = ExtResource("6_hbkb7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_v8jcb")
 
 [node name="BTPlayer" type="BTPlayer" parent="."]
 behavior_tree = SubResource("BehaviorTree_m8umg")

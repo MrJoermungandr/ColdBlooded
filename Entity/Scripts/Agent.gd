@@ -9,8 +9,6 @@ var GRAVITY = ProjectSettings.get_setting("physics/2d/default_gravity") # appare
 @onready var sprite: AnimatedSprite2D = $Sprite
 var _frames_since_facing_update: int = 0
 
-var is_flipped: bool = false
-
 signal death
 
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
