@@ -7,6 +7,8 @@ var post_requester=HTTPRequest.new()
 @onready
 var get_requester=HTTPRequest.new()
 
+signal login_status_changed(is_logged_in:bool)
+
 @onready
 var auth_header=PackedStringArray():
 	set(value):
@@ -15,7 +17,11 @@ var auth_header=PackedStringArray():
 		auth_header.append("Content-Type: application/json")
 
 @onready
-var is_logged_in:bool=false
+var is_logged_in:bool=false:
+	set(value):
+		is_logged_in=value
+		login_status_changed.emit(value)
+		print("now logged in")
 
 func _ready():
 	process_mode=PROCESS_MODE_ALWAYS
@@ -29,13 +35,10 @@ func _ready():
 func submit_pb(run:LevelRun):
 	if !is_logged_in:
 		return
-	post_requester.request_completed.connect(response_test,ConnectFlags.CONNECT_ONE_SHOT)
-	var jwt=GameManger.save.jwt
 	var request=HTTPRequest.new()
 	add_child(request)
 	request.request_completed.connect(response_test)
-	print(run.level_name)
-	request.request(API_URL+"/times/submit/"+run.level_name,["Authorization: Bearer "+ jwt,"Content-Type: application/json"],HTTPClient.METHOD_POST,JSON.stringify({"level_time":run.level_time}))
+	request.request(API_URL+"/times/submit/"+run.level_name,auth_header,HTTPClient.METHOD_POST,JSON.stringify({"level_time":run.level_time}))
 	await request.request_completed
 
 func response_test(result,response_code,headers,body):
@@ -48,14 +51,15 @@ func get_level_leaderboard(level_name:String):
 	pass
 
 func check_logged_in(result,response_code,headers,body):
-	print(response_code)
 	if response_code==200:
 		print(JSON.parse_string(body.get_string_from_utf8()))
 		var parsed_body=JSON.parse_string(body.get_string_from_utf8())
 		GameManger.save.jwt=parsed_body.access_token
 		ResourceSaver.save(GameManger.save)
+		is_logged_in=true
 	if response_code==202: #ACCEPTED
 		is_logged_in=true
+		pass
 		
 func login(username:String,password:String):
 	post_requester.request_completed.connect(check_logged_in,ConnectFlags.CONNECT_ONE_SHOT)

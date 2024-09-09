@@ -20,6 +20,7 @@ var finish_ui:CenterContainer=preload("res://Level/Ui/level_finished.tscn").inst
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	get_tree().paused = false
 	var static_ui_layer=CanvasLayer.new()
 	add_child(static_ui_layer)
 	static_ui_layer.add_child(finish_ui)
