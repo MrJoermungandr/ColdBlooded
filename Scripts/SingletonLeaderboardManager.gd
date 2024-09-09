@@ -18,6 +18,7 @@ var auth_header=PackedStringArray():
 var is_logged_in:bool=false
 
 func _ready():
+	process_mode=PROCESS_MODE_ALWAYS
 	auth_header=auth_header
 	add_child(get_requester)
 	add_child(post_requester)
@@ -30,17 +31,17 @@ func submit_pb(run:LevelRun):
 		return
 	post_requester.request_completed.connect(response_test,ConnectFlags.CONNECT_ONE_SHOT)
 	var jwt=GameManger.save.jwt
-	#DOESNT WORK NOBODY KNOWS WHY
 	var request=HTTPRequest.new()
 	add_child(request)
 	request.request_completed.connect(response_test)
-	request.request(API_URL+"/times/submit/"+run.level_name,["Authorization: Bearer"+ jwt,"Content-Type: application/json"],HTTPClient.METHOD_POST,JSON.stringify({"level_time":run.level_time}))
+	print(run.level_name)
+	request.request(API_URL+"/times/submit/"+run.level_name,["Authorization: Bearer "+ jwt,"Content-Type: application/json"],HTTPClient.METHOD_POST,JSON.stringify({"level_time":run.level_time}))
 	await request.request_completed
-	remove_child(request)
 
 func response_test(result,response_code,headers,body):
-	print("9sudhgshdg")
 	print(response_code)
+	if response_code !=200:
+		printerr("Leaderboard Record couldnt be submitted")
 
 func get_level_leaderboard(level_name:String):
 	#TODO
@@ -49,8 +50,10 @@ func get_level_leaderboard(level_name:String):
 func check_logged_in(result,response_code,headers,body):
 	print(response_code)
 	if response_code==200:
+		print(JSON.parse_string(body.get_string_from_utf8()))
 		var parsed_body=JSON.parse_string(body.get_string_from_utf8())
 		GameManger.save.jwt=parsed_body.access_token
+		ResourceSaver.save(GameManger.save)
 	if response_code==202: #ACCEPTED
 		is_logged_in=true
 		

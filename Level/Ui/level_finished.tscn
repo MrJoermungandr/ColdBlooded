@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://Level/Ui/level_finished/level_finished.gd" id="1_kg50c"]
 
 [node name="LevelFinished" type="CenterContainer"]
+process_mode = 3
 z_index = 3
 anchors_preset = 15
 anchor_right = 1.0

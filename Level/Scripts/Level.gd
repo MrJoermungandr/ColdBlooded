@@ -43,7 +43,6 @@ func on_level_finished():
 	
 	#register run in GameManager
 	GameManger.submit_new_run(level_run)
-	
 	get_tree().paused = true
 	#show winscreen
 	finish_ui.set_finished(level_run)

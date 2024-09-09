@@ -15,6 +15,7 @@ func _ready() -> void:
 		#TODO popup to relog in 
 		pass
 	elif !LeaderboardManager.is_logged_in:
+		print("mhm")
 		LogInButton.visible=true
 		LogOutButton.visible=false
 	else:

@@ -16,6 +16,7 @@ font_size = 42
 shadow_size = 0
 
 [node name="MainMenu" type="MarginContainer"]
+process_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -23,6 +24,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+mouse_filter = 2
 script = ExtResource("1_bni3a")
 
 [node name="Titel" type="Label" parent="."]
@@ -43,10 +45,12 @@ mouse_filter = 2
 
 [node name="MarginContainer2" type="MarginContainer" parent="Middle"]
 layout_mode = 2
+mouse_filter = 2
 theme_override_constants/margin_left = 50
 
 [node name="VSeparator2" type="VSeparator" parent="Middle"]
 layout_mode = 2
+mouse_filter = 2
 
 [node name="Levels" type="PanelContainer" parent="Middle"]
 layout_mode = 2
@@ -112,6 +116,7 @@ layout_mode = 2
 [node name="MarginContainer" type="MarginContainer" parent="Middle"]
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_filter = 2
 
 [node name="Settings" type="MarginContainer" parent="."]
 layout_mode = 2
