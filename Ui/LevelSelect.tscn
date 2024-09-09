@@ -10,12 +10,12 @@ bg_color = Color(0.413853, 0.635443, 0.736934, 1)
 offset_right = 200.0
 offset_bottom = 200.0
 mouse_filter = 2
+script = ExtResource("1_t4k1d")
 
 [node name="LevelSelect" type="PanelContainer" parent="."]
 custom_minimum_size = Vector2(75, 75)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_5e0uy")
-script = ExtResource("1_t4k1d")
 
 [node name="MarginContainer" type="MarginContainer" parent="LevelSelect"]
 layout_mode = 2

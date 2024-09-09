@@ -31,8 +31,12 @@ func submit_pb(run:LevelRun):
 	post_requester.request_completed.connect(response_test,ConnectFlags.CONNECT_ONE_SHOT)
 	var jwt=GameManger.save.jwt
 	#DOESNT WORK NOBODY KNOWS WHY
-	post_requester.request(API_URL+"/times/submit/"+run.level_name,["Authorization: Bearer"+ jwt,"Content-Type: application/json"],HTTPClient.METHOD_POST,JSON.stringify({"level_time":run.level_time}))
-	await post_requester.request_completed
+	var request=HTTPRequest.new()
+	add_child(request)
+	request.request_completed.connect(response_test)
+	request.request(API_URL+"/times/submit/"+run.level_name,["Authorization: Bearer"+ jwt,"Content-Type: application/json"],HTTPClient.METHOD_POST,JSON.stringify({"level_time":run.level_time}))
+	await request.request_completed
+	remove_child(request)
 
 func response_test(result,response_code,headers,body):
 	print("9sudhgshdg")

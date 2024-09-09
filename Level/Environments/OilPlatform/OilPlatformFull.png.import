@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ibcsb6h4j4j0"
-path="res://.godot/imported/42x38OilPlatform.png-6ce33575f160b5a92086e720d5d7e0a2.ctex"
+uid="uid://cpid25txp4tmj"
+path="res://.godot/imported/OilPlatformFull.png-faaca6198c1e01a0f7ae499d861e688f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Level/Environments/OilPlatform/42x38OilPlatform.png"
-dest_files=["res://.godot/imported/42x38OilPlatform.png-6ce33575f160b5a92086e720d5d7e0a2.ctex"]
+source_file="res://Level/Environments/OilPlatform/OilPlatformFull.png"
+dest_files=["res://.godot/imported/OilPlatformFull.png-faaca6198c1e01a0f7ae499d861e688f.ctex"]
 
 [params]
 
