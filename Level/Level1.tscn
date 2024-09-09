@@ -21,8 +21,6 @@ script = ExtResource("1_6n3cb")
 [node name="Background" parent="." instance=ExtResource("3_3ne41")]
 position = Vector2(0, -52.115)
 
-[node name="TileMapLayer" type="TileMapLayer" parent="."]
-
 [node name="Player" parent="." instance=ExtResource("2_ei7nv")]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
