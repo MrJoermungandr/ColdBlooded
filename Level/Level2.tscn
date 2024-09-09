@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://707ehuyv6s8i"]
 
-[ext_resource type="Script" path="res://Level/Level.gd" id="1_oen83"]
+[ext_resource type="Script" path="res://Level/Scripts/Level.gd" id="1_oen83"]
 [ext_resource type="PackedScene" uid="uid://binwmx30pxpv0" path="res://Entity/player.tscn" id="2_bht7k"]
-[ext_resource type="PackedScene" uid="uid://btm0vhy5xqhri" path="res://Level/Level2/Background.tscn" id="2_waxc0"]
+[ext_resource type="PackedScene" uid="uid://btm0vhy5xqhri" path="res://Level/Environments/OilPlatform/Background.tscn" id="2_waxc0"]
 
 [sub_resource type="Environment" id="Environment_yik13"]
 background_mode = 1
@@ -17,7 +17,7 @@ size = Vector2(8.055, 1)
 script = ExtResource("1_oen83")
 
 [node name="Background" parent="." instance=ExtResource("2_waxc0")]
-position = Vector2(0, -94.075)
+position = Vector2(0, -178.64)
 
 [node name="Player" parent="." instance=ExtResource("2_bht7k")]
 

@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://bngpt0xvcvvgr"]
+
+[ext_resource type="Script" path="res://Ui/Profile/Profile.gd" id="1_hwg38"]
+[ext_resource type="PackedScene" uid="uid://c7hjjorjdvcnr" path="res://Ui/Profile/LogInWindow.tscn" id="2_85r0o"]
+
+[node name="Profile" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+script = ExtResource("1_hwg38")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+
+[node name="SignUpLogIn" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+text = "Log In"
+
+[node name="LogOut" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+text = "Log Out"
+
+[node name="LogInWindow" parent="." instance=ExtResource("2_85r0o")]
+layout_mode = 2
