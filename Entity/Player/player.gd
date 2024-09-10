@@ -63,6 +63,8 @@ var is_facing_right = false
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
+signal death
+
 func _ready() -> void:
 	coyote_timer.one_shot = true
 	coyote_timer.wait_time = coyote_time_seconds
@@ -142,3 +144,13 @@ func _use_normal_hitbox():
 	is_normal_hitbox_enabled = true
 	normal_collision.set_deferred("disabled", false)
 	vertical_pinch_collision.set_deferred("disabled", true)
+
+func take_damage(amount: int, knockback: Vector2) -> void:
+	if entity_resource.health - amount <= 0:
+		entity_resource.health = 0
+		death.emit() # TODO proper death handling
+		state_machine.set_active(false)
+		$Label.text = "dead"
+		return
+	entity_resource.health -= amount
+	pass
