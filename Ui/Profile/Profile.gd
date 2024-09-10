@@ -14,14 +14,24 @@ func _ready() -> void:
 	if !LeaderboardManager.is_logged_in && GameManger.save.has_been_logged_in:
 		#TODO popup to relog in 
 		pass
-	elif !LeaderboardManager.is_logged_in:
-		LogInButton.visible=true
-		LogOutButton.visible=false
-	else:
-		LogInButton.visible=false
-		LogOutButton.visible=true
-	LogInButton.pressed.connect(on_login_pressed)
+	on_login_status_changed(LeaderboardManager.is_logged_in)
 	
+	LogInButton.pressed.connect(on_login_pressed)
+	LeaderboardManager.login_status_changed.connect(on_login_status_changed)
+	LogOutButton.pressed.connect(on_logout_pressed)
 	
 func on_login_pressed():
 	LogInWindow.visible=true
+
+func on_login_status_changed(new:bool):
+	if new:
+		LogInButton.visible=false
+		LogOutButton.visible=true
+	else:
+		LogInButton.visible=true
+		LogOutButton.visible=false
+
+func on_logout_pressed():
+	GameManger.save.jwt=""
+	ResourceSaver.save(GameManger.save)
+	LeaderboardManager.is_logged_in=false

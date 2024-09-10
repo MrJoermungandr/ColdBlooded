@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://btkyxbu76mxq2"]
+[gd_scene load_steps=3 format=3 uid="uid://btkyxbu76mxq2"]
 
 [ext_resource type="Script" path="res://Level/Ui/level_playing/level_playing.gd" id="1_b1h5e"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_r2ngp"]
+font_size = 30
 
 [node name="LevelPlaying" type="Control"]
 layout_mode = 3
@@ -12,11 +15,22 @@ grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_b1h5e")
 
-[node name="Label" type="Label" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
+anchors_preset = 15
 anchor_right = 1.0
-offset_left = -40.0
-offset_bottom = 23.0
-grow_horizontal = 0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+label_settings = SubResource("LabelSettings_r2ngp")
+
+[node name="Label2" type="Label" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0

@@ -5,6 +5,7 @@ var save: GameSave
 
 
 func _ready():
+	process_mode=PROCESS_MODE_ALWAYS
 	#try to load game save
 	var loaded_save:GameSave=load("user://save.tres")
 	#if there is no resource yet make one and save
@@ -27,13 +28,13 @@ func submit_new_run(run:LevelRun):
 			save.runs[run.level_name]=run
 		else:
 			#no pb so we can savely return from the function
-			ResourceSaver.save(save)
+			print("nopb")
 			return
 	else:
 		save.runs[run.level_name]=run
 	
 	#submit the run to leaderboard
 	LeaderboardManager.submit_pb(run)
-	
+	print("jaaaa")
 	#finally save resource
 	ResourceSaver.save(save)

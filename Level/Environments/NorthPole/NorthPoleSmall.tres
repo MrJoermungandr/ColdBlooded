@@ -13,14 +13,23 @@ texture_region_size = Vector2i(28, 25)
 1:0/0 = 0
 1:0/0/texture_origin = Vector2i(0, 12)
 2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-14, -12.5, 14, -12.5, 14, 12.5, -14, 12.5)
 2:1/0 = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-14, -12.5, 14, -12.5, 14, 12.5, -14, 12.5)
 3:0/0 = 0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-14, -12.5, 14, -12.5, 14, 12.5, -14, 12.5)
 3:1/0 = 0
+3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-14, -12.5, 14, -12.5, 14, 12.5, -14, 12.5)
 4:0/0 = 0
+4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-14, -12.5, 14, -12.5, 14, 12.5, -14, 12.5)
 4:1/0 = 0
+4:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-14, -12.5, 14, -12.5, 14, 12.5, -14, 12.5)
 5:0/0 = 0
+5:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-14, -12.5, 14, -12.5, 14, 12.5, -14, 12.5)
 5:1/0 = 0
+5:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-14, -12.5, 14, -12.5, 14, 12.5, -14, 12.5)
 6:0/0 = 0
+6:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-14, -12.5, 14, -12.5, 14, 12.5, -14, 12.5)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_aka56"]
 texture = ExtResource("9_kdtco")
@@ -31,6 +40,7 @@ texture_region_size = Vector2i(28, 25)
 
 [resource]
 tile_size = Vector2i(28, 25)
+physics_layer_0/collision_layer = 1
 sources/6 = SubResource("TileSetAtlasSource_aka56")
 sources/14 = SubResource("TileSetAtlasSource_unjmf")
 tile_proxies/coords_level = [[0, Vector2i(0, 0)], [13, Vector2i(0, 0)], [1, Vector2i(0, 0)], [13, Vector2i(1, 0)], [2, Vector2i(0, 0)], [13, Vector2i(2, 0)], [3, Vector2i(0, 0)], [13, Vector2i(3, 0)], [4, Vector2i(0, 0)], [13, Vector2i(4, 0)], [5, Vector2i(0, 0)], [13, Vector2i(0, 1)], [7, Vector2i(0, 0)], [14, Vector2i(0, 0)], [8, Vector2i(0, 0)], [14, Vector2i(1, 0)], [9, Vector2i(0, 0)], [13, Vector2i(1, 1)], [11, Vector2i(0, 0)], [13, Vector2i(2, 1)], [12, Vector2i(0, 0)], [13, Vector2i(3, 1)], [13, Vector2i(0, 0)], [14, Vector2i(2, 0)], [13, Vector2i(0, 1)], [14, Vector2i(2, 1)], [13, Vector2i(1, 0)], [14, Vector2i(3, 0)], [13, Vector2i(1, 1)], [14, Vector2i(3, 1)], [13, Vector2i(2, 0)], [14, Vector2i(4, 0)], [13, Vector2i(2, 1)], [14, Vector2i(4, 1)], [13, Vector2i(3, 0)], [14, Vector2i(5, 0)], [13, Vector2i(3, 1)], [14, Vector2i(5, 1)], [13, Vector2i(4, 0)], [14, Vector2i(6, 0)]]

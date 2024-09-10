@@ -1,8 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://sf35vh2gxjxu"]
+[gd_scene load_steps=3 format=3 uid="uid://sf35vh2gxjxu"]
 
 [ext_resource type="Script" path="res://Level/Ui/level_finished/level_finished.gd" id="1_kg50c"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_pncor"]
+font_size = 42
+
 [node name="LevelFinished" type="CenterContainer"]
+process_mode = 3
 z_index = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -29,6 +33,7 @@ alignment = 1
 [node name="Label" type="Label" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 text = "You win"
+label_settings = SubResource("LabelSettings_pncor")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -57,3 +62,6 @@ size_flags_horizontal = 3
 [node name="Button2" type="Button" parent="Panel/MarginContainer/VBoxContainer2/HBoxContainer"]
 layout_mode = 2
 text = "again"
+
+[node name="VSeparator" type="VSeparator" parent="."]
+layout_mode = 2

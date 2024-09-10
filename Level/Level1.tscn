@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://ccg6asre5jqbl"]
+[gd_scene load_steps=10 format=3 uid="uid://ccg6asre5jqbl"]
 
 [ext_resource type="Script" path="res://Level/Scripts/Level.gd" id="1_6n3cb"]
 [ext_resource type="PackedScene" uid="uid://binwmx30pxpv0" path="res://Entity/player.tscn" id="2_ei7nv"]
 [ext_resource type="PackedScene" uid="uid://dfkbaywuheaxy" path="res://Level/Environments/NorthPole/Background.tscn" id="3_3ne41"]
 [ext_resource type="PackedScene" uid="uid://begacd8q0v2sq" path="res://Level/Asset/Finish.tscn" id="4_dbkcu"]
 [ext_resource type="PackedScene" uid="uid://boc1xvuxh2gmr" path="res://Level/Asset/Checkpoint.tscn" id="5_ug2k1"]
+[ext_resource type="PackedScene" uid="uid://dcsg0ol3dhsx7" path="res://Level/Asset/Coin.tscn" id="6_d7i11"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_xo0i3"]
 
@@ -48,3 +49,6 @@ position = Vector2(229, -22)
 environment = SubResource("Environment_f5ie6")
 
 [node name="WorkaroundForBackground" type="Camera3D" parent="."]
+
+[node name="Coin" parent="." instance=ExtResource("6_d7i11")]
+position = Vector2(314, -38)

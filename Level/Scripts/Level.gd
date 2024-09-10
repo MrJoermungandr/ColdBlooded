@@ -12,6 +12,11 @@ var elapsed_time:float=0.:
 		playing_ui.set_elapsed_time(elapsed_time)
 		
 
+var coins:int=0:
+	set(value):
+		coins=value
+		playing_ui.set_collected_coins(value)
+
 @onready
 var playing_ui:Control=preload("res://Level/Ui/level_playing.tscn").instantiate()
 
@@ -20,6 +25,7 @@ var finish_ui:CenterContainer=preload("res://Level/Ui/level_finished.tscn").inst
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	get_tree().paused = false
 	var static_ui_layer=CanvasLayer.new()
 	add_child(static_ui_layer)
 	static_ui_layer.add_child(finish_ui)
@@ -43,7 +49,10 @@ func on_level_finished():
 	
 	#register run in GameManager
 	GameManger.submit_new_run(level_run)
-	
 	get_tree().paused = true
 	#show winscreen
 	finish_ui.set_finished(level_run)
+	
+	
+func register_coin(coin):
+	coin.pickup.connect(func():coins+=1)

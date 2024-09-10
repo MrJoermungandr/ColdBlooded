@@ -13,6 +13,8 @@ func _ready() -> void:
 	get_node("Panel/MarginContainer/VBoxContainer/Username/LineEdit").text_changed.connect(on_username_changed)
 	get_node("Panel/MarginContainer/VBoxContainer/Password/LineEdit").text_changed.connect(on_password_changed)
 	
+	LeaderboardManager.login_status_changed.connect(on_login_status_changed)
+	
 func on_username_changed(new:String):
 	#TODO validation
 	username=new
@@ -21,4 +23,10 @@ func on_password_changed(new:String):
 	password=new
 	
 func on_pressed_ok():
+	#TODO validation
 	LeaderboardManager.login(username,password)
+
+
+func on_login_status_changed(new:bool):
+	if new:
+		visible=false
