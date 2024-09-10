@@ -12,6 +12,11 @@ var elapsed_time:float=0.:
 		playing_ui.set_elapsed_time(elapsed_time)
 		
 
+static var coins:int=0:
+	set(value):
+		coins=value
+		print(value)
+
 @onready
 var playing_ui:Control=preload("res://Level/Ui/level_playing.tscn").instantiate()
 
@@ -47,3 +52,7 @@ func on_level_finished():
 	get_tree().paused = true
 	#show winscreen
 	finish_ui.set_finished(level_run)
+	
+	
+func register_coin(coin):
+	coin.pickup.connect(func():coins+=1)
