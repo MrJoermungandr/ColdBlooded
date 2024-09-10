@@ -27,7 +27,7 @@ func move(new_velocity: Vector2, delta: float) -> void:
 		velocity.y += GRAVITY * delta
 	move_and_slide()
 
-func _take_damage(amount: int, knockback: Vector2):
+func take_damage(amount: int, knockback: Vector2): #TODO maybe need to do something with state
 	apply_knockback(knockback)
 	if entity_resource.health - amount <= 0:
 		death.emit()
