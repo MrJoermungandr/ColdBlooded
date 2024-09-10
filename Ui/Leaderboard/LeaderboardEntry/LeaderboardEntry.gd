@@ -21,7 +21,7 @@ var record_time:float=.0:
 
 func _ready() -> void:
 	if record_position==1:
-		get_node("Rank").text="WR:"
+		get_node("Rank").text="1:"
 		get_node("Name").text=record_name
 	elif record_position==0:
 		get_node("Rank").text="PB:"

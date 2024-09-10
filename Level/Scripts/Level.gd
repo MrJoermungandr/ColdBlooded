@@ -12,10 +12,10 @@ var elapsed_time:float=0.:
 		playing_ui.set_elapsed_time(elapsed_time)
 		
 
-static var coins:int=0:
+var coins:int=0:
 	set(value):
 		coins=value
-		print(value)
+		playing_ui.set_collected_coins(value)
 
 @onready
 var playing_ui:Control=preload("res://Level/Ui/level_playing.tscn").instantiate()
