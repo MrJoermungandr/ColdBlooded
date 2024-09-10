@@ -15,10 +15,21 @@ signal death
 @onready var bt_player: BTPlayer = $BTPlayer
 @onready var ray_cast = $Sprite/RayCast2D
 
-var is_facing_right = false
+var is_facing_right: bool = false
+var _moved_this_frame: bool = false
 
 func _ready():
 	bt_player.blackboard.set_var(&"inital_pos", position)
+
+func _physics_process(delta):
+	_post_physics_process.call_deferred(delta)
+
+func _post_physics_process(delta) -> void:
+	if not _moved_this_frame:
+		if not is_on_floor():
+			velocity.y += GRAVITY * delta
+		move_and_slide()
+	_moved_this_frame = false
 
 func is_path_blocked() -> bool:
 	return ray_cast.is_colliding()
@@ -28,6 +39,7 @@ func move(new_velocity: Vector2, delta: float) -> void:
 	if not is_on_floor():
 		velocity.y += GRAVITY * delta
 	move_and_slide()
+	_moved_this_frame = true
 
 func take_damage(amount: int, knockback: Vector2): #TODO maybe need to do something with state
 	apply_knockback(knockback)
