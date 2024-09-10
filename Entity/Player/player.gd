@@ -85,10 +85,10 @@ func _handle_input(delta: float, is_on_ground: bool):
 	var hor_input = Input.get_axis("move_left", "move_right")
 	if hor_input > 0.0:
 		animated_sprite_2d.scale.x = 1.0
-		is_facing_right = false
+		is_facing_right = true
 	elif hor_input < 0.0:    # prevents facing a side by default
 		animated_sprite_2d.scale.x = -1.0
-		is_facing_right = true
+		is_facing_right = false
 	if not is_on_ground:
 		velocity.y += get_current_gravity() * delta
 		velocity.x = lerp(velocity.x, (velocity.x if is_zero_approx(hor_input) else hor_input * speed) * 0.7, .2)

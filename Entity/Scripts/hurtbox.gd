@@ -23,4 +23,4 @@ func _on_area_entered(hitbox: Hitbox) -> void:
 		printerr("Attack Target doesn't have take_damage method!")
 
 func _calc_knockback(hitbox: Hitbox) -> Vector2:
-	return Vector2(0.5,0.5) if not hitbox.owner.scale.x > 0.0 else Vector2(-0.5, 0.5) # We stan Ternary Statements
+	return Vector2(0.5,0.5) if not hitbox.owner.is_facing_right else Vector2(-0.5, 0.5) # We stan Ternary Statements

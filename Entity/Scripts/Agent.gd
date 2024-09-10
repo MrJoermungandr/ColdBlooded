@@ -15,6 +15,8 @@ signal death
 @onready var bt_player: BTPlayer = $BTPlayer
 @onready var ray_cast = $Sprite/RayCast2D
 
+var is_facing_right = false
+
 func _ready():
 	bt_player.blackboard.set_var(&"inital_pos", position)
 
@@ -43,9 +45,11 @@ func update_facing() -> void:
 func face_dir(dir: float) -> void:
 	if dir > 0.0 and sprite.scale.x < 0.0:
 		sprite.scale.x = 1.0;
+		is_facing_right = true
 		_frames_since_facing_update = 0
 	if dir < 0.0 and sprite.scale.x > 0.0:
 		sprite.scale.x = -1.0;
+		is_facing_right = false
 		_frames_since_facing_update = 0
 
 ## Is specified position inside the arena (not inside an obstacle)?
