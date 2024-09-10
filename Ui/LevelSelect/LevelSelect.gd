@@ -19,6 +19,9 @@ func _ready() -> void:
 	request.request(LeaderboardManager.API_URL+"/times/"+level_name)
 	await request.request_completed
 	remove_child(request)
+	
+	mouse_entered.connect(show_leaderboard)
+	mouse_exited.connect(func(): LeaderboardManager.hide_leaderboard())
 
 func on_leaderboard_entries_retrieved(result,response_code,headers,body):
 	if response_code==200:
@@ -35,3 +38,9 @@ func on_leaderboard_entries_retrieved(result,response_code,headers,body):
 
 func on_play_pressed():
 	get_tree().change_scene_to_packed(Level)
+	
+func show_leaderboard():
+	if Level ==null :
+		return
+	var level_name=Level.instantiate().get_name()
+	LeaderboardManager.show_leaderboard(level_name)

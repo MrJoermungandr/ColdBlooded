@@ -9,12 +9,12 @@ bg_color = Color(0.413853, 0.635443, 0.736934, 1)
 [node name="MarginContainer2" type="MarginContainer"]
 offset_right = 200.0
 offset_bottom = 200.0
-mouse_filter = 2
 script = ExtResource("1_t4k1d")
 
 [node name="LevelSelect" type="PanelContainer" parent="."]
 custom_minimum_size = Vector2(75, 75)
 layout_mode = 2
+mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_5e0uy")
 
 [node name="MarginContainer" type="MarginContainer" parent="LevelSelect"]
@@ -48,6 +48,7 @@ layout_mode = 2
 
 [node name="HSeparator" type="HSeparator" parent="LevelSelect/MarginContainer/VerticalEntrys"]
 layout_mode = 2
+mouse_filter = 1
 
 [node name="LocalRecord" parent="LevelSelect/MarginContainer/VerticalEntrys" instance=ExtResource("2_cgwsy")]
 layout_mode = 2
@@ -59,4 +60,5 @@ size_flags_vertical = 8
 
 [node name="Button" type="Button" parent="LevelSelect/MarginContainer/VerticalEntrys/PlayLevel"]
 layout_mode = 2
+mouse_filter = 1
 text = "play"
