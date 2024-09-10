@@ -84,7 +84,7 @@ _data = {
 "attack": SubResource("Animation_cx2j7")
 }
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["player"]]
 position = Vector2(0, -14.555)
 script = ExtResource("1_hm2ln")
 entity_resource = SubResource("Resource_b576n")

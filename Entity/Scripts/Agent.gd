@@ -68,3 +68,9 @@ func apply_knockback(knockback: Vector2, frames: int = 10):
 		velocity = lerp(velocity, knockback, 0.2)
 		move_and_slide()
 		await get_tree().physics_frame
+
+
+func _on_detection_zone_body_entered(body: Node2D):
+	if body.is_in_group("player"):
+		bt_player.blackboard.set_var(&"target", body)
+		bt_player.restart()
