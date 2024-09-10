@@ -1,4 +1,4 @@
-[gd_resource type="BehaviorTree" load_steps=18 format=3 uid="uid://bcjevb7coafpp"]
+[gd_resource type="BehaviorTree" load_steps=21 format=3 uid="uid://bcjevb7coafpp"]
 
 [ext_resource type="Script" path="res://ai/tasks/chase_target.gd" id="1_4pk61"]
 [ext_resource type="Script" path="res://ai/tasks/select_patrol_pos.gd" id="2_hji27"]
@@ -32,8 +32,21 @@ target_var = &"target"
 tolerance = 18
 speed_var = &"speed"
 
+[sub_resource type="BBNode" id="BBNode_w23d7"]
+saved_value = NodePath("AnimationPlayer")
+resource_name = "AnimationPlayer"
+
+[sub_resource type="BTPlayAnimation" id="BTPlayAnimation_daoki"]
+await_completion = 2.0
+animation_player = SubResource("BBNode_w23d7")
+animation_name = &"attack"
+
+[sub_resource type="BTCooldown" id="BTCooldown_rqfaq"]
+duration = 5.0
+children = [SubResource("BTPlayAnimation_daoki")]
+
 [sub_resource type="BTSequence" id="BTSequence_fhl3n"]
-children = [SubResource("BTCheckVar_hksdb"), SubResource("BTAction_pfhkc")]
+children = [SubResource("BTCheckVar_hksdb"), SubResource("BTAction_pfhkc"), SubResource("BTCooldown_rqfaq")]
 
 [sub_resource type="BTWait" id="BTWait_m3eic"]
 duration = 3.0
