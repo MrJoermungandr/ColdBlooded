@@ -29,14 +29,6 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ibbhd"]
-radius = 8.0
-height = 26.0
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4vxxc"]
-radius = 4.0
-height = 26.0
-
 [sub_resource type="Resource" id="Resource_v4dkc"]
 script = ExtResource("2_eg8ip")
 health = 10
@@ -44,6 +36,14 @@ attack_damage = 5
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jidqh"]
 size = Vector2(26, 10)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ibbhd"]
+radius = 8.0
+height = 26.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4vxxc"]
+radius = 4.0
+height = 26.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_upbp2"]
 radius = 9.05539
@@ -53,7 +53,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Hitbox/CollisionShape2D:disabled")
+tracks/0/path = NodePath("AnimatedSprite2D/Hitbox/CollisionShape2D:disabled")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -68,7 +68,7 @@ resource_name = "attack"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Hitbox/CollisionShape2D:disabled")
+tracks/0/path = NodePath("AnimatedSprite2D/Hitbox/CollisionShape2D:disabled")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -107,6 +107,16 @@ metadata/_aseprite_wizard_interface_config_ = {
 }
 metadata/_aseprite_wizard_source_file_hash_ = "1499a1e7516221a4707e3e85c0d77bd1"
 
+[node name="Hitbox" type="Area2D" parent="AnimatedSprite2D"]
+script = ExtResource("4_0157h")
+entity_resource = SubResource("Resource_v4dkc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/Hitbox"]
+position = Vector2(13, 8)
+shape = SubResource("RectangleShape2D_jidqh")
+disabled = true
+debug_color = Color(2.83971e-06, 0.582084, 0.0397779, 0.419608)
+
 [node name="NormalCollision" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_ibbhd")
 debug_color = Color(0.00528639, 0.345461, 0.773411, 0.42)
@@ -119,16 +129,6 @@ zoom = Vector2(2, 2)
 process_callback = 0
 position_smoothing_enabled = true
 drag_horizontal_enabled = true
-
-[node name="Hitbox" type="Area2D" parent="."]
-script = ExtResource("4_0157h")
-entity_resource = SubResource("Resource_v4dkc")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
-position = Vector2(13, 8)
-shape = SubResource("RectangleShape2D_jidqh")
-disabled = true
-debug_color = Color(2.83971e-06, 0.582084, 0.0397779, 0.419608)
 
 [node name="Hurtbox" type="Area2D" parent="."]
 script = ExtResource("5_w8u03")
