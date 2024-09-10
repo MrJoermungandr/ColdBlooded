@@ -51,7 +51,7 @@ var is_normal_hitbox_enabled: bool = true
 var normal_collision: CollisionShape2D = $NormalCollision
 @onready
 var vertical_pinch_collision: CollisionShape2D = $VerticalPinchCollision
-@onready 
+@onready
 var animation_player: AnimationPlayer = $AnimationPlayer
 
 @onready var state_machine: LimboHSM = $LimboHSM
@@ -79,7 +79,6 @@ func _init_state_machine():
 	state_machine.add_transition(state_machine.ANYSTATE, attack_state, &"atk_started")
 	state_machine.add_transition(attack_state, move_state, attack_state.EVENT_FINISHED)
 	state_machine.initial_state = idle_state
-	
 	state_machine.initialize(self)
 	state_machine.set_active(true)
 
@@ -88,7 +87,7 @@ func _handle_input(delta: float, is_on_ground: bool):
 	if hor_input > 0.0:
 		animated_sprite_2d.scale.x = 1.0
 		is_facing_right = true
-	elif hor_input < 0.0:    # prevents facing a side by default
+	elif hor_input < 0.0: # prevents facing a side by default
 		animated_sprite_2d.scale.x = -1.0
 		is_facing_right = false
 	if not is_on_ground:
@@ -114,7 +113,7 @@ func _handle_jump_and_glide(is_on_ground: bool):
 			velocity.y = glide_gravity
 
 func get_current_gravity() -> float:
-	if velocity.y < 0.0:	# ternary statement is back, hell yeah!
+	if velocity.y < 0.0: # ternary statement is back, hell yeah!
 		return second_jump_gravity if has_double_jumped else jump_gravity
 	else:
 		if not is_normal_hitbox_enabled: _use_normal_hitbox()
@@ -122,10 +121,10 @@ func get_current_gravity() -> float:
 
 func calc_is_on_ground() -> bool:
 	if is_on_floor():
-		velocity.y = 0	#might be better to put this somewhere else
+		velocity.y = 0 # might be better to put this somewhere else
 		is_coyote_completed = false
 		return true
-	elif is_coyote_completed or has_jumped or has_double_jumped or Input.is_action_pressed("move_back"):	#prevents gravity calculation being inaccurate
+	elif is_coyote_completed or has_jumped or has_double_jumped or Input.is_action_pressed("move_back"): # prevents gravity calculation being inaccurate
 		return false
 	elif coyote_timer.is_stopped():
 		coyote_timer.start()
@@ -146,11 +145,13 @@ func _use_normal_hitbox():
 	vertical_pinch_collision.set_deferred("disabled", true)
 
 func take_damage(amount: int, knockback: Vector2) -> void:
+	print("player took damage")
 	if entity_resource.health - amount <= 0:
 		entity_resource.health = 0
 		death.emit() # TODO proper death handling
 		state_machine.set_active(false)
 		$Label.text = "dead"
+		print("player dead")
 		return
 	entity_resource.health -= amount
 	pass
