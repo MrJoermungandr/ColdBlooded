@@ -1,0 +1,75 @@
+[gd_resource type="BehaviorTree" load_steps=18 format=3 uid="uid://bcjevb7coafpp"]
+
+[ext_resource type="Script" path="res://ai/tasks/chase_target.gd" id="1_4pk61"]
+[ext_resource type="Script" path="res://ai/tasks/select_patrol_pos.gd" id="2_hji27"]
+[ext_resource type="Script" path="res://ai/tasks/select_random_nearby_pos.gd" id="3_kr58p"]
+[ext_resource type="Script" path="res://ai/tasks/move.gd" id="4_4giqh"]
+
+[sub_resource type="BlackboardPlan" id="BlackboardPlan_nl4sc"]
+var/speed/name = &"speed"
+var/speed/type = 3
+var/speed/value = 0.0
+var/speed/hint = 1
+var/speed/hint_string = "10,1000,10"
+var/target/name = &"target"
+var/target/type = 0
+var/target/value = null
+var/target/hint = 0
+var/target/hint_string = ""
+
+[sub_resource type="BBVariant" id="BBVariant_wxtmn"]
+saved_value = null
+resource_name = "<null>"
+
+[sub_resource type="BTCheckVar" id="BTCheckVar_hksdb"]
+variable = &"target"
+check_type = 5
+value = SubResource("BBVariant_wxtmn")
+
+[sub_resource type="BTAction" id="BTAction_pfhkc"]
+script = ExtResource("1_4pk61")
+target_var = &"target"
+tolerance = 18
+speed_var = &"speed"
+
+[sub_resource type="BTSequence" id="BTSequence_fhl3n"]
+children = [SubResource("BTCheckVar_hksdb"), SubResource("BTAction_pfhkc")]
+
+[sub_resource type="BTWait" id="BTWait_m3eic"]
+duration = 3.0
+
+[sub_resource type="BTAction" id="BTAction_5y1qu"]
+script = ExtResource("2_hji27")
+position_left_relative = 200.0
+position_right_relative = 200.0
+fallback_steps_px = 18.0
+position_var = &"target_pos"
+
+[sub_resource type="BTAction" id="BTAction_yq17s"]
+script = ExtResource("3_kr58p")
+range_min = -200.0
+range_max = 200.0
+position_var = &"target_pos"
+
+[sub_resource type="BTSelector" id="BTSelector_cji42"]
+children = [SubResource("BTAction_5y1qu"), SubResource("BTAction_yq17s")]
+
+[sub_resource type="BTAction" id="BTAction_rm2ps"]
+script = ExtResource("4_4giqh")
+target_position_var = &"target_pos"
+speed_var = &"speed"
+tolerance = 50.0
+
+[sub_resource type="BTSequence" id="BTSequence_fjdvl"]
+custom_name = "Patrol"
+children = [SubResource("BTSelector_cji42"), SubResource("BTAction_rm2ps")]
+
+[sub_resource type="BTSequence" id="BTSequence_i7tgf"]
+children = [SubResource("BTWait_m3eic"), SubResource("BTSequence_fjdvl")]
+
+[sub_resource type="BTSelector" id="BTSelector_gmp8r"]
+children = [SubResource("BTSequence_fhl3n"), SubResource("BTSequence_i7tgf")]
+
+[resource]
+blackboard_plan = SubResource("BlackboardPlan_nl4sc")
+root_task = SubResource("BTSelector_gmp8r")
