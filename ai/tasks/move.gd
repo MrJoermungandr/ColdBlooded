@@ -34,7 +34,6 @@ func _tick(delta: float) -> Status:
 		return SUCCESS
 
 	var speed: float = blackboard.get_var(speed_var, 10.0)
-	#var dist: float = absf(agent.global_position.x - target_pos.x)
 	var dir: Vector2 = agent.global_position.direction_to(target_pos)
 
 	var desired_velocity: Vector2 = dir.normalized() * speed
@@ -47,13 +46,6 @@ func _tick(delta: float) -> Status:
 		return RUNNING
 	frames_since_blocked = 0
 	return RUNNING
-	#if walk_left:
-		#if agent.position.x - walk_range <= 0:
-			#walk_left = false
-			#return RUNNING
-	#else:
-		#pass
-	#return SUCCESS
 
 
 # Strings returned from this method are displayed as warnings in the behavior tree editor (requires @tool).
