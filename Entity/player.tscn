@@ -1,9 +1,10 @@
-[gd_scene load_steps=40 format=3 uid="uid://binwmx30pxpv0"]
+[gd_scene load_steps=41 format=3 uid="uid://binwmx30pxpv0"]
 
 [ext_resource type="Script" path="res://Entity/Player/player.gd" id="1_hm2ln"]
 [ext_resource type="Script" path="res://Entity/ResourceEntity.gd" id="2_eg8ip"]
 [ext_resource type="Texture2D" uid="uid://dcofepyov4dtd" path="res://Entity/240909_Penguin_Final.png" id="3_rpl5y"]
 [ext_resource type="Script" path="res://Entity/Scripts/hitbox.gd" id="4_0157h"]
+[ext_resource type="Script" path="res://Scripts/lookahead_camera_2d.gd" id="5_426x5"]
 [ext_resource type="Script" path="res://Entity/Scripts/hurtbox.gd" id="5_w8u03"]
 [ext_resource type="Script" path="res://Entity/Player/idle_state.gd" id="7_u6mp2"]
 [ext_resource type="Script" path="res://Entity/Player/attack_primary_state.gd" id="7_u46eh"]
@@ -315,7 +316,7 @@ shape = SubResource("CapsuleShape2D_4vxxc")
 position = Vector2(0, 11.555)
 process_callback = 0
 position_smoothing_enabled = true
-position_smoothing_speed = 7.5
+script = ExtResource("5_426x5")
 
 [node name="Hurtbox" type="Area2D" parent="."]
 position = Vector2(0, 11.555)
