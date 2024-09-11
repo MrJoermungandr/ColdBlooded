@@ -96,21 +96,25 @@ func _handle_input(delta: float, is_on_ground: bool):
 	else:
 		velocity.x = hor_input * speed
 		velocity.y = 0
+		animated_sprite_2d.play(&"Walk")
 	_handle_jump_and_glide(is_on_ground)
 
-func _handle_jump_and_glide(is_on_ground: bool):
+func _handle_jump_and_glide(is_on_ground: bool) -> void:
 	if Input.is_action_just_pressed("move_jump"):
 		if is_on_ground:
 			velocity.y = jump_velocity
 			has_jumped = true
+			animated_sprite_2d.play(&"Jump")
 			_use_vertical_pinch_hitbox()
 		elif not has_double_jumped:
 			velocity.y = second_jump_velocity
+			animated_sprite_2d.play(&"Jump")
 			_use_vertical_pinch_hitbox()
 			has_double_jumped = true
 	if Input.is_action_pressed("move_jump"):
 		if not is_on_ground and velocity.y > 0.0:
 			velocity.y = glide_gravity
+			animated_sprite_2d.play(&"Glide")
 
 func get_current_gravity() -> float:
 	if velocity.y < 0.0: # ternary statement is back, hell yeah!
