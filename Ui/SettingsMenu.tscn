@@ -67,4 +67,5 @@ layout_mode = 2
 size_flags_horizontal = 4
 text = "Back"
 
+[connection signal="toggled" from="VBoxContainer/TabContainer/Graphics/MarginContainer/VBoxContainer/FullscreenToggle" to="." method="_on_fullscreen_toggle_toggled"]
 [connection signal="pressed" from="VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]
