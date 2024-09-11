@@ -289,7 +289,12 @@ _data = {
 position = Vector2(0, -14.555)
 script = ExtResource("1_hm2ln")
 entity_resource = SubResource("Resource_b576n")
-speed = 200
+speed = 250
+jump_height_px = 80.0
+second_jump_height_px = 80.0
+second_jump_time_to_peak = 0.5
+second_jump_time_to_descend = 0.4
+glide_gravity = 130.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
@@ -332,7 +337,6 @@ shape = SubResource("CapsuleShape2D_4vxxc")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(0, 11.555)
-zoom = Vector2(2, 2)
 process_callback = 0
 position_smoothing_enabled = true
 script = ExtResource("5_426x5")

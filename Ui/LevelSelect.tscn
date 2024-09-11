@@ -26,12 +26,23 @@ alignment = 1
 
 [node name="LevelName" type="HBoxContainer" parent="LevelSelect/MarginContainer/VerticalEntrys"]
 layout_mode = 2
-size_flags_horizontal = 0
 size_flags_vertical = 0
 
 [node name="Label" type="Label" parent="LevelSelect/MarginContainer/VerticalEntrys/LevelName"]
 layout_mode = 2
 text = "Node name goes here"
+
+[node name="Coins" type="HBoxContainer" parent="LevelSelect/MarginContainer/VerticalEntrys/LevelName"]
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="Label" type="Label" parent="LevelSelect/MarginContainer/VerticalEntrys/LevelName/Coins"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="LevelSelect/MarginContainer/VerticalEntrys/LevelName/Coins"]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "0"
 
 [node name="TopPositions" type="VBoxContainer" parent="LevelSelect/MarginContainer/VerticalEntrys"]
 layout_mode = 2
