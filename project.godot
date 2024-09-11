@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 GameManger="*res://Scripts/SingletonGameManger.gd"
 LeaderboardManager="*res://Scripts/SingletonLeaderboardManager.gd"
+SettingsPersistence="*res://Scripts/SettingsPersistence.gd"
 
 [display]
 
