@@ -51,7 +51,6 @@ func response_test(result,response_code,headers,body):
 func show_leaderboard(level_name:String):
 	main_menu_leaderboard.show_level(level_name)
 func hide_leaderboard():
-	print("huh")
 	main_menu_leaderboard.visible=false
 
 func check_logged_in(result,response_code,headers,body):

@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Level/Asset/Finish/Finish.gd" id="1_3m7gq"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_uomx5"]
-size = Vector2(20, 20)
+size = Vector2(50, 50)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xqgte"]
 size = Vector2(50, 51)

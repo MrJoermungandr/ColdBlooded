@@ -1,6 +1,7 @@
 extends Node2D
 
-signal pickup
+#TODO most likely need position argument
+signal pickup(position:Vector2)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -10,6 +11,6 @@ func _ready() -> void:
 	level.register_coin(self)
 
 func on_pickup(_unused):
-	pickup.emit()
+	pickup.emit(self.global_position)
 	
 	queue_free()

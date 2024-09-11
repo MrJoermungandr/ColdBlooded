@@ -12,6 +12,7 @@ func _ready() -> void:
 	get_node("LevelSelect/MarginContainer/VerticalEntrys/PlayLevel/Button").pressed.connect(on_play_pressed)
 	if GameManger.save.runs.has(level_name):
 		get_node("LevelSelect/MarginContainer/VerticalEntrys/LocalRecord").record_time=GameManger.save.runs[level_name].level_time
+		get_node("LevelSelect/MarginContainer/VerticalEntrys/LevelName/Coins/Label2").text=GameManger.save.runs[level_name].get_collected_coins_count()
 		
 	var request=HTTPRequest.new()
 	add_child(request)
