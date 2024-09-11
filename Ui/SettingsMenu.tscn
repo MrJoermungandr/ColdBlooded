@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://c8ooqf11406nm"]
+[gd_scene load_steps=4 format=3 uid="uid://c8ooqf11406nm"]
 
 [ext_resource type="Theme" uid="uid://clv6o5db6y2xr" path="res://Ui/SettingsMenuTheme.tres" id="1_535r7"]
 [ext_resource type="Script" path="res://Ui/SettingsMenu/settings_menu.gd" id="1_ig0du"]
+[ext_resource type="PackedScene" uid="uid://berux6u7beh35" path="res://Ui/SettingsMenu/button_remap.tscn" id="3_ba1bm"]
 
 [node name="SettingsMenu" type="MarginContainer"]
 anchors_preset = 15
@@ -23,9 +24,10 @@ alignment = 1
 [node name="TabContainer" type="TabContainer" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-current_tab = 0
+current_tab = 1
 
 [node name="Graphics" type="TabBar" parent="VBoxContainer/TabContainer"]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 
@@ -46,7 +48,6 @@ layout_mode = 2
 text = "Fullscreen"
 
 [node name="Controls" type="TabBar" parent="VBoxContainer/TabContainer"]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 
@@ -61,6 +62,26 @@ theme = ExtResource("1_535r7")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/TabContainer/Controls/MarginContainer"]
 layout_mode = 2
+
+[node name="Left" parent="VBoxContainer/TabContainer/Controls/MarginContainer/VBoxContainer" instance=ExtResource("3_ba1bm")]
+layout_mode = 2
+action = "move_left"
+
+[node name="Right" parent="VBoxContainer/TabContainer/Controls/MarginContainer/VBoxContainer" instance=ExtResource("3_ba1bm")]
+layout_mode = 2
+action = "move_right"
+
+[node name="Down" parent="VBoxContainer/TabContainer/Controls/MarginContainer/VBoxContainer" instance=ExtResource("3_ba1bm")]
+layout_mode = 2
+action = "move_back"
+
+[node name="Jump" parent="VBoxContainer/TabContainer/Controls/MarginContainer/VBoxContainer" instance=ExtResource("3_ba1bm")]
+layout_mode = 2
+action = "move_jump"
+
+[node name="Attack" parent="VBoxContainer/TabContainer/Controls/MarginContainer/VBoxContainer" instance=ExtResource("3_ba1bm")]
+layout_mode = 2
+action = "attack_primary"
 
 [node name="BackButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
