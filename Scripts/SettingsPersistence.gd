@@ -1,7 +1,7 @@
 extends Node
 
 const settings_path = "user://settings.tres"
-var game_settings: SettingsResource = preload("res://Ui/SettingsMenu/GameSettings.tres")
+var game_settings: SettingsResource
 
 var use_fullscreen: bool:
 	get:
@@ -16,17 +16,11 @@ func _ready():
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 
 func load_settings():
-	var disk_settings: SettingsResource = validate_settings()
-	if(disk_settings == null):
-		return
-	game_settings=disk_settings
-
-func validate_settings():
 	if not FileAccess.file_exists(settings_path):
+		game_settings = SettingsResource.new()
 		save_settings()
-		return null
-	var disk_settings: SettingsResource = ResourceLoader.load(settings_path, "SettingsResource")
-	return disk_settings
+	else:
+		game_settings = ResourceLoader.load(settings_path, "SettingsResource")
 
 func save_settings():
 	if ResourceSaver.save(game_settings, settings_path) == OK:
