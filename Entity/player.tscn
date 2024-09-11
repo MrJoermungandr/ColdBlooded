@@ -264,8 +264,11 @@ position = Vector2(0, -14.555)
 script = ExtResource("1_hm2ln")
 entity_resource = SubResource("Resource_b576n")
 speed = 250
-jump_height_px = 100.0
-glide_gravity = 120.0
+jump_height_px = 80.0
+second_jump_height_px = 80.0
+second_jump_time_to_peak = 0.5
+second_jump_time_to_descend = 0.4
+glide_gravity = 130.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
