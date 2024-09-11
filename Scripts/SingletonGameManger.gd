@@ -24,11 +24,20 @@ func submit_new_run(run:LevelRun):
 	#if its a new pb then submit
 	if save.runs.has(run.level_name):
 		var old_run= save.runs[run.level_name]
+		#check for pb
 		if old_run.level_time > run.level_time:
+			#inject all true values in saved run
+			for key in old_run.coins.keys():
+				if old_run.coins[key] == true:
+					run.coins[key]=true
 			save.runs[run.level_name]=run
 		else:
+			#inject all true values in saved run
+			for key in run.coins.keys():
+				if run.coins[key] == true:
+					save.runs[run.level_name].coins[key]=true
 			#no pb so we can savely return from the function
-			print("nopb")
+			ResourceSaver.save(save)
 			return
 	else:
 		save.runs[run.level_name]=run

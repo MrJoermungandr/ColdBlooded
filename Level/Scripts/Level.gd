@@ -12,10 +12,18 @@ var elapsed_time:float=0.:
 		playing_ui.set_elapsed_time(elapsed_time)
 		
 
-var coins:int=0:
+var coins_in_level:int=0:
 	set(value):
-		coins=value
-		playing_ui.set_collected_coins(value)
+		coins_in_level=value
+		if is_node_ready():
+			playing_ui.set_total_coins(value)
+
+var collected_coins:int=0:
+	set(value):
+		collected_coins=value
+		playing_ui.set_collected_coins(value,coins_in_level)
+
+var coins:Dictionary
 
 @onready
 var playing_ui:Control=preload("res://Level/Ui/level_playing.tscn").instantiate()
@@ -45,6 +53,7 @@ func on_level_finished():
 	var level_name:String=get_name()
 	var level_run = LevelRun.new()
 	level_run.construct(level_name,finish_time)
+	level_run.set_collected_coins(coins)
 	#TODO maybe manipulate other fields in run
 	
 	#register run in GameManager
@@ -55,4 +64,11 @@ func on_level_finished():
 	
 	
 func register_coin(coin):
-	coin.pickup.connect(func():coins+=1)
+	coin.pickup.connect(register_coin_pickup)
+	coins[coin.global_position]=false
+	coins_in_level+=1
+
+func register_coin_pickup(position:Vector2):
+	coins[position]=true
+	collected_coins+=1
+	
