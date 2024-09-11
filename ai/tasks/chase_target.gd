@@ -47,6 +47,7 @@ func _tick(delta: float) -> Status:
 
 	var speed: float = blackboard.get_var(speed_var, 10.0)
 	var dir: Vector2 = agent.global_position.direction_to(target.global_position)
+	dir.y = 0
 
 	var desired_velocity: Vector2 = dir.normalized() * speed
 	agent.move(desired_velocity, delta)
