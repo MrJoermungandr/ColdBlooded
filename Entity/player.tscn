@@ -292,25 +292,29 @@ script = ExtResource("4_0157h")
 entity_resource = SubResource("Resource_v4dkc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/Hitbox"]
-position = Vector2(13, 8)
+position = Vector2(13, 19)
 shape = SubResource("RectangleShape2D_jidqh")
 disabled = true
 debug_color = Color(2.83971e-06, 0.582084, 0.0397779, 0.419608)
 
 [node name="NormalCollision" type="CollisionShape2D" parent="."]
+position = Vector2(0, 11.555)
 shape = SubResource("CapsuleShape2D_ibbhd")
 debug_color = Color(0.00528639, 0.345461, 0.773411, 0.42)
 
 [node name="VerticalPinchCollision" type="CollisionShape2D" parent="."]
+position = Vector2(0, 11.555)
 shape = SubResource("CapsuleShape2D_4vxxc")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, 11.555)
 zoom = Vector2(2, 2)
 process_callback = 0
 position_smoothing_enabled = true
 drag_horizontal_enabled = true
 
 [node name="Hurtbox" type="Area2D" parent="."]
+position = Vector2(0, 11.555)
 script = ExtResource("5_w8u03")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
