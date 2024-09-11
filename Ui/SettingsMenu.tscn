@@ -1,0 +1,92 @@
+[gd_scene load_steps=4 format=3 uid="uid://c8ooqf11406nm"]
+
+[ext_resource type="Theme" uid="uid://clv6o5db6y2xr" path="res://Ui/SettingsMenuTheme.tres" id="1_535r7"]
+[ext_resource type="Script" path="res://Ui/SettingsMenu/settings_menu.gd" id="1_ig0du"]
+[ext_resource type="PackedScene" uid="uid://berux6u7beh35" path="res://Ui/SettingsMenu/button_remap.tscn" id="3_ba1bm"]
+
+[node name="SettingsMenu" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+script = ExtResource("1_ig0du")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+theme = ExtResource("1_535r7")
+alignment = 1
+
+[node name="TabContainer" type="TabContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+current_tab = 0
+
+[node name="Graphics" type="TabBar" parent="VBoxContainer/TabContainer"]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/TabContainer/Graphics"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_535r7")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/TabContainer/Graphics/MarginContainer"]
+layout_mode = 2
+
+[node name="FullscreenToggle" type="CheckButton" parent="VBoxContainer/TabContainer/Graphics/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Fullscreen"
+
+[node name="Controls" type="TabBar" parent="VBoxContainer/TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/TabContainer/Controls"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_535r7")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/TabContainer/Controls/MarginContainer"]
+layout_mode = 2
+
+[node name="Left" parent="VBoxContainer/TabContainer/Controls/MarginContainer/VBoxContainer" instance=ExtResource("3_ba1bm")]
+layout_mode = 2
+action = "move_left"
+
+[node name="Right" parent="VBoxContainer/TabContainer/Controls/MarginContainer/VBoxContainer" instance=ExtResource("3_ba1bm")]
+layout_mode = 2
+action = "move_right"
+
+[node name="Down" parent="VBoxContainer/TabContainer/Controls/MarginContainer/VBoxContainer" instance=ExtResource("3_ba1bm")]
+layout_mode = 2
+action = "move_back"
+
+[node name="Jump" parent="VBoxContainer/TabContainer/Controls/MarginContainer/VBoxContainer" instance=ExtResource("3_ba1bm")]
+layout_mode = 2
+action = "move_jump"
+
+[node name="Attack" parent="VBoxContainer/TabContainer/Controls/MarginContainer/VBoxContainer" instance=ExtResource("3_ba1bm")]
+layout_mode = 2
+action = "attack_primary"
+
+[node name="BackButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Back"
+
+[connection signal="toggled" from="VBoxContainer/TabContainer/Graphics/MarginContainer/VBoxContainer/FullscreenToggle" to="." method="_on_fullscreen_toggle_toggled"]
+[connection signal="pressed" from="VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]

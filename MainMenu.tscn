@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://c1qaipsjjdl13"]
+[gd_scene load_steps=12 format=3 uid="uid://c1qaipsjjdl13"]
 
 [ext_resource type="Script" path="res://Ui/MainMenu.gd" id="1_bni3a"]
 [ext_resource type="FontFile" uid="uid://bi5m1ovicc5rf" path="res://Ui/Kenney Blocks.ttf" id="2_7x7ub"]
@@ -7,8 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://707ehuyv6s8i" path="res://Level/Level2.tscn" id="5_2521r"]
 [ext_resource type="PackedScene" uid="uid://ccg6asre5jqbl" path="res://Level/Level1.tscn" id="5_htlk5"]
 [ext_resource type="PackedScene" uid="uid://mr5ntgl2j1yq" path="res://Level/MovementTest.tscn" id="5_xb76d"]
-[ext_resource type="PackedScene" uid="uid://b4f0oxxr1uo0k" path="res://Level/EnemyTest.tscn" id="6_uwhgi"]
+[ext_resource type="PackedScene" uid="uid://bl02ivg1kub5k" path="res://Level/EnemyTest.tscn" id="6_uwhgi"]
 [ext_resource type="PackedScene" uid="uid://dpo3hx60pru4j" path="res://Ui/Leaderboard.tscn" id="9_t7ogp"]
+[ext_resource type="PackedScene" uid="uid://c8ooqf11406nm" path="res://Ui/SettingsMenu.tscn" id="10_hdibp"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_7hrbl"]
 font = ExtResource("2_7x7ub")
@@ -109,3 +110,9 @@ text = "Settings"
 [node name="Button2" type="Button" parent="Settings/Arrange"]
 layout_mode = 2
 text = "Credits"
+
+[node name="SettingsMenu" parent="." instance=ExtResource("10_hdibp")]
+layout_mode = 2
+
+[connection signal="pressed" from="Settings/Arrange/Button" to="." method="_on_settings_button_pressed"]
+[connection signal="exit" from="SettingsMenu" to="." method="_on_settings_menu_exit"]

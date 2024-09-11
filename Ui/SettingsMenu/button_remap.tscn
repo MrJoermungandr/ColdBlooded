@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://berux6u7beh35"]
+
+[ext_resource type="Theme" uid="uid://clv6o5db6y2xr" path="res://Ui/SettingsMenuTheme.tres" id="1_cxccd"]
+[ext_resource type="Script" path="res://Ui/SettingsMenu/button_remap.gd" id="2_e4g27"]
+
+[node name="ButtonRemap" type="HBoxContainer"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 20.0
+grow_horizontal = 2
+theme = ExtResource("1_cxccd")
+script = ExtResource("2_e4g27")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+text = "ACTION"
+
+[node name="VSeparator" type="VSeparator" parent="."]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 2
+toggle_mode = true
+text = "ACTION_KEY"
+
+[connection signal="toggled" from="Button" to="." method="_toggled"]

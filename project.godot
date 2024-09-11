@@ -17,6 +17,8 @@ config/icon="res://icon.svg"
 
 [autoload]
 
+SettingsPersistence="*res://Scripts/SettingsPersistence.gd"
+KeyPersistence="*res://Scripts/KeyPersistence.gd"
 GameManger="*res://Scripts/SingletonGameManger.gd"
 LeaderboardManager="*res://Scripts/SingletonLeaderboardManager.gd"
 
