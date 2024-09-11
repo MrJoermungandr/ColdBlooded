@@ -5,6 +5,7 @@ extends BTAction
 @export var target_var: StringName = &"target"
 @export var tolerance = 18
 @export var speed_var = &"speed"
+@export var max_chase_distance: float = 126
 var frames_since_blocked: int = 0
 
 var target: CharacterBody2D
@@ -35,15 +36,21 @@ func _enter() -> void:
 
 # Called when the task is exited.
 func _exit() -> void:
-	pass
+	target = null
+	agent.velocity = Vector2.ZERO
 
 
 # Called each time this task is ticked (aka executed).
 func _tick(delta: float) -> Status:
 	if is_target_invalid:
 		return FAILURE
-	if target.global_position.distance_to(agent.global_position) < tolerance:
+	var distance_to_target = target.global_position.distance_to(agent.global_position)
+	if distance_to_target < tolerance:
 		return SUCCESS
+	if distance_to_target > max_chase_distance:
+		agent.velocity = Vector2.ZERO
+		blackboard.set_var(target_var, null)
+		return FAILURE
 
 	var speed: float = blackboard.get_var(speed_var, 10.0)
 	var dir: Vector2 = agent.global_position.direction_to(target.global_position)

@@ -31,6 +31,7 @@ script = ExtResource("1_4pk61")
 target_var = &"target"
 tolerance = 36
 speed_var = &"speed"
+max_chase_distance = 126.0
 
 [sub_resource type="BBNode" id="BBNode_w23d7"]
 saved_value = NodePath("AnimationPlayer")
