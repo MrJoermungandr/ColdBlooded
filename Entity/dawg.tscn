@@ -1,9 +1,12 @@
-[gd_scene load_steps=11 format=3 uid="uid://biyepj0wc6lid"]
+[gd_scene load_steps=17 format=3 uid="uid://biyepj0wc6lid"]
 
 [ext_resource type="Texture2D" uid="uid://c5v52yx7dpet8" path="res://Entity/Dawg/tile_0002.png" id="1_2gfny"]
 [ext_resource type="Script" path="res://Entity/Scripts/Agent.gd" id="1_ovl54"]
 [ext_resource type="Texture2D" uid="uid://bb8e3reqwvian" path="res://Entity/Dawg/tile_0003.png" id="2_1s38v"]
 [ext_resource type="Script" path="res://Entity/ResourceEntity.gd" id="2_dh287"]
+[ext_resource type="Script" path="res://Entity/Scripts/hitbox.gd" id="5_0h4rt"]
+[ext_resource type="Script" path="res://Entity/Scripts/hurtbox.gd" id="6_hbkb7"]
+[ext_resource type="BehaviorTree" uid="uid://bcjevb7coafpp" path="res://ai/trees/dawg.tres" id="7_5anul"]
 
 [sub_resource type="Resource" id="Resource_1kyr4"]
 script = ExtResource("2_dh287")
@@ -24,30 +27,106 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w4opf"]
+size = Vector2(20, 22)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jkquf"]
 size = Vector2(20, 22)
 
-[sub_resource type="BlackboardPlan" id="BlackboardPlan_nl4sc"]
-
-[sub_resource type="BehaviorTree" id="BehaviorTree_m8umg"]
-blackboard_plan = SubResource("BlackboardPlan_nl4sc")
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v8jcb"]
+size = Vector2(20, 22)
 
 [sub_resource type="BlackboardPlan" id="BlackboardPlan_adeud"]
+var/speed/name = &"speed"
+var/speed/type = 3
+var/speed/value = 200.0
+var/speed/hint = 1
+var/speed/hint_string = "10,1000,10"
+
+[sub_resource type="Animation" id="Animation_v7dx8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite/Hitbox/CollisionShape2D:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_y6h0c"]
+resource_name = "attack"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite/Hitbox/CollisionShape2D:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.366667, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [true, false, false, true, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2b1qf"]
+_data = {
+"RESET": SubResource("Animation_v7dx8"),
+"attack": SubResource("Animation_y6h0c")
+}
 
 [node name="Dawg" type="CharacterBody2D" groups=["damageable"]]
 script = ExtResource("1_ovl54")
 entity_resource = SubResource("Resource_1kyr4")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_unvjb")
 animation = &"walk"
 frame = 1
 frame_progress = 0.322454
+flip_h = true
+
+[node name="RayCast2D" type="RayCast2D" parent="Sprite"]
+target_position = Vector2(27, 0)
+
+[node name="DetectionZone" type="Area2D" parent="Sprite"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sprite/DetectionZone"]
+polygon = PackedVector2Array(10, 0, 144, 18, 144, -18)
+
+[node name="Hitbox" type="Area2D" parent="Sprite"]
+script = ExtResource("5_0h4rt")
+entity_resource = SubResource("Resource_1kyr4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/Hitbox"]
+position = Vector2(20, -1)
+shape = SubResource("RectangleShape2D_w4opf")
+disabled = true
+debug_color = Color(1, 0, 0, 0.419608)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_jkquf")
 
+[node name="Hurtbox" type="Area2D" parent="."]
+script = ExtResource("6_hbkb7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_v8jcb")
+
 [node name="BTPlayer" type="BTPlayer" parent="."]
-behavior_tree = SubResource("BehaviorTree_m8umg")
+behavior_tree = ExtResource("7_5anul")
 blackboard_plan = SubResource("BlackboardPlan_adeud")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_2b1qf")
+}
+
+[connection signal="body_entered" from="Sprite/DetectionZone" to="." method="_on_detection_zone_body_entered"]
