@@ -269,9 +269,7 @@ speed = 200
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_e5hdi")
-animation = &"Walk"
-frame = 1
-frame_progress = 0.382524
+animation = &"idle"
 metadata/_aseprite_wizard_config_ = {
 "layer": "",
 "o_ex_p": "",

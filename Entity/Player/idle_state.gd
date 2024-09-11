@@ -3,6 +3,7 @@ extends LimboState
 ## Called when state is entered.
 func _enter() -> void:
 	$"../../Label".text = "idle"
+	agent.animated_sprite_2d.play(&"idle")
 
 ## Called each frame when this state is active. # TODO maybe play some idle animation or smth
 func _update(delta: float) -> void:
