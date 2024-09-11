@@ -10,14 +10,18 @@ func _enter() -> void:
 		return
 	$"../../Label".text = "attack"
 	agent.animation_player.play(&"attack", -1, 2.0)
-	can_enter = false
+	await agent.animation_player.animation_finished
 	agent.state_machine.dispatch(EVENT_FINISHED)
 
-## Called when state is exited.
-func _exit() -> void:
-	if is_awaiting_timer:
+func _update(delta: float) -> void:
+	var is_on_ground = agent.calc_is_on_ground()
+	if is_on_ground:
+		agent.has_double_jumped = false
+		agent.has_jumped = false
+	agent._handle_input(delta, is_on_ground)
+	if Input.is_action_just_pressed(&"attack_primary"):
+		dispatch(&"atk_started")
 		return
-	is_awaiting_timer = true
-	await agent.animation_player.animation_finished
-	can_enter = true
-	is_awaiting_timer=false
+	agent.move_and_slide()
+	if agent.velocity.is_zero_approx() and is_on_ground:
+		dispatch(&"move_ended")
