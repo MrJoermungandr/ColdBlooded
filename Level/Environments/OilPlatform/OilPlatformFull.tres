@@ -1,0 +1,36 @@
+[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://88qlf7f1eruq"]
+
+[ext_resource type="Texture2D" uid="uid://cpid25txp4tmj" path="res://Level/Environments/OilPlatform/OilPlatformFull.png" id="1_emgf1"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_63juc"]
+texture = ExtResource("1_emgf1")
+texture_region_size = Vector2i(42, 38)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-21, -19, 21, -19, 21, 19, -21, 19)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-21, -19, 21, -19, 21, 19, -21, 19)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-21, -19, 21, -19, 21, 19, -21, 19)
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-21, -19, 21, -19, 21, 19, -21, 19)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-21, -19, 21, -19, 21, 19, -21, 19)
+2:1/0 = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-21, -19, 21, -19, 21, 19, -21, 19)
+3:0/0 = 0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-21, -19, 21, -19, 21, 19, -21, 19)
+0:2/0 = 0
+0:2/0/texture_origin = Vector2i(0, -6)
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-21, -19, 21, -19, 21, 19, -21, 19)
+1:2/0 = 0
+1:2/0/texture_origin = Vector2i(0, -6)
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-21, -19, 21, -19, 21, 19, -21, 19)
+2:2/0 = 0
+2:2/0/texture_origin = Vector2i(0, -9)
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-21, -19, 21, -19, 21, 19, -21, 19)
+
+[resource]
+tile_size = Vector2i(42, 38)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_63juc")
+tile_proxies/coords_level = [[11, Vector2i(0, 0)], [19, Vector2i(0, 0)], [12, Vector2i(0, 0)], [19, Vector2i(1, 0)], [13, Vector2i(0, 0)], [19, Vector2i(2, 0)], [14, Vector2i(0, 0)], [19, Vector2i(3, 0)], [16, Vector2i(0, 0)], [19, Vector2i(0, 1)], [17, Vector2i(0, 0)], [19, Vector2i(1, 1)], [18, Vector2i(0, 0)], [19, Vector2i(2, 1)], [19, Vector2i(0, 0)], [0, Vector2i(0, 0)], [19, Vector2i(0, 1)], [0, Vector2i(0, 1)], [19, Vector2i(1, 0)], [0, Vector2i(1, 0)], [19, Vector2i(1, 1)], [0, Vector2i(1, 1)], [19, Vector2i(2, 0)], [0, Vector2i(2, 0)], [19, Vector2i(2, 1)], [0, Vector2i(2, 1)], [19, Vector2i(3, 0)], [0, Vector2i(3, 0)], [20, Vector2i(0, 0)], [28, Vector2i(0, 0)], [21, Vector2i(0, 0)], [28, Vector2i(1, 0)], [22, Vector2i(0, 0)], [28, Vector2i(2, 0)], [23, Vector2i(0, 0)], [28, Vector2i(3, 0)], [24, Vector2i(0, 0)], [28, Vector2i(0, 1)], [25, Vector2i(0, 0)], [28, Vector2i(1, 1)], [26, Vector2i(0, 0)], [28, Vector2i(2, 1)], [29, Vector2i(0, 0)], [0, Vector2i(0, 2)], [30, Vector2i(0, 0)], [0, Vector2i(1, 2)], [31, Vector2i(0, 0)], [0, Vector2i(2, 2)]]

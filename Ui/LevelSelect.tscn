@@ -1,0 +1,64 @@
+[gd_scene load_steps=4 format=3 uid="uid://bxv734r6d0msq"]
+
+[ext_resource type="Script" path="res://Ui/LevelSelect/LevelSelect.gd" id="1_t4k1d"]
+[ext_resource type="PackedScene" uid="uid://bqxcehbigqa27" path="res://Ui/Leaderboard/LeaderboardEntry.tscn" id="2_cgwsy"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5e0uy"]
+bg_color = Color(0.413853, 0.635443, 0.736934, 1)
+
+[node name="MarginContainer2" type="MarginContainer"]
+offset_right = 200.0
+offset_bottom = 200.0
+script = ExtResource("1_t4k1d")
+
+[node name="LevelSelect" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_5e0uy")
+
+[node name="MarginContainer" type="MarginContainer" parent="LevelSelect"]
+layout_mode = 2
+
+[node name="VerticalEntrys" type="VBoxContainer" parent="LevelSelect/MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="LevelName" type="HBoxContainer" parent="LevelSelect/MarginContainer/VerticalEntrys"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="Label" type="Label" parent="LevelSelect/MarginContainer/VerticalEntrys/LevelName"]
+layout_mode = 2
+text = "Node name goes here"
+
+[node name="TopPositions" type="VBoxContainer" parent="LevelSelect/MarginContainer/VerticalEntrys"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="LeaderboardEntry1" parent="LevelSelect/MarginContainer/VerticalEntrys/TopPositions" instance=ExtResource("2_cgwsy")]
+layout_mode = 2
+
+[node name="LeaderboardEntry2" parent="LevelSelect/MarginContainer/VerticalEntrys/TopPositions" instance=ExtResource("2_cgwsy")]
+layout_mode = 2
+
+[node name="LeaderboardEntry3" parent="LevelSelect/MarginContainer/VerticalEntrys/TopPositions" instance=ExtResource("2_cgwsy")]
+layout_mode = 2
+
+[node name="HSeparator" type="HSeparator" parent="LevelSelect/MarginContainer/VerticalEntrys"]
+layout_mode = 2
+mouse_filter = 1
+
+[node name="LocalRecord" parent="LevelSelect/MarginContainer/VerticalEntrys" instance=ExtResource("2_cgwsy")]
+layout_mode = 2
+
+[node name="PlayLevel" type="HBoxContainer" parent="LevelSelect/MarginContainer/VerticalEntrys"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+
+[node name="Button" type="Button" parent="LevelSelect/MarginContainer/VerticalEntrys/PlayLevel"]
+layout_mode = 2
+mouse_filter = 1
+text = "play"

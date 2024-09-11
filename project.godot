@@ -17,8 +17,8 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-GameManger="*res://SingletonGameManger.gd"
-LeaderboardManager="*res://SingletonLeaderboardManager.gd"
+GameManger="*res://Scripts/SingletonGameManger.gd"
+LeaderboardManager="*res://Scripts/SingletonLeaderboardManager.gd"
 
 [display]
 
@@ -36,10 +36,12 @@ enabled=PackedStringArray("res://addons/AsepriteWizard/plugin.cfg")
 [file_customization]
 
 folder_colors={
-"res://Entity/": "purple",
-"res://Level/": "blue",
-"res://MainMenu/": "teal",
-"res://ai/": "red"
+"res://Level/Asset/": "purple",
+"res://Level/Environments/": "red",
+"res://Level/Scripts/": "orange",
+"res://Level/Ui/": "teal",
+"res://Scripts/": "orange",
+"res://Ui/": "teal"
 }
 
 [global_group]
@@ -48,7 +50,7 @@ damageable="should implement _take_damage(amount: int, knockback: Vector 2)"
 
 [gui]
 
-theme/custom="res://Master.theme"
+theme/custom="res://Ui/Master.theme"
 
 [input]
 

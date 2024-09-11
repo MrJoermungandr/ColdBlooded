@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=4 uid="uid://bl02ivg1kub5k"]
 
-[ext_resource type="Script" path="res://Level/Level.gd" id="1_qxmr5"]
+[ext_resource type="Script" path="res://Level/Scripts/Level.gd" id="1_qxmr5"]
 [ext_resource type="PackedScene" uid="uid://binwmx30pxpv0" path="res://Entity/player.tscn" id="2_1jrbp"]
 [ext_resource type="Texture2D" uid="uid://djhjbje7s0eqv" path="res://Level/MovementTest/tilemap.png" id="3_6kr4e"]
 [ext_resource type="PackedScene" uid="uid://begacd8q0v2sq" path="res://Level/Asset/Finish.tscn" id="4_34vmi"]
