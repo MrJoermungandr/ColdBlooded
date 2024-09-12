@@ -80,7 +80,7 @@ _data = {
 "attack": SubResource("Animation_y6h0c")
 }
 
-[node name="Dawg" type="CharacterBody2D" groups=["damageable"]]
+[node name="Dawg" type="CharacterBody2D" groups=["damageable", "freezeable"]]
 script = ExtResource("1_ovl54")
 entity_resource = SubResource("Resource_1kyr4")
 

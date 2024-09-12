@@ -17,6 +17,7 @@ signal death
 
 var is_facing_right: bool = false
 var _moved_this_frame: bool = false
+var frozen: bool = false
 
 func _ready():
 	bt_player.blackboard.set_var(&"inital_pos", position)
@@ -30,6 +31,10 @@ func _post_physics_process(delta) -> void:
 			velocity.y += GRAVITY * delta
 		move_and_slide()
 	_moved_this_frame = false
+
+func freeze() -> void:
+	frozen = true	#TODO sprite
+	bt_player.active = false
 
 func is_path_blocked() -> bool:
 	return ray_cast.is_colliding()
@@ -73,6 +78,8 @@ func is_good_position(p_position: Vector2) -> bool:
 	return collision.is_empty()
 
 func _on_detection_zone_body_entered(body: Node2D):
+	if frozen:
+		return
 	if body.is_in_group("player"):
 		bt_player.blackboard.set_var(&"target", body)
 		bt_player.restart()
