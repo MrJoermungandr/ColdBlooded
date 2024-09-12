@@ -1,9 +1,8 @@
-[gd_scene load_steps=17 format=3 uid="uid://biyepj0wc6lid"]
+[gd_scene load_steps=27 format=3 uid="uid://biyepj0wc6lid"]
 
-[ext_resource type="Texture2D" uid="uid://c5v52yx7dpet8" path="res://Entity/Dawg/tile_0002.png" id="1_2gfny"]
 [ext_resource type="Script" path="res://Entity/Scripts/Agent.gd" id="1_ovl54"]
-[ext_resource type="Texture2D" uid="uid://bb8e3reqwvian" path="res://Entity/Dawg/tile_0003.png" id="2_1s38v"]
 [ext_resource type="Script" path="res://Entity/ResourceEntity.gd" id="2_dh287"]
+[ext_resource type="Texture2D" uid="uid://cy32jj50t2pih" path="res://Entity/240912_LizardSnapper.png" id="3_ng8tv"]
 [ext_resource type="Script" path="res://Entity/Scripts/hitbox.gd" id="5_0h4rt"]
 [ext_resource type="Script" path="res://Entity/Scripts/hurtbox.gd" id="6_hbkb7"]
 [ext_resource type="BehaviorTree" uid="uid://bcjevb7coafpp" path="res://ai/trees/dawg.tres" id="7_5anul"]
@@ -13,18 +12,111 @@ script = ExtResource("2_dh287")
 health = 10
 attack_damage = 5
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_unvjb"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_siuvi"]
+atlas = ExtResource("3_ng8tv")
+region = Rect2(0, 96, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ykqcs"]
+atlas = ExtResource("3_ng8tv")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dfm0e"]
+atlas = ExtResource("3_ng8tv")
+region = Rect2(48, 96, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_icjmu"]
+atlas = ExtResource("3_ng8tv")
+region = Rect2(0, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cy326"]
+atlas = ExtResource("3_ng8tv")
+region = Rect2(96, 96, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mw50i"]
+atlas = ExtResource("3_ng8tv")
+region = Rect2(96, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3evgq"]
+atlas = ExtResource("3_ng8tv")
+region = Rect2(144, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wpo7u"]
+atlas = ExtResource("3_ng8tv")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ss7f4"]
+atlas = ExtResource("3_ng8tv")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d5vi1"]
+atlas = ExtResource("3_ng8tv")
+region = Rect2(48, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ik7hh"]
+atlas = ExtResource("3_ng8tv")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_epfhp"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_2gfny")
+"texture": SubResource("AtlasTexture_siuvi")
 }, {
 "duration": 1.0,
-"texture": ExtResource("2_1s38v")
+"texture": SubResource("AtlasTexture_ykqcs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dfm0e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_icjmu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cy326")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mw50i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3evgq")
 }],
 "loop": true,
-"name": &"walk",
-"speed": 5.0
+"name": &"Bite",
+"speed": 12.5
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wpo7u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ykqcs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ss7f4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_icjmu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d5vi1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mw50i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3evgq")
+}],
+"loop": true,
+"name": &"Walk",
+"speed": 12.5
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ik7hh")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w4opf"]
@@ -85,11 +177,24 @@ script = ExtResource("1_ovl54")
 entity_resource = SubResource("Resource_1kyr4")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_unvjb")
-animation = &"walk"
-frame = 1
-frame_progress = 0.322454
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_epfhp")
+animation = &"Bite"
+frame_progress = 0.984791
 flip_h = true
+metadata/_aseprite_wizard_config_ = {
+"layer": "",
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": true,
+"slice": "",
+"source": "res://Entity/Dawg/240912_LizardSnapper.aseprite"
+}
+metadata/_aseprite_wizard_interface_config_ = {
+"layer_section": true
+}
+metadata/_aseprite_wizard_source_file_hash_ = "cbd7d57895819d9cd115e9c514de4348"
 
 [node name="RayCast2D" type="RayCast2D" parent="Sprite"]
 target_position = Vector2(27, 0)
