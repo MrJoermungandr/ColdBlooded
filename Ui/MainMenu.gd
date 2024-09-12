@@ -8,7 +8,7 @@ var Leaderboard=get_node("Middle/Leaderboard")
 func _ready() -> void:
 	Leaderboard.visible=false
 	$SettingsMenu.visible = false
-
+	AudioManager.set_state_main_menu()
 func _on_settings_button_pressed() -> void:
 	$SettingsMenu.visible = true
 	toggle_visibility_of_everythin_except_settings(false)
