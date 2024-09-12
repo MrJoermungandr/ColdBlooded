@@ -10,7 +10,7 @@ var elapsed_time:float=0.:
 	set(value):
 		elapsed_time=value
 		playing_ui.set_elapsed_time(elapsed_time)
-		
+
 
 var coins_in_level:int=0:
 	set(value):
@@ -45,34 +45,34 @@ func _ready() -> void:
 	static_ui_layer.add_child(playing_ui)
 	static_ui_layer.add_child(pause_ui)
 	finish_ui.visible=false
-	
+
 	#if player dies respawn him
 	#SAFETY: array access 0 should be fine since only 1 player is active at a time
 	get_tree().get_nodes_in_group("player")[0].death.connect(respawn_player)
 
-	 
+
 func _process(delta):
 	elapsed_time+=delta
 
 func on_level_finished():
 	var finish_time:float=elapsed_time
-	
+
 	#pause game
-	
+
 	#initialize new run
 	var level_name:String=get_name()
 	var level_run = LevelRun.new()
 	level_run.construct(level_name,finish_time)
 	level_run.set_collected_coins(coins)
 	#TODO maybe manipulate other fields in run
-	
+
 	#register run in GameManager
 	GameManger.submit_new_run(level_run)
 	get_tree().paused = true
 	#show winscreen
 	finish_ui.set_finished(level_run)
-	
-	
+
+
 func register_coin(coin):
 	coin.pickup.connect(register_coin_pickup)
 	coins[coin.global_position]=false
@@ -81,7 +81,7 @@ func register_coin(coin):
 func register_coin_pickup(position:Vector2):
 	coins[position]=true
 	collected_coins+=1
-	
+
 func checkpoint_pickup(new_respawn_position:Vector2):
 	respawn_position=new_respawn_position
 
