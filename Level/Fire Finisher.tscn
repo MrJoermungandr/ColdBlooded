@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://pd556s8m8oy8"]
+
+[ext_resource type="Script" path="res://Level/Scripts/Level.gd" id="1_sxylh"]
+
+[node name="4 Fire Finisher" type="Node2D"]
+script = ExtResource("1_sxylh")

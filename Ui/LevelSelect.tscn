@@ -44,6 +44,9 @@ layout_mode = 2
 size_flags_horizontal = 10
 text = "0"
 
+[node name="HSeparator2" type="HSeparator" parent="LevelSelect/MarginContainer/VerticalEntrys"]
+layout_mode = 2
+
 [node name="TopPositions" type="VBoxContainer" parent="LevelSelect/MarginContainer/VerticalEntrys"]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2

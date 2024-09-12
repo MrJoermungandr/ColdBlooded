@@ -45,6 +45,12 @@ func on_leaderboard_entries_retrieved(result,response_code,headers,body):
 			iter_count+=1
 		if iter_count==3:
 			get_node("LevelSelect/MarginContainer/VerticalEntrys/TopPositions/LeaderboardEntry"+str(iter_count)).queue_free()
+	else:
+		for child in get_node("LevelSelect/MarginContainer/VerticalEntrys/TopPositions").get_children():
+			child.queue_free()
+		var label = Label.new()
+		label.text="Offline"
+		get_node("LevelSelect/MarginContainer/VerticalEntrys/TopPositions").add_child(label)
 
 func on_play_pressed():
 	get_tree().change_scene_to_packed(Level)

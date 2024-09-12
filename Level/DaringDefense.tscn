@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c61igk5y63x15"]
+
+[ext_resource type="Script" path="res://Level/Scripts/Level.gd" id="1_coki6"]
+
+[node name="3 Daring Defense" type="Node2D"]
+script = ExtResource("1_coki6")

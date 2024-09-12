@@ -18,7 +18,7 @@ background_color = Color(0.313726, 0.564706, 0.611765, 1)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3bb4i"]
 size = Vector2(20000, 100)
 
-[node name="Level2" type="Node2D"]
+[node name="2 Heated Hunting" type="Node2D"]
 script = ExtResource("1_oen83")
 
 [node name="Background" parent="." instance=ExtResource("2_waxc0")]

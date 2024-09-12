@@ -50,6 +50,12 @@ func on_leaderboard_entries_retrieved(result,response_code,headers,body):
 			var label=Label.new()
 			label.text="No Records yet"
 			entry_container.add_child(label)
+	else:
+		for child in entry_container.get_children():
+			child.queue_free()
+		var label = Label.new()
+		label.text="Offline"
+		entry_container.add_child(label)
 			
 func on_leaderboard_entries_retrieved_coin_percent(result,response_code,headers,body):
 	if response_code==200:
@@ -68,3 +74,9 @@ func on_leaderboard_entries_retrieved_coin_percent(result,response_code,headers,
 			var label=Label.new()
 			label.text="No Records yet"
 			entry_container_coin_percent.add_child(label)
+	else:
+		for child in entry_container_coin_percent.get_children():
+			child.queue_free()
+		var label = Label.new()
+		label.text="Offline"
+		entry_container_coin_percent.add_child(label)
