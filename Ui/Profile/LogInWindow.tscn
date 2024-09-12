@@ -72,6 +72,7 @@ text = "Password: "
 [node name="LineEdit" type="LineEdit" parent="Panel/MarginContainer/VBoxContainer/Password"]
 layout_mode = 2
 size_flags_horizontal = 3
+secret = true
 
 [node name="Repeat" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -84,6 +85,7 @@ text = "Repeat PW: "
 [node name="LineEdit" type="LineEdit" parent="Panel/MarginContainer/VBoxContainer/Repeat"]
 layout_mode = 2
 size_flags_horizontal = 3
+secret = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer"]
 layout_mode = 2
