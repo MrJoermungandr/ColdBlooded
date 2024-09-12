@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://cy32jj50t2pih" path="res://Entity/240912_LizardSnapper.png" id="3_ng8tv"]
 [ext_resource type="Script" path="res://Entity/Scripts/hitbox.gd" id="5_0h4rt"]
 [ext_resource type="Script" path="res://Entity/Scripts/hurtbox.gd" id="6_hbkb7"]
+[ext_resource type="Texture2D" uid="uid://bqljoliw43o10" path="res://Entity/Dawg/dawg_ice.png" id="6_tfb6y"]
 [ext_resource type="BehaviorTree" uid="uid://bcjevb7coafpp" path="res://ai/trees/dawg.tres" id="7_5anul"]
 
 [sub_resource type="Resource" id="Resource_1kyr4"]
@@ -172,7 +173,7 @@ _data = {
 "attack": SubResource("Animation_y6h0c")
 }
 
-[node name="Dawg" type="CharacterBody2D" groups=["damageable"]]
+[node name="Dawg" type="CharacterBody2D" groups=["damageable", "freezeable"]]
 script = ExtResource("1_ovl54")
 entity_resource = SubResource("Resource_1kyr4")
 
@@ -213,6 +214,10 @@ position = Vector2(20, -1)
 shape = SubResource("RectangleShape2D_w4opf")
 disabled = true
 debug_color = Color(1, 0, 0, 0.419608)
+
+[node name="IceSprite" type="Sprite2D" parent="."]
+position = Vector2(0, -21)
+texture = ExtResource("6_tfb6y")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -1)

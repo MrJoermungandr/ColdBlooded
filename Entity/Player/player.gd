@@ -43,6 +43,11 @@ var is_coyote_completed: bool = false
 @export
 var glide_gravity: float = 80
 
+@export
+var ice_breath_cooldown_seconds: float = 5
+
+var ice_breath_cooldown_timer: Timer
+
 var has_jumped: bool = false
 var has_double_jumped: bool = false
 
@@ -58,6 +63,7 @@ var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var attack_state: LimboState = $LimboHSM/attack
 @onready var idle_state: LimboState = $LimboHSM/idle
 @onready var move_state: LimboState = $LimboHSM/move
+@onready var ice_breath_state: LimboState = $LimboHSM/ice_breath
 
 var is_facing_right = false
 
@@ -75,11 +81,20 @@ func _ready() -> void:
 	add_child(coyote_timer)
 	vertical_pinch_collision.set_deferred("disabled", true)
 	_init_state_machine()
+	ice_breath_cooldown_timer = Timer.new()
+	ice_breath_cooldown_timer.one_shot = true
+	ice_breath_cooldown_timer.wait_time = ice_breath_cooldown_seconds
+	add_child(ice_breath_cooldown_timer)
 
 func _init_state_machine():
 	state_machine.add_transition(idle_state, move_state, &"move_started")
 	state_machine.add_transition(move_state, idle_state, &"move_ended")
 	state_machine.add_transition(state_machine.ANYSTATE, attack_state, &"atk_started")
+
+	state_machine.add_transition(idle_state, ice_breath_state, &"ice_breath_started")
+	state_machine.add_transition(move_state, ice_breath_state, &"ice_breath_started")
+	state_machine.add_transition(ice_breath_state, idle_state, ice_breath_state.EVENT_FINISHED)
+
 	state_machine.add_transition(attack_state, move_state, attack_state.EVENT_FINISHED)
 	state_machine.initial_state = idle_state
 	state_machine.initialize(self)
