@@ -25,14 +25,15 @@ func _ready() -> void:
 	get_node("Panel/MarginContainer/VBoxContainer/Repeat").visible=false
 	
 func on_username_changed(new:String):
-	#TODO validation
 	username=new
 func on_password_changed(new:String):
-	#TODO validation
 	password=new
 	
 func on_pressed_ok():
-	#TODO validation
+	if username == "":
+		return
+	if password=="":
+		return
 	if signup:
 		LeaderboardManager.signup(username,password)
 	else:
