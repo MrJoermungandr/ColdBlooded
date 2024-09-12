@@ -296,6 +296,8 @@ second_jump_time_to_peak = 0.5
 second_jump_time_to_descend = 0.4
 glide_gravity = 130.0
 
+[node name="AkListener2D" type="AkListener2D" parent="."]
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_e5hdi")

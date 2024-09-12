@@ -135,5 +135,7 @@ script = ExtResource("11_6740k")
 layout_mode = 2
 text = "Quit"
 
+[node name="AkListener2D" type="AkListener2D" parent="."]
+
 [connection signal="pressed" from="Settings/Arrange/Button" to="." method="_on_settings_button_pressed"]
 [connection signal="exit" from="SettingsMenu" to="." method="_on_settings_menu_exit"]
