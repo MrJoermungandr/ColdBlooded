@@ -1,6 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://cfyvgx7vxhspj"]
+[gd_scene load_steps=4 format=3 uid="uid://cfyvgx7vxhspj"]
 
 [ext_resource type="Script" path="res://Ui/Credits/CreditScreen.gd" id="1_w071f"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_bx6hd"]
+font_size = 48
+
+[sub_resource type="LabelSettings" id="LabelSettings_2hdex"]
+font_size = 32
 
 [node name="Credits" type="Control"]
 layout_mode = 3
@@ -38,6 +44,7 @@ layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 0
 text = "Credits"
+label_settings = SubResource("LabelSettings_bx6hd")
 
 [node name="Button" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
@@ -47,4 +54,124 @@ text = "X"
 
 [node name="Label" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
 text = "The Team"
+label_settings = SubResource("LabelSettings_2hdex")
+
+[node name="Label5" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Defne Goncü - Sound/Musik Design"
+
+[node name="Label4" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Jake Best - Character Design and Animation"
+
+[node name="Label3" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Jan Notacker - Gameplay/AI Programming"
+
+[node name="Label2" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Kilian Strunz - UI Programming Level Design"
+
+[node name="Label6" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Lukas Pusch - Environment Design"
+
+[node name="Label7" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Tech Stack"
+label_settings = SubResource("LabelSettings_2hdex")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="VSeparator4" type="VSeparator" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+
+[node name="Label8" type="LinkButton" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Godot"
+uri = "https://godotengine.org/"
+
+[node name="VSeparator" type="VSeparator" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+
+[node name="Label9" type="LinkButton" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Aseprite"
+uri = "https://www.aseprite.org/"
+
+[node name="VSeparator2" type="VSeparator" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+
+[node name="Label10" type="LinkButton" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Wwise"
+uri = "https://www.audiokinetic.com/en/wwise/overview/#:~:text=Wwise%2C%20the%20most%20advanced%2C%20feature%2Drich%20interactive%20audio%20solution.&text=Powering%20interactive%20experiences%20and%20real,the%20scale%20of%20your%20project."
+
+[node name="VSeparator3" type="VSeparator" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+
+[node name="Label11" type="LinkButton" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Gimp"
+uri = "https://www.gimp.org/downloads/"
+
+[node name="VSeparator5" type="VSeparator" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+
+[node name="Label12" type="LinkButton" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "LimboAI"
+uri = "https://github.com/limbonaut/limboai"
+
+[node name="VSeparator6" type="VSeparator" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+
+[node name="Label13" type="LinkButton" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Axum"
+uri = "https://github.com/tokio-rs/axum"
+
+[node name="VSeparator7" type="VSeparator" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+
+[node name="Label14" type="LinkButton" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Aseprite Wizard"
+uri = "https://github.com/viniciusgerevini/godot-aseprite-wizard"
+
+[node name="VSeparator8" type="VSeparator" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+
+[node name="Label8" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "External Assets"
+label_settings = SubResource("LabelSettings_2hdex")
+
+[node name="LinkButton" type="LinkButton" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Kenney Fons"
+
+[node name="LinkButton2" type="LinkButton" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Key Art - Globaler Grufti"
+uri = "https://itch.io/profile/globalergrufti"
