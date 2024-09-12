@@ -9,32 +9,36 @@
 
 [node name="Sky" type="Parallax2D" parent="."]
 scroll_scale = Vector2(0.7, 1)
-repeat_size = Vector2(656, 0)
+repeat_size = Vector2(2624, 0)
 autoscroll = Vector2(3.46, 0)
 repeat_times = 5
 
 [node name="Sprite2D" type="Sprite2D" parent="Sky"]
+scale = Vector2(4, 4)
 texture = ExtResource("1_da4ro")
 
 [node name="Background" type="Parallax2D" parent="."]
 scroll_scale = Vector2(0.8, 1)
-repeat_size = Vector2(656, 0)
+repeat_size = Vector2(2624, 0)
 repeat_times = 5
 
 [node name="Sprite2D" type="Sprite2D" parent="Background"]
+scale = Vector2(4, 4)
 texture = ExtResource("1_5mn13")
 
 [node name="Middleground" type="Parallax2D" parent="."]
 scroll_scale = Vector2(0.9, 1)
-repeat_size = Vector2(659, 0)
+repeat_size = Vector2(2636, 0)
 repeat_times = 5
 
 [node name="Sprite2D" type="Sprite2D" parent="Middleground"]
+scale = Vector2(4, 4)
 texture = ExtResource("3_4jy3t")
 
 [node name="Foreground" type="Parallax2D" parent="."]
-repeat_size = Vector2(985, 0)
+repeat_size = Vector2(3940, 0)
 repeat_times = 5
 
 [node name="Sprite2D" type="Sprite2D" parent="Foreground"]
+scale = Vector2(4, 4)
 texture = ExtResource("4_0cvhd")

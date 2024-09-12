@@ -1,7 +1,14 @@
-[gd_resource type="TileSet" load_steps=5 format=3 uid="uid://bpu66q4d61yf"]
+[gd_resource type="TileSet" load_steps=7 format=3 uid="uid://bpu66q4d61yf"]
 
 [ext_resource type="Texture2D" uid="uid://cy34vy881egt6" path="res://Level/Environments/NorthPole/NorthPoleSmall.png" id="1_obccf"]
+[ext_resource type="Texture2D" uid="uid://buslrmbqf3roc" path="res://Level/Environments/NorthPole/Tiles/DreckSmall.png" id="1_psqhn"]
 [ext_resource type="Texture2D" uid="uid://woxx2nklq25f" path="res://Level/Environments/NorthPole/Tiles/OelfassFeuerSmall.png" id="9_kdtco"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8t53m"]
+texture = ExtResource("1_psqhn")
+texture_region_size = Vector2i(28, 25)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-14, -12.5, 14, -12.5, 14, 12.5, -14, 12.5)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_unjmf"]
 texture = ExtResource("1_obccf")
@@ -43,4 +50,5 @@ tile_size = Vector2i(28, 25)
 physics_layer_0/collision_layer = 1
 sources/6 = SubResource("TileSetAtlasSource_aka56")
 sources/14 = SubResource("TileSetAtlasSource_unjmf")
+sources/0 = SubResource("TileSetAtlasSource_8t53m")
 tile_proxies/coords_level = [[0, Vector2i(0, 0)], [13, Vector2i(0, 0)], [1, Vector2i(0, 0)], [13, Vector2i(1, 0)], [2, Vector2i(0, 0)], [13, Vector2i(2, 0)], [3, Vector2i(0, 0)], [13, Vector2i(3, 0)], [4, Vector2i(0, 0)], [13, Vector2i(4, 0)], [5, Vector2i(0, 0)], [13, Vector2i(0, 1)], [7, Vector2i(0, 0)], [14, Vector2i(0, 0)], [8, Vector2i(0, 0)], [14, Vector2i(1, 0)], [9, Vector2i(0, 0)], [13, Vector2i(1, 1)], [11, Vector2i(0, 0)], [13, Vector2i(2, 1)], [12, Vector2i(0, 0)], [13, Vector2i(3, 1)], [13, Vector2i(0, 0)], [14, Vector2i(2, 0)], [13, Vector2i(0, 1)], [14, Vector2i(2, 1)], [13, Vector2i(1, 0)], [14, Vector2i(3, 0)], [13, Vector2i(1, 1)], [14, Vector2i(3, 1)], [13, Vector2i(2, 0)], [14, Vector2i(4, 0)], [13, Vector2i(2, 1)], [14, Vector2i(4, 1)], [13, Vector2i(3, 0)], [14, Vector2i(5, 0)], [13, Vector2i(3, 1)], [14, Vector2i(5, 1)], [13, Vector2i(4, 0)], [14, Vector2i(6, 0)]]

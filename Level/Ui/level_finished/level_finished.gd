@@ -6,6 +6,7 @@ var LevelTime=get_node("Panel/MarginContainer/VBoxContainer/HBoxContainer/Label"
 func _ready() -> void:
 	get_node("Panel/MarginContainer/VBoxContainer2/HBoxContainer/Button").pressed.connect(on_main_menu)
 	get_node("Panel/MarginContainer/VBoxContainer2/HBoxContainer/Button2").pressed.connect(on_retry)
+	get_node("Panel/MarginContainer/VBoxContainer/CoinPercent").visible=false
 
 func on_main_menu():
 	var scene= load("res://MainMenu.tscn")
@@ -15,6 +16,8 @@ func on_main_menu():
 #TODO
 func set_finished(run:LevelRun):
 	LevelTime.text=str(run.level_time).pad_decimals(3)
+	if run.is_coin_percent:
+		get_node("Panel/MarginContainer/VBoxContainer/CoinPercent").visible=true
 	visible=true
 	
 func on_retry():
