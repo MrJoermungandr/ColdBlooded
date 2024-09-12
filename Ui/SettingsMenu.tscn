@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://c8ooqf11406nm"]
+[gd_scene load_steps=5 format=3 uid="uid://c8ooqf11406nm"]
 
 [ext_resource type="Theme" uid="uid://clv6o5db6y2xr" path="res://Ui/SettingsMenuTheme.tres" id="1_535r7"]
 [ext_resource type="Script" path="res://Ui/SettingsMenu/settings_menu.gd" id="1_ig0du"]
 [ext_resource type="PackedScene" uid="uid://berux6u7beh35" path="res://Ui/SettingsMenu/button_remap.tscn" id="3_ba1bm"]
+[ext_resource type="Script" path="res://Ui/SoundSettings.gd" id="4_nhbwq"]
 
 [node name="SettingsMenu" type="MarginContainer"]
 anchors_preset = 15
@@ -24,9 +25,10 @@ alignment = 1
 [node name="TabContainer" type="TabContainer" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-current_tab = 0
+current_tab = 2
 
 [node name="Graphics" type="TabBar" parent="VBoxContainer/TabContainer"]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 
@@ -82,6 +84,54 @@ action = "move_jump"
 [node name="Attack" parent="VBoxContainer/TabContainer/Controls/MarginContainer/VBoxContainer" instance=ExtResource("3_ba1bm")]
 layout_mode = 2
 action = "attack_primary"
+
+[node name="Sound" type="TabBar" parent="VBoxContainer/TabContainer"]
+layout_mode = 2
+script = ExtResource("4_nhbwq")
+metadata/_tab_index = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/TabContainer/Sound"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_535r7")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/TabContainer/Sound/MarginContainer"]
+layout_mode = 2
+
+[node name="MusicVolume" type="RichTextLabel" parent="VBoxContainer/TabContainer/Sound/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "
+ Music Volume:
+"
+fit_content = true
+
+[node name="MusicSlider" type="HSlider" parent="VBoxContainer/TabContainer/Sound/MarginContainer/VBoxContainer"]
+layout_mode = 2
+value = 50.0
+
+[node name="SoundVolume" type="RichTextLabel" parent="VBoxContainer/TabContainer/Sound/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "	
+Sound Volume:"
+fit_content = true
+
+[node name="SoundSlider" type="HSlider" parent="VBoxContainer/TabContainer/Sound/MarginContainer/VBoxContainer"]
+layout_mode = 2
+value = 50.0
+
+[node name="AnnoyanceVolume" type="RichTextLabel" parent="VBoxContainer/TabContainer/Sound/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "	
+How much do you like Mario SFX?:"
+fit_content = true
+
+[node name="AnnoyanceSlider" type="HSlider" parent="VBoxContainer/TabContainer/Sound/MarginContainer/VBoxContainer"]
+layout_mode = 2
+value = 50.0
 
 [node name="BackButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2

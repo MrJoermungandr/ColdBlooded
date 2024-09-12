@@ -9,7 +9,7 @@
 	</RootPaths>
 	<DialogueEvents/>
 	<SoundBanks>
-		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{539DB660-226B-8EC9-C0B9-237F5ABF1303}">
+		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{23F2790E-54FF-C436-118E-73C2DFA221BE}">
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
 			<Plugins>
@@ -25,12 +25,16 @@
 				<GameParameter Id="822163944" Name="SS_Air_RPM"/>
 				<GameParameter Id="1029930033" Name="SS_Air_Fury"/>
 				<GameParameter Id="1351367891" Name="SS_Air_Fear"/>
+				<GameParameter Id="2346531308" Name="MusicVolume"/>
+				<GameParameter Id="2369900608" Name="PausedLowPass"/>
 				<GameParameter Id="2648548617" Name="SS_Air_Month"/>
+				<GameParameter Id="2948158961" Name="AnnoyanceVolume"/>
 				<GameParameter Id="3002758120" Name="SS_Air_Freefall"/>
 				<GameParameter Id="3074696722" Name="SS_Air_Size"/>
 				<GameParameter Id="3203397129" Name="SS_Air_TimeOfDay"/>
 				<GameParameter Id="3715662592" Name="SS_Air_Storm"/>
 				<GameParameter Id="3847924954" Name="SS_Air_Presence"/>
+				<GameParameter Id="3873835272" Name="SoundVolume"/>
 				<GameParameter Id="4160247818" Name="SS_Air_Turbulence"/>
 			</GameParameters>
 			<StateGroups>
@@ -180,10 +184,18 @@
 				</AcousticTexture>
 			</AcousticTextures>
 		</SoundBank>
-		<SoundBank Id="1647770721" Type="User" Language="SFX" Hash="{8377F4C1-15C2-1FA2-E2AF-4B9768C18D05}">
+		<SoundBank Id="1647770721" Type="User" Language="SFX" Hash="{9EF1CAED-A54C-3009-DF79-2F27DE851D45}">
 			<ShortName>Soundbank1</ShortName>
 			<Path>Soundbank1.bnk</Path>
 			<Media>
+				<File Id="14775498" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>lazer_attack.wav</ShortName>
+					<CachePath>SFX/lazer_attack_818F3B66.wem</CachePath>
+				</File>
+				<File Id="33941630" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>ice_blast.wav</ShortName>
+					<CachePath>SFX/ice_blast_818F3B66.wem</CachePath>
+				</File>
 				<File Id="34137502" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>2_Melodie1_perc.wav</ShortName>
 					<CachePath>SFX/2_Melodie1_perc_FBC78EF0.wem</CachePath>
@@ -195,6 +207,10 @@
 				<File Id="124129460" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>LEVEL8_LABS.wav</ShortName>
 					<CachePath>SFX/LEVEL8_LABS_FBC78EF0.wem</CachePath>
+				</File>
+				<File Id="172180609" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>melee_player.wav</ShortName>
+					<CachePath>SFX/melee_player_818F3B66.wem</CachePath>
 				</File>
 				<File Id="227400665" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>5_INTROLcold_tubular.wav</ShortName>
@@ -224,6 +240,18 @@
 					<ShortName>9_bassdrum01.ogg.wav</ShortName>
 					<CachePath>SFX/9_bassdrum01.ogg_FBC78EF0.wem</CachePath>
 				</File>
+				<File Id="405697582" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>left_foot.wav</ShortName>
+					<CachePath>SFX/left_foot_818F3B66.wem</CachePath>
+				</File>
+				<File Id="416686077" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>jump.wav</ShortName>
+					<CachePath>SFX/jump_818F3B66.wem</CachePath>
+				</File>
+				<File Id="476787400" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>coin.wav</ShortName>
+					<CachePath>SFX/coin_818F3B66.wem</CachePath>
+				</File>
 				<File Id="533405117" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>82-120_bass.wav</ShortName>
 					<CachePath>SFX/82-120_bass_FBC78EF0.wem</CachePath>
@@ -231,6 +259,10 @@
 				<File Id="560667452" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>3_Melodie2_perc.wav</ShortName>
 					<CachePath>SFX/3_Melodie2_perc_FBC78EF0.wem</CachePath>
+				</File>
+				<File Id="563210133" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>melee_enemy.wav</ShortName>
+					<CachePath>SFX/melee_enemy_818F3B66.wem</CachePath>
 				</File>
 				<File Id="591635588" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>LEVEL6_bass.wav</ShortName>
@@ -256,6 +288,10 @@
 					<ShortName>1_INTROLMetro_Atmos.wav</ShortName>
 					<CachePath>SFX/1_INTROLMetro_Atmos_FBC78EF0.wem</CachePath>
 				</File>
+				<File Id="828027013" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>player_hit.wav</ShortName>
+					<CachePath>SFX/player_hit_818F3B66.wem</CachePath>
+				</File>
 				<File Id="835914928" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>4_INTROLbass.wav</ShortName>
 					<CachePath>SFX/4_INTROLbass_FBC78EF0.wem</CachePath>
@@ -267,6 +303,14 @@
 				<File Id="932260568" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>LEVEL1_Metro_Atmos.wav</ShortName>
 					<CachePath>SFX/LEVEL1_Metro_Atmos_FBC78EF0.wem</CachePath>
+				</File>
+				<File Id="933573512" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>player_death.wav</ShortName>
+					<CachePath>SFX/player_death_818F3B66.wem</CachePath>
+				</File>
+				<File Id="977684766" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>flame_attack.wav</ShortName>
+					<CachePath>SFX/flame_attack_818F3B66.wem</CachePath>
 				</File>
 				<File Id="1006056377" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>1_perc.wav</ShortName>
@@ -280,8 +324,37 @@
 					<ShortName>2_tubular bells.wav</ShortName>
 					<CachePath>SFX/2_tubular bells_FBC78EF0.wem</CachePath>
 				</File>
+				<File Id="1033244791" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>right_foot.wav</ShortName>
+					<CachePath>SFX/right_foot_818F3B66.wem</CachePath>
+				</File>
 			</Media>
 			<Events>
+				<Event Id="3603273110" Name="Coin">
+					<MediaRefs>
+						<MediaRef Id="476787400"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="3193916302" Name="EnemyFlameBreath">
+					<MediaRefs>
+						<MediaRef Id="977684766"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="4011402401" Name="EnemyLazerBlast">
+					<MediaRefs>
+						<MediaRef Id="14775498"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="1731774001" Name="EnemyMelee">
+					<MediaRefs>
+						<MediaRef Id="563210133"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="3833651337" Name="Jump">
+					<MediaRefs>
+						<MediaRef Id="416686077"/>
+					</MediaRefs>
+				</Event>
 				<Event Id="3991942870" Name="Music">
 					<MediaRefs>
 						<MediaRef Id="245311227"/>
@@ -327,7 +400,43 @@
 						</SwitchContainer>
 					</SwitchContainers>
 				</Event>
+				<Event Id="1656947812" Name="PlayerDeath">
+					<MediaRefs>
+						<MediaRef Id="933573512"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="3831688773" Name="PlayerHit">
+					<MediaRefs>
+						<MediaRef Id="828027013"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="261543715" Name="PlayerIceBlast">
+					<MediaRefs>
+						<MediaRef Id="33941630"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="2424622641" Name="PlayerLeftFoot">
+					<MediaRefs>
+						<MediaRef Id="405697582"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="4225616770" Name="PlayerMelee">
+					<MediaRefs>
+						<MediaRef Id="172180609"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="51740264" Name="PlayerRightFoot">
+					<MediaRefs>
+						<MediaRef Id="1033244791"/>
+					</MediaRefs>
+				</Event>
 			</Events>
+			<GameParameters>
+				<GameParameter Id="2346531308" Name="MusicVolume"/>
+				<GameParameter Id="2369900608" Name="PausedLowPass"/>
+				<GameParameter Id="2948158961" Name="AnnoyanceVolume"/>
+				<GameParameter Id="3873835272" Name="SoundVolume"/>
+			</GameParameters>
 			<StateGroups>
 				<StateGroup Id="4091656514" Name="Gamestate">
 					<States>
@@ -348,5 +457,5 @@
 			</SwitchGroups>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{B50A1095-6F5E-285E-7B1D-928D45ED68FF}</FileHash>
+	<FileHash>{B72A1FBD-09D8-45F3-B542-B486ECD7F990}</FileHash>
 </SoundBanksInfo>
