@@ -22,6 +22,7 @@ KeyPersistence="*res://Scripts/KeyPersistence.gd"
 GameManger="*res://Scripts/SingletonGameManger.gd"
 LeaderboardManager="*res://Scripts/SingletonLeaderboardManager.gd"
 WwiseRuntimeManager="*res://addons/Wwise/runtime/wwise_runtime_manager.gd"
+AudioManager="*res://Scripts/AudioManager.gd"
 
 [display]
 

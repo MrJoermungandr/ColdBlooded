@@ -47,6 +47,7 @@ func on_leaderboard_entries_retrieved(result,response_code,headers,body):
 			get_node("LevelSelect/MarginContainer/VerticalEntrys/TopPositions/LeaderboardEntry"+str(iter_count)).queue_free()
 
 func on_play_pressed():
+	AudioManager.set_state_level()
 	get_tree().change_scene_to_packed(Level)
 	
 func show_leaderboard():
