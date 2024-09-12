@@ -26,7 +26,7 @@ func show_level(level_name:String):
 	var request_coin_percent=HTTPRequest.new()
 	add_child(request_coin_percent)
 	request_coin_percent.request_completed.connect(on_leaderboard_entries_retrieved_coin_percent)
-	request_coin_percent.request(LeaderboardManager.API_URL+"/times/coins"+level_name)
+	request_coin_percent.request(LeaderboardManager.API_URL+"/times/"+level_name+"/coins")
 	
 	await request_coin_percent.request_completed
 	remove_child(request_coin_percent)
@@ -58,6 +58,7 @@ func on_leaderboard_entries_retrieved(result,response_code,headers,body):
 		entry_container.add_child(label)
 			
 func on_leaderboard_entries_retrieved_coin_percent(result,response_code,headers,body):
+	#print(JSON.parse_string(body.get_string_from_utf8()))
 	if response_code==200:
 		for child in entry_container_coin_percent.get_children():
 			entry_container_coin_percent.remove_child(child)

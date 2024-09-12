@@ -45,6 +45,10 @@ func _ready() -> void:
 	static_ui_layer.add_child(playing_ui)
 	static_ui_layer.add_child(pause_ui)
 	finish_ui.visible=false
+	
+	#if player dies respawn him
+	#SAFETY: array access 0 should be fine since only 1 player is active at a time
+	get_tree().get_nodes_in_group("player")[0].death.connect(respawn_player)
 
 	 
 func _process(delta):

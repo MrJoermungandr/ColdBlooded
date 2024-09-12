@@ -7,8 +7,8 @@ var Level: PackedScene = null
 func _ready() -> void:
 	if Level ==null :
 		return
-	var level_name=Level.instantiate().get_name()
-	get_node("LevelSelect/MarginContainer/VerticalEntrys/LevelName/Label").text=level_name
+	var level_name=Level.instantiate().get_name().replace(" ", "_")
+	get_node("LevelSelect/MarginContainer/VerticalEntrys/LevelName/Label").text=level_name.replace("_", " ")
 	get_node("LevelSelect/MarginContainer/VerticalEntrys/PlayLevel/Button").pressed.connect(on_play_pressed)
 	if GameManger.save.runs.has(level_name):
 		get_node("LevelSelect/MarginContainer/VerticalEntrys/LocalRecord").record_time=GameManger.save.runs[level_name].level_time
@@ -58,5 +58,5 @@ func on_play_pressed():
 func show_leaderboard():
 	if Level ==null :
 		return
-	var level_name=Level.instantiate().get_name()
+	var level_name=Level.instantiate().get_name().replace(" ", "_")
 	LeaderboardManager.show_leaderboard(level_name)
