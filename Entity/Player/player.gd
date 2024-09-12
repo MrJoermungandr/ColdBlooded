@@ -148,7 +148,7 @@ func _use_normal_hitbox():
 	normal_collision.set_deferred("disabled", false)
 	vertical_pinch_collision.set_deferred("disabled", true)
 
-func take_damage(amount: int, knockback: Vector2) -> void:
+func take_damage(amount: int) -> void:
 	print("player took damage")
 	if entity_resource.health - amount <= 0:
 		entity_resource.health = 0
@@ -159,7 +159,7 @@ func take_damage(amount: int, knockback: Vector2) -> void:
 		return
 	entity_resource.health -= amount
 	pass
-	
+
 func respawn_player(position:Vector2):
 	#TODO maybe reset health and stuff
 	global_position=position

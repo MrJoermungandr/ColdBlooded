@@ -18,9 +18,6 @@ func _on_area_entered(hitbox: Hitbox) -> void:
 	if hitbox == null or hitbox.owner == owner:
 		return
 	if(owner.has_method(&"take_damage")):	#StringName is faster to compare
-		owner.take_damage(hitbox.entity_resource.attack_damage, _calc_knockback(hitbox))
+		owner.take_damage(hitbox.entity_resource.attack_damage)
 	else:
 		printerr("Attack Target '" + hitbox.owner.name + "' doesn't have take_damage method!")
-
-func _calc_knockback(hitbox: Hitbox) -> Vector2:
-	return Vector2(0.5,0.5) if not hitbox.owner.is_facing_right else Vector2(-0.5, 0.5) # We stan Ternary Statements

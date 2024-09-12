@@ -54,7 +54,7 @@ folder_colors={
 
 [global_group]
 
-damageable="should implement _take_damage(amount: int, knockback: Vector 2)"
+damageable="should implement _take_damage(amount: int)"
 
 [gui]
 
