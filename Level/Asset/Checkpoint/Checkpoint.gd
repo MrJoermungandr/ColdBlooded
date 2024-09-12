@@ -1,11 +1,11 @@
 extends Node2D
 
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	get_node("Area2D").body_entered.connect(on_checkpoint_collected)
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func on_checkpoint_collected(_ja):
+	var count=get_tree().root.get_child_count()
+	var level=get_tree().root.get_child(count-1)
+	level.checkpoint_pickup(global_position)

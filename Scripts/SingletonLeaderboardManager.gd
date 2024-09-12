@@ -14,6 +14,7 @@ signal login_status_changed(is_logged_in:bool)
 @onready
 var auth_header=PackedStringArray():
 	set(value):
+		auth_header=PackedStringArray()
 		var jwt=GameManger.save.jwt
 		auth_header.append("Authorization: Bearer "+jwt)
 		auth_header.append("Content-Type: application/json")
@@ -37,6 +38,8 @@ func _ready():
 func submit_pb(run:LevelRun):
 	if !is_logged_in:
 		return
+	#Update jwt
+	auth_header=PackedStringArray()
 	var request=HTTPRequest.new()
 	add_child(request)
 	request.request_completed.connect(response_test)
@@ -62,10 +65,15 @@ func check_logged_in(result,response_code,headers,body):
 		is_logged_in=true
 	if response_code==202: #ACCEPTED
 		is_logged_in=true
-		pass
 		
 func login(username:String,password:String):
 	post_requester.request_completed.connect(check_logged_in,ConnectFlags.CONNECT_ONE_SHOT)
 	post_requester.request(API_URL+"/auth/login",["Content-Type: application/json"],HTTPClient.METHOD_POST,JSON.stringify(
+	{"username":username,"password":password}))
+	await post_requester.request_completed
+
+func signup(username:String,password:String):
+	post_requester.request_completed.connect(check_logged_in,ConnectFlags.CONNECT_ONE_SHOT)
+	post_requester.request(API_URL+"/auth/signup",["Content-Type: application/json"],HTTPClient.METHOD_POST,JSON.stringify(
 	{"username":username,"password":password}))
 	await post_requester.request_completed

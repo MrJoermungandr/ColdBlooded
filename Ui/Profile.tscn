@@ -21,7 +21,7 @@ size_flags_vertical = 0
 
 [node name="SignUpLogIn" type="Button" parent="HBoxContainer"]
 layout_mode = 2
-text = "Log In"
+text = "Sign Up / Log In"
 
 [node name="LogOut" type="Button" parent="HBoxContainer"]
 layout_mode = 2

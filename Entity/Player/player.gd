@@ -159,3 +159,7 @@ func take_damage(amount: int, knockback: Vector2) -> void:
 		return
 	entity_resource.health -= amount
 	pass
+	
+func respawn_player(position:Vector2):
+	#TODO maybe reset health and stuff
+	global_position=position

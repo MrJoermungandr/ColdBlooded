@@ -25,11 +25,16 @@ var collected_coins:int=0:
 
 var coins:Dictionary
 
+var respawn_position:Vector2=Vector2(0,0)
+
 @onready
 var playing_ui:Control=preload("res://Level/Ui/level_playing.tscn").instantiate()
 
 @onready
 var finish_ui:CenterContainer=preload("res://Level/Ui/level_finished.tscn").instantiate()
+
+@onready
+var pause_ui:CenterContainer=preload("res://Level/Ui/level_paused.tscn").instantiate()
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -38,6 +43,7 @@ func _ready() -> void:
 	add_child(static_ui_layer)
 	static_ui_layer.add_child(finish_ui)
 	static_ui_layer.add_child(playing_ui)
+	static_ui_layer.add_child(pause_ui)
 	finish_ui.visible=false
 
 	 
@@ -72,3 +78,10 @@ func register_coin_pickup(position:Vector2):
 	coins[position]=true
 	collected_coins+=1
 	
+func checkpoint_pickup(new_respawn_position:Vector2):
+	respawn_position=new_respawn_position
+
+
+func respawn_player():
+	#SAFETY: array access 0 should be fine since only 1 player is active at a time
+	get_tree().get_nodes_in_group("player")[0].respawn_player(respawn_position)
