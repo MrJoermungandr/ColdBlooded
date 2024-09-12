@@ -1,6 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://c1qaipsjjdl13"]
+[gd_scene load_steps=16 format=3 uid="uid://c1qaipsjjdl13"]
 
 [ext_resource type="Script" path="res://Ui/MainMenu.gd" id="1_bni3a"]
+[ext_resource type="Texture2D" uid="uid://u27dquk872r7" path="res://Ui/TitleScreen.jpg" id="2_5llm3"]
 [ext_resource type="FontFile" uid="uid://bi5m1ovicc5rf" path="res://Ui/Kenney Blocks.ttf" id="2_7x7ub"]
 [ext_resource type="PackedScene" uid="uid://bngpt0xvcvvgr" path="res://Ui/Profile.tscn" id="2_lryu7"]
 [ext_resource type="PackedScene" uid="uid://bxv734r6d0msq" path="res://Ui/LevelSelect.tscn" id="2_n3grw"]
@@ -10,7 +11,9 @@
 [ext_resource type="PackedScene" uid="uid://pd556s8m8oy8" path="res://Level/Fire Finisher.tscn" id="7_p3gl8"]
 [ext_resource type="PackedScene" uid="uid://dpo3hx60pru4j" path="res://Ui/Leaderboard.tscn" id="9_t7ogp"]
 [ext_resource type="PackedScene" uid="uid://c8ooqf11406nm" path="res://Ui/SettingsMenu.tscn" id="10_hdibp"]
+[ext_resource type="Script" path="res://Ui/Credits.gd" id="10_k4ja3"]
 [ext_resource type="Script" path="res://Ui/quit.gd" id="11_6740k"]
+[ext_resource type="PackedScene" uid="uid://cfyvgx7vxhspj" path="res://Ui/Credits.tscn" id="11_s114b"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_7hrbl"]
 font = ExtResource("2_7x7ub")
@@ -28,6 +31,11 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 2
 script = ExtResource("1_bni3a")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("2_5llm3")
+expand_mode = 2
 
 [node name="Titel" type="Label" parent="."]
 layout_mode = 2
@@ -93,10 +101,12 @@ layout_mode = 2
 
 [node name="Settings" type="MarginContainer" parent="."]
 layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 8
 mouse_filter = 2
+script = ExtResource("10_k4ja3")
 metadata/_edit_use_anchors_ = true
+
+[node name="Credits" parent="Settings" instance=ExtResource("11_s114b")]
+layout_mode = 2
 
 [node name="Arrange" type="HBoxContainer" parent="Settings"]
 layout_direction = 3

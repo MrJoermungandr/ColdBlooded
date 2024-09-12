@@ -4,7 +4,11 @@
 [ext_resource type="PackedScene" uid="uid://bqxcehbigqa27" path="res://Ui/Leaderboard/LeaderboardEntry.tscn" id="2_cgwsy"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5e0uy"]
-bg_color = Color(0.413853, 0.635443, 0.736934, 1)
+bg_color = Color(0.415686, 0.635294, 0.737255, 0.372549)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
 
 [node name="MarginContainer2" type="MarginContainer"]
 offset_right = 200.0

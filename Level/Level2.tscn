@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://707ehuyv6s8i"]
+[gd_scene load_steps=15 format=4 uid="uid://707ehuyv6s8i"]
 
 [ext_resource type="Script" path="res://Level/Scripts/Level.gd" id="1_oen83"]
 [ext_resource type="PackedScene" uid="uid://binwmx30pxpv0" path="res://Entity/player.tscn" id="2_bht7k"]
@@ -8,15 +8,21 @@
 [ext_resource type="PackedScene" uid="uid://biyepj0wc6lid" path="res://Entity/dawg.tscn" id="6_karjk"]
 [ext_resource type="PackedScene" uid="uid://dcsg0ol3dhsx7" path="res://Level/Asset/Coin.tscn" id="7_jvh2q"]
 [ext_resource type="PackedScene" uid="uid://begacd8q0v2sq" path="res://Level/Asset/Finish.tscn" id="8_p467a"]
-[ext_resource type="Script" path="res://Entity/Scripts/hurtbox.gd" id="9_h4s4e"]
 [ext_resource type="PackedScene" uid="uid://boc1xvuxh2gmr" path="res://Level/Asset/Checkpoint.tscn" id="10_7qflo"]
+[ext_resource type="Script" path="res://Entity/Scripts/hitbox.gd" id="10_nn78i"]
+[ext_resource type="Script" path="res://Entity/ResourceEntity.gd" id="11_wq4bt"]
 
 [sub_resource type="Environment" id="Environment_yik13"]
 background_mode = 1
 background_color = Color(0.313726, 0.564706, 0.611765, 1)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_3bb4i"]
-size = Vector2(20000, 100)
+[sub_resource type="Resource" id="Resource_gbq56"]
+script = ExtResource("11_wq4bt")
+health = 1000
+attack_damage = 500
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uhm08"]
+size = Vector2(200000, 200)
 
 [node name="2 Heated Hunting" type="Node2D"]
 script = ExtResource("1_oen83")
@@ -108,9 +114,10 @@ position = Vector2(6266, -605)
 [node name="Coin15" parent="Coins" instance=ExtResource("7_jvh2q")]
 position = Vector2(6708, -816)
 
-[node name="Hurtbox" type="Area2D" parent="."]
-position = Vector2(14, 611)
-script = ExtResource("9_h4s4e")
+[node name="Hitbox" type="Area2D" parent="."]
+script = ExtResource("10_nn78i")
+entity_resource = SubResource("Resource_gbq56")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
-shape = SubResource("RectangleShape2D_3bb4i")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(11, 657)
+shape = SubResource("RectangleShape2D_uhm08")
