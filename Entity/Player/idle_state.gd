@@ -18,5 +18,8 @@ func _update(delta: float) -> void:
 		agent.move_and_slide()
 		dispatch(&"move_started")
 		return
-	if Input.is_action_just_pressed("attack_primary"):
+	if Input.is_action_just_pressed(&"attack_primary"):
 		dispatch(&"atk_started")
+		return
+	if Input.is_action_just_pressed(&"attack_ice_breath"):
+		dispatch(&"ice_breath_started")

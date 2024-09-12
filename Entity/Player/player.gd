@@ -58,6 +58,7 @@ var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var attack_state: LimboState = $LimboHSM/attack
 @onready var idle_state: LimboState = $LimboHSM/idle
 @onready var move_state: LimboState = $LimboHSM/move
+@onready var ice_breath_state: LimboState = $LimboHSM/ice_breath
 
 var is_facing_right = false
 
@@ -80,6 +81,11 @@ func _init_state_machine():
 	state_machine.add_transition(idle_state, move_state, &"move_started")
 	state_machine.add_transition(move_state, idle_state, &"move_ended")
 	state_machine.add_transition(state_machine.ANYSTATE, attack_state, &"atk_started")
+
+	state_machine.add_transition(idle_state, ice_breath_state, &"ice_breath_started")
+	state_machine.add_transition(move_state, ice_breath_state, &"ice_breath_started")
+	state_machine.add_transition(ice_breath_state, idle_state, ice_breath_state.EVENT_FINISHED)
+
 	state_machine.add_transition(attack_state, move_state, attack_state.EVENT_FINISHED)
 	state_machine.initial_state = idle_state
 	state_machine.initialize(self)

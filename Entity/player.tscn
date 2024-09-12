@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://binwmx30pxpv0"]
+[gd_scene load_steps=45 format=3 uid="uid://binwmx30pxpv0"]
 
 [ext_resource type="Script" path="res://Entity/Player/player.gd" id="1_hm2ln"]
 [ext_resource type="Script" path="res://Entity/ResourceEntity.gd" id="2_eg8ip"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" path="res://Entity/Player/idle_state.gd" id="7_u6mp2"]
 [ext_resource type="Script" path="res://Entity/Player/attack_primary_state.gd" id="7_u46eh"]
 [ext_resource type="Script" path="res://Entity/Player/move_state.gd" id="8_flhde"]
+[ext_resource type="Script" path="res://Entity/Player/ice_breath_state.gd" id="11_cpjsi"]
 
 [sub_resource type="Resource" id="Resource_b576n"]
 script = ExtResource("2_eg8ip")
@@ -263,6 +264,18 @@ tracks/1/keys = {
 "update": 1,
 "values": [&"Kick"]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D/IceBreathRayCast/GPUParticles2D:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_cx2j7"]
 resource_name = "attack"
@@ -292,10 +305,43 @@ tracks/1/keys = {
 "values": [&"Kick"]
 }
 
+[sub_resource type="Animation" id="Animation_jp3s6"]
+resource_name = "ice_breath"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D/IceBreathRayCast/GPUParticles2D:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [&"IceBreath", 1.0, false],
+"method": &"play"
+}, {
+"args": [&"IceBreath", 1.0, false],
+"method": &"play"
+}]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_rolf6"]
 _data = {
 "RESET": SubResource("Animation_0y6x3"),
-"attack": SubResource("Animation_cx2j7")
+"attack": SubResource("Animation_cx2j7"),
+"ice_breath": SubResource("Animation_jp3s6")
 }
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
@@ -342,10 +388,11 @@ disabled = true
 debug_color = Color(2.83971e-06, 0.582084, 0.0397779, 0.419608)
 
 [node name="IceBreathRayCast" type="RayCast2D" parent="AnimatedSprite2D"]
-position = Vector2(0, 3)
+position = Vector2(0, 10.555)
 target_position = Vector2(144, 0)
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="AnimatedSprite2D/IceBreathRayCast"]
+position = Vector2(11, 1)
 emitting = false
 amount = 18
 process_material = SubResource("ParticleProcessMaterial_4b367")
@@ -398,3 +445,6 @@ script = ExtResource("8_flhde")
 
 [node name="attack" type="LimboState" parent="LimboHSM"]
 script = ExtResource("7_u46eh")
+
+[node name="ice_breath" type="LimboState" parent="LimboHSM"]
+script = ExtResource("11_cpjsi")
