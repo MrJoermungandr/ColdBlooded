@@ -24,13 +24,13 @@ func set_switch_under50hp():
 	Wwise.set_switch("PlayerHealth","Under50Hp",self)
 
 #GameParameters
-func set_sound_volume(volume: int):
+func set_sound_volume(volume: float):
 	Wwise.set_rtpc_value("SoundVolume",volume,null)
 	Wwise.register_game_obj(self,"Game Object Name")
 	Wwise.post_event("PlayerDeath",self)
-func set_music_volume(volume:int):
+func set_music_volume(volume:float):
 	Wwise.set_rtpc_value("MusicVolume",volume,null)
-func set_annoyance_volume(volume:int):
+func set_annoyance_volume(volume:float):
 	Wwise.set_rtpc_value("AnnoyanceVolume",volume,null)
 	Wwise.register_game_obj(self,"Game Object Name")
 	Wwise.post_event("Jump",self)

@@ -10,11 +10,11 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-func _on_music_slider_changed(value: int):
+func _on_music_slider_changed(value :float):
 	AudioManager.set_music_volume(value)
 
-func _on_sound_slider_changed(value: int):
+func _on_sound_slider_changed(value:float):
 	AudioManager.set_sound_volume(value)
 
-func _on_annoyance_slider_changed(value:int):
+func _on_annoyance_slider_changed(value:float):
 	AudioManager.set_annoyance_volume(value)
