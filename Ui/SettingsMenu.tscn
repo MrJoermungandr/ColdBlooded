@@ -25,10 +25,9 @@ alignment = 1
 [node name="TabContainer" type="TabContainer" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-current_tab = 2
+current_tab = 0
 
 [node name="Graphics" type="TabBar" parent="VBoxContainer/TabContainer"]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 
@@ -86,6 +85,7 @@ layout_mode = 2
 action = "attack_primary"
 
 [node name="Sound" type="TabBar" parent="VBoxContainer/TabContainer"]
+visible = false
 layout_mode = 2
 script = ExtResource("4_nhbwq")
 metadata/_tab_index = 2
@@ -139,4 +139,7 @@ size_flags_horizontal = 4
 text = "Back"
 
 [connection signal="toggled" from="VBoxContainer/TabContainer/Graphics/MarginContainer/VBoxContainer/FullscreenToggle" to="." method="_on_fullscreen_toggle_toggled"]
+[connection signal="value_changed" from="VBoxContainer/TabContainer/Sound/MarginContainer/VBoxContainer/MusicSlider" to="VBoxContainer/TabContainer/Sound" method="_on_music_slider_changed"]
+[connection signal="value_changed" from="VBoxContainer/TabContainer/Sound/MarginContainer/VBoxContainer/SoundSlider" to="VBoxContainer/TabContainer/Sound" method="_on_sound_slider_changed"]
+[connection signal="value_changed" from="VBoxContainer/TabContainer/Sound/MarginContainer/VBoxContainer/AnnoyanceSlider" to="VBoxContainer/TabContainer/Sound" method="_on_annoyance_slider_changed"]
 [connection signal="pressed" from="VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]
