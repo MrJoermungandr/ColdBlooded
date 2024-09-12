@@ -43,6 +43,11 @@ var is_coyote_completed: bool = false
 @export
 var glide_gravity: float = 80
 
+@export
+var ice_breath_cooldown_seconds: float = 5
+
+var ice_breath_cooldown_timer: Timer
+
 var has_jumped: bool = false
 var has_double_jumped: bool = false
 
@@ -76,6 +81,10 @@ func _ready() -> void:
 	add_child(coyote_timer)
 	vertical_pinch_collision.set_deferred("disabled", true)
 	_init_state_machine()
+	ice_breath_cooldown_timer = Timer.new()
+	ice_breath_cooldown_timer.one_shot = true
+	ice_breath_cooldown_timer.wait_time = ice_breath_cooldown_seconds
+	add_child(ice_breath_cooldown_timer)
 
 func _init_state_machine():
 	state_machine.add_transition(idle_state, move_state, &"move_started")
