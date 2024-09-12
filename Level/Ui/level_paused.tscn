@@ -1,0 +1,65 @@
+[gd_scene load_steps=3 format=3 uid="uid://dekm1l6us63sn"]
+
+[ext_resource type="Script" path="res://Level/Ui/level_paused/level_paused.gd" id="1_kv742"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_tr683"]
+font_size = 42
+
+[node name="LevelPaused" type="CenterContainer"]
+process_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_kv742")
+
+[node name="Panel" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "Paused"
+label_settings = SubResource("LabelSettings_tr683")
+
+[node name="Button2" type="Button" parent="Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Resume"
+
+[node name="VSeparator" type="VSplitContainer" parent="Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Button3" type="Button" parent="Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Respawn"
+
+[node name="VSeparator3" type="VSplitContainer" parent="Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Button4" type="Button" parent="Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Restart"
+
+[node name="VSeparator2" type="VSplitContainer" parent="Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Button" type="Button" parent="Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Main Menu"

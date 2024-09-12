@@ -36,6 +36,15 @@ func on_leaderboard_entries_retrieved(result,response_code,headers,body):
 			iter_count+=1
 			if iter_count==3:
 				break
+		#TODO this is super dumb ideially just spawn them in in the above for loop
+		if iter_count==1:
+			get_node("LevelSelect/MarginContainer/VerticalEntrys/TopPositions/LeaderboardEntry"+str(iter_count)).queue_free()
+			iter_count+=1
+		if iter_count==2:
+			get_node("LevelSelect/MarginContainer/VerticalEntrys/TopPositions/LeaderboardEntry"+str(iter_count)).queue_free()
+			iter_count+=1
+		if iter_count==3:
+			get_node("LevelSelect/MarginContainer/VerticalEntrys/TopPositions/LeaderboardEntry"+str(iter_count)).queue_free()
 
 func on_play_pressed():
 	get_tree().change_scene_to_packed(Level)
