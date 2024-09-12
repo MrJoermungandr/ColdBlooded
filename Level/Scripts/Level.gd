@@ -1,10 +1,13 @@
 extends Node2D
 
+var finish_half_point:float=0
+
 @onready
 var finish: Finish:
 	set(value):
 		finish=value
 		finish.level_finished.connect(on_level_finished)
+		finish_half_point=finish.global_position.y/2
 
 var elapsed_time:float=0.:
 	set(value):
@@ -36,6 +39,8 @@ var finish_ui:CenterContainer=preload("res://Level/Ui/level_finished.tscn").inst
 @onready
 var pause_ui:CenterContainer=preload("res://Level/Ui/level_paused.tscn").instantiate()
 
+var player
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	get_tree().paused = false
@@ -49,10 +54,16 @@ func _ready() -> void:
 	#if player dies respawn him
 	#SAFETY: array access 0 should be fine since only 1 player is active at a time
 	get_tree().get_nodes_in_group("player")[0].death.connect(respawn_player)
-
-
+	player=get_tree().get_nodes_in_group("player")[0]
+	
+var already_called=false
 func _process(delta):
 	elapsed_time+=delta
+	
+	#Make unsigned to work in both direcitons
+	if abs(player.global_position.y) > abs(finish_half_point):
+		banger_percussion()
+		already_called=true
 
 func on_level_finished():
 	var finish_time:float=elapsed_time
@@ -89,3 +100,6 @@ func checkpoint_pickup(new_respawn_position:Vector2):
 func respawn_player():
 	#SAFETY: array access 0 should be fine since only 1 player is active at a time
 	get_tree().get_nodes_in_group("player")[0].respawn_player(respawn_position)
+	
+func banger_percussion():
+	pass

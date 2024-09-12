@@ -168,10 +168,17 @@ label_settings = SubResource("LabelSettings_2hdex")
 [node name="LinkButton" type="LinkButton" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
-text = "Kenney Fons"
+text = "Kenney Fonts"
+uri = "https://kenney.nl/assets/kenney-fonts"
 
 [node name="LinkButton2" type="LinkButton" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Key Art - Globaler Grufti"
 uri = "https://itch.io/profile/globalergrufti"
+
+[node name="LinkButton3" type="LinkButton" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Coin Sprite"
+uri = "https://opengameart.org/content/rotating-coin"
