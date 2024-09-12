@@ -8,6 +8,7 @@ var GRAVITY = ProjectSettings.get_setting("physics/2d/default_gravity") # appare
 
 @onready var sprite: AnimatedSprite2D = $Sprite
 var _frames_since_facing_update: int = 0
+@onready var ice_sprite: Sprite2D = $IceSprite
 
 signal death
 
@@ -20,6 +21,7 @@ var _moved_this_frame: bool = false
 var frozen: bool = false
 
 func _ready():
+	ice_sprite.visible = false
 	bt_player.blackboard.set_var(&"inital_pos", position)
 
 func _physics_process(delta):
@@ -33,7 +35,8 @@ func _post_physics_process(delta) -> void:
 	_moved_this_frame = false
 
 func freeze() -> void:
-	frozen = true	#TODO sprite
+	frozen = true
+	ice_sprite.visible = true
 	bt_player.active = false
 
 func is_path_blocked() -> bool:
