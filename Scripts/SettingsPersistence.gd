@@ -13,7 +13,7 @@ var use_fullscreen: bool:
 func _ready():
 	load_settings()
 	if use_fullscreen:
-		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN)
 
 func load_settings():
 	if not FileAccess.file_exists(settings_path):

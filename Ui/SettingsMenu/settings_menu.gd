@@ -15,6 +15,6 @@ func _on_back_button_pressed() -> void:
 func _on_fullscreen_toggle_toggled(toggled_on: bool) -> void:
 	SettingsPersistence.use_fullscreen = toggled_on
 	if toggled_on:
-		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN)
 	else:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
