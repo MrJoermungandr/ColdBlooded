@@ -43,7 +43,7 @@ func submit_pb(run:LevelRun):
 	var request=HTTPRequest.new()
 	add_child(request)
 	request.request_completed.connect(response_test)
-	request.request(API_URL+"/times/submit/"+run.level_name,auth_header,HTTPClient.METHOD_POST,JSON.stringify({"level_time":run.level_time}))
+	request.request(API_URL+"/times/submit/"+run.level_name,auth_header,HTTPClient.METHOD_POST,JSON.stringify({"level_time":run.level_time,"is_coin_peprcent":run.is_coin_percent}))
 	await request.request_completed
 
 func response_test(result,response_code,headers,body):
