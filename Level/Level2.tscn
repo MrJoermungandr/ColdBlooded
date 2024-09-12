@@ -14,7 +14,7 @@
 
 [sub_resource type="Environment" id="Environment_yik13"]
 background_mode = 1
-background_color = Color(0.313726, 0.564706, 0.611765, 1)
+background_color = Color(0.154868, 0.0967931, 0.197616, 1)
 
 [sub_resource type="Resource" id="Resource_gbq56"]
 script = ExtResource("11_wq4bt")
