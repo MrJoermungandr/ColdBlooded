@@ -61,6 +61,9 @@ var animation_player: AnimationPlayer = $AnimationPlayer
 
 var is_facing_right = false
 
+@onready
+var _inital_health = entity_resource.health
+
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
 signal death
@@ -149,17 +152,19 @@ func _use_normal_hitbox():
 	vertical_pinch_collision.set_deferred("disabled", true)
 
 func take_damage(amount: int) -> void:
-	print("player took damage")
 	if entity_resource.health - amount <= 0:
 		entity_resource.health = 0
 		death.emit() # TODO proper death handling
 		state_machine.set_active(false)
 		$Label.text = "dead"
-		print("player dead")
 		return
 	entity_resource.health -= amount
-	pass
 
 func respawn_player(position:Vector2):
-	#TODO maybe reset health and stuff
 	global_position=position
+	entity_resource.health = _inital_health
+	velocity = Vector2.ZERO
+	reactivate_state_machine.call_deferred()
+
+func reactivate_state_machine():
+	state_machine.set_active(true)
