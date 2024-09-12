@@ -17,7 +17,7 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_7hrbl"]
 font = ExtResource("2_7x7ub")
-font_size = 42
+font_size = 48
 shadow_size = 0
 
 [node name="MainMenu" type="MarginContainer"]
