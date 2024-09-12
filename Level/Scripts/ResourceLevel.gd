@@ -23,7 +23,7 @@ var is_coin_percent:bool=false
 var coins:Dictionary
 
 func construct(name:String,time:float):
-	level_name=name
+	level_name=name.replace(" ", "_")
 	level_time=time
 	var input=time_string+str(time)+level_name
 	time_hash=hash(input)

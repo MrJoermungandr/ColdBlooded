@@ -7,8 +7,8 @@ var Level: PackedScene = null
 func _ready() -> void:
 	if Level ==null :
 		return
-	var level_name=Level.instantiate().get_name()
-	get_node("LevelSelect/MarginContainer/VerticalEntrys/LevelName/Label").text=level_name
+	var level_name=Level.instantiate().get_name().replace(" ", "_")
+	get_node("LevelSelect/MarginContainer/VerticalEntrys/LevelName/Label").text=level_name.replace("_", " ")
 	get_node("LevelSelect/MarginContainer/VerticalEntrys/PlayLevel/Button").pressed.connect(on_play_pressed)
 	if GameManger.save.runs.has(level_name):
 		get_node("LevelSelect/MarginContainer/VerticalEntrys/LocalRecord").record_time=GameManger.save.runs[level_name].level_time
@@ -45,6 +45,12 @@ func on_leaderboard_entries_retrieved(result,response_code,headers,body):
 			iter_count+=1
 		if iter_count==3:
 			get_node("LevelSelect/MarginContainer/VerticalEntrys/TopPositions/LeaderboardEntry"+str(iter_count)).queue_free()
+	else:
+		for child in get_node("LevelSelect/MarginContainer/VerticalEntrys/TopPositions").get_children():
+			child.queue_free()
+		var label = Label.new()
+		label.text="Offline"
+		get_node("LevelSelect/MarginContainer/VerticalEntrys/TopPositions").add_child(label)
 
 func on_play_pressed():
 	AudioManager.set_state_level()
@@ -53,5 +59,5 @@ func on_play_pressed():
 func show_leaderboard():
 	if Level ==null :
 		return
-	var level_name=Level.instantiate().get_name()
+	var level_name=Level.instantiate().get_name().replace(" ", "_")
 	LeaderboardManager.show_leaderboard(level_name)

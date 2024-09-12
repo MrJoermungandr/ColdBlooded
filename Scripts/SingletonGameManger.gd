@@ -20,6 +20,8 @@ func _ready():
 func submit_new_run(run:LevelRun):
 	#TODO update the other params like coins
 	
+	#submit the run to leaderboard
+	LeaderboardManager.submit_pb(run)
 	
 	#if its a new pb then submit
 	if save.runs.has(run.level_name):
@@ -42,8 +44,5 @@ func submit_new_run(run:LevelRun):
 	else:
 		save.runs[run.level_name]=run
 	
-	#submit the run to leaderboard
-	LeaderboardManager.submit_pb(run)
-	print("jaaaa")
 	#finally save resource
 	ResourceSaver.save(save)

@@ -12,7 +12,7 @@
 background_mode = 1
 background_color = Color(0.243137, 0.576471, 0.803922, 1)
 
-[node name="Level1" type="Node2D"]
+[node name="1 Cold Carnage" type="Node2D"]
 script = ExtResource("1_6n3cb")
 
 [node name="Background" parent="." instance=ExtResource("3_3ne41")]
@@ -21,7 +21,7 @@ position = Vector2(0, -52.115)
 [node name="Player" parent="." instance=ExtResource("2_ei7nv")]
 
 [node name="Finish" parent="." instance=ExtResource("4_dbkcu")]
-position = Vector2(515, -36)
+position = Vector2(94, -114)
 
 [node name="Checkpoint" parent="." instance=ExtResource("5_ug2k1")]
 position = Vector2(229, -22)
@@ -32,7 +32,7 @@ environment = SubResource("Environment_f5ie6")
 [node name="WorkaroundForBackground" type="Camera3D" parent="."]
 
 [node name="Coin" parent="." instance=ExtResource("6_d7i11")]
-position = Vector2(314, -38)
+position = Vector2(89, -9)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 tile_map_data = PackedByteArray("AAD//wEADgABAAAAAAAAAAEADgABAAAAAAABAAEADgABAAAAAAD//wIADgAAAAAAAAAAAAIADgAAAAAAAAABAAIADgAAAAAAAAA=")
