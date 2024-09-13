@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://c2herjuy21cx5"]
+[gd_scene load_steps=23 format=3 uid="uid://c2herjuy21cx5"]
 
 [ext_resource type="Script" path="res://Entity/LizardScientist/lizard_scientist.gd" id="1_j6r1t"]
 [ext_resource type="Texture2D" uid="uid://dbrgvqh8cs72x" path="res://Entity/LizardScientist/fire_particle.png" id="2_7k07m"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cljnakjee26rm" path="res://Entity/240913_ScienceLizard.png" id="3_ivfdk"]
 [ext_resource type="Script" path="res://Entity/Scripts/hitbox.gd" id="5_gictl"]
 [ext_resource type="Script" path="res://Entity/Scripts/hurtbox.gd" id="6_dt54l"]
+[ext_resource type="Texture2D" uid="uid://2gvarng7dil0" path="res://Entity/LizardScientist/LizardIce.png" id="6_mgd5w"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_k8w8m"]
 atlas = ExtResource("3_ivfdk")
@@ -152,15 +153,15 @@ _data = {
 "attack": SubResource("Animation_7ai40")
 }
 
-[node name="LizardScientist" type="CharacterBody2D"]
+[node name="LizardScientist" type="CharacterBody2D" groups=["damageable", "freezeable"]]
 script = ExtResource("1_j6r1t")
 entity_resource = ExtResource("2_88q3f")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_ftsjt")
-animation = &"fireBreath"
-frame_progress = 0.200955
+animation = &"idle"
+frame_progress = 0.996566
 flip_h = true
 metadata/_aseprite_wizard_config_ = {
 "layer": "",
@@ -200,6 +201,11 @@ entity_resource = ExtResource("2_88q3f")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sprite/Hitbox"]
 polygon = PackedVector2Array(0, 0, 162, 30, 162, -50)
 disabled = true
+
+[node name="IceSprite" type="Sprite2D" parent="Sprite"]
+visible = false
+texture = ExtResource("6_mgd5w")
+flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 6)

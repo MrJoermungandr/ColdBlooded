@@ -55,11 +55,11 @@ func _ready() -> void:
 	#SAFETY: array access 0 should be fine since only 1 player is active at a time
 	get_tree().get_nodes_in_group("player")[0].death.connect(respawn_player)
 	player=get_tree().get_nodes_in_group("player")[0]
-	
+
 var already_called=false
 func _process(delta):
 	elapsed_time+=delta
-	
+
 	#Make unsigned to work in both direcitons
 	if abs(player.global_position.y) > abs(finish_half_point):
 		banger_percussion()
@@ -100,6 +100,6 @@ func checkpoint_pickup(new_respawn_position:Vector2):
 func respawn_player():
 	#SAFETY: array access 0 should be fine since only 1 player is active at a time
 	get_tree().get_nodes_in_group("player")[0].respawn_player(respawn_position)
-	
+
 func banger_percussion():
 	pass

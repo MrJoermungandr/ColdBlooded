@@ -72,8 +72,9 @@ func _on_patrol_timer_timeout():
 		face_dir(-1 if is_facing_right else 1)
 		patrol_timer.start()
 
-func _on_frozen_enter():#TODO ice cube
-	pass
+func _on_frozen_enter():
+	$Sprite/IceSprite.visible = true
+	sprite.stop()
 
 func _on_player_detect_area_body_entered(body: Node2D) -> void:
 	var active_state = hsm.get_active_state()
@@ -81,7 +82,7 @@ func _on_player_detect_area_body_entered(body: Node2D) -> void:
 		return
 	hsm.dispatch(&"attack_started")
 
-func _take_damage(amount: int, type: EntityResource.dmg_type):
+func take_damage(amount: int, type: EntityResource.dmg_type):
 	if type == 1 and hsm.get_active_state() == frozen_state:
 		death.emit() #TODO particle fx
 		queue_free()
@@ -92,3 +93,6 @@ func _take_damage(amount: int, type: EntityResource.dmg_type):
 		queue_free()
 		return
 	entity_resource.health -= amount
+
+func freeze() -> void:
+	hsm.dispatch(&"frozen_started")
