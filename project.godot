@@ -55,7 +55,7 @@ folder_colors={
 
 [global_group]
 
-damageable="should implement _take_damage(amount: int, type: EntityResource.dmg_type)"
+damageable="should implement take_damage(amount: int, type: EntityResource.dmg_type)"
 freezeable="can be freezed and should implement freeze()"
 
 [gui]
@@ -123,6 +123,7 @@ attack_pierce={
 
 2d_physics/layer_1="World"
 2d_physics/layer_2="DamageInteraction"
+2d_physics/layer_3="Player"
 
 [rendering]
 
