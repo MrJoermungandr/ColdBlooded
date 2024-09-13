@@ -18,6 +18,9 @@ func _update(delta: float) -> void:
 	if Input.is_action_just_pressed(&"attack_ice_breath"):
 		dispatch(&"ice_breath_started")
 		return
+	if Input.is_action_just_pressed(&"attack_pierce"):
+		dispatch(&"pierce_attack_started")
+		return
 	agent.move_and_slide()
 	if agent.velocity.is_zero_approx() and is_on_ground:
 		dispatch(&"move_ended")

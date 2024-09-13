@@ -23,3 +23,6 @@ func _update(delta: float) -> void:
 		return
 	if Input.is_action_just_pressed(&"attack_ice_breath"):
 		dispatch(&"ice_breath_started")
+		return
+	if Input.is_action_just_pressed(&"attack_pierce"):
+		dispatch(&"pierce_attack_started")

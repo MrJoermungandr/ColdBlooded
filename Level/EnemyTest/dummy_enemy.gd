@@ -9,7 +9,7 @@ var label: Label = $Label
 func _process(_delta: float) -> void:
 	label.text = str(entity_resource.health)
 
-func take_damage(amount: int):
+func take_damage(amount: int, type: EntityResource.dmg_type):
 	if entity_resource.health - amount <= 0:
 		queue_free()
 	else:

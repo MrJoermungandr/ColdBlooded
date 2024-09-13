@@ -54,7 +54,7 @@ folder_colors={
 
 [global_group]
 
-damageable="should implement _take_damage(amount: int)"
+damageable="should implement _take_damage(amount: int, type: EntityResource.dmg_type)"
 freezeable="can be freezed and should implement freeze()"
 
 [gui]

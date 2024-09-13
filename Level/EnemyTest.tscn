@@ -255,6 +255,7 @@ sources/0 = SubResource("TileSetAtlasSource_yg0h4")
 script = ExtResource("6_whugy")
 health = 10
 attack_damage = 5
+attack_type = 0
 
 [node name="EnemyTest" type="Node2D"]
 script = ExtResource("1_qxmr5")

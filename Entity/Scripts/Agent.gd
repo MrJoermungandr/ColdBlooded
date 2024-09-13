@@ -4,6 +4,8 @@ extends CharacterBody2D
 @export
 var entity_resource: EntityResource
 
+var ice_death_particles: PackedScene = preload("res://Entity/ice_death_particles.tscn")
+
 var GRAVITY = ProjectSettings.get_setting("physics/2d/default_gravity") # apparently this can't be a
 
 @onready var sprite: AnimatedSprite2D = $Sprite
@@ -49,10 +51,17 @@ func move(new_velocity: Vector2, delta: float) -> void:
 	move_and_slide()
 	_moved_this_frame = true
 
-func take_damage(amount: int): #TODO maybe need to do something with state
+func take_damage(amount: int, type: EntityResource.dmg_type): #TODO maybe need to do something with state
+	if(frozen and type == EntityResource.dmg_type.PIERCE):
+		death.emit()
+		var death_particles: GPUParticles2D = ice_death_particles.instantiate()
+		get_tree().root.add_child(death_particles)
+		death_particles.global_position = global_position
+		death_particles.emitting = true
+		queue_free()
 	if entity_resource.health - amount <= 0:
 		death.emit()
-		queue_free() #TODO proper dying
+		queue_free()
 	entity_resource.health -= amount
 
 func update_facing() -> void:
