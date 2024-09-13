@@ -1,7 +1,7 @@
-[gd_scene load_steps=47 format=3 uid="uid://binwmx30pxpv0"]
+[gd_scene load_steps=45 format=3 uid="uid://binwmx30pxpv0"]
 
 [ext_resource type="Script" path="res://Entity/Player/player.gd" id="1_hm2ln"]
-[ext_resource type="Script" path="res://Entity/ResourceEntity.gd" id="2_eg8ip"]
+[ext_resource type="Resource" uid="uid://cxlymnpa4rlda" path="res://Entity/Player/player_resource.tres" id="2_km8od"]
 [ext_resource type="Texture2D" uid="uid://dcofepyov4dtd" path="res://Entity/240909_Penguin_Final.png" id="3_rpl5y"]
 [ext_resource type="Script" path="res://Entity/Scripts/hitbox.gd" id="4_0157h"]
 [ext_resource type="Texture2D" uid="uid://baxy5h422a2ut" path="res://Entity/Player/ice_particle.png" id="5_6per8"]
@@ -12,11 +12,6 @@
 [ext_resource type="Script" path="res://Entity/Player/move_state.gd" id="8_flhde"]
 [ext_resource type="Script" path="res://Entity/Player/ice_breath_state.gd" id="11_cpjsi"]
 [ext_resource type="Script" path="res://Entity/Player/pierce_state.gd" id="12_tb0c8"]
-
-[sub_resource type="Resource" id="Resource_b576n"]
-script = ExtResource("2_eg8ip")
-health = 10
-attack_damage = 5
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_us5va"]
 atlas = ExtResource("3_rpl5y")
@@ -208,11 +203,6 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="Resource" id="Resource_v4dkc"]
-script = ExtResource("2_eg8ip")
-health = 10
-attack_damage = 5
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jidqh"]
 size = Vector2(26, 10)
 
@@ -377,7 +367,7 @@ _data = {
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 position = Vector2(0, -14.555)
 script = ExtResource("1_hm2ln")
-entity_resource = SubResource("Resource_b576n")
+entity_resource = ExtResource("2_km8od")
 speed = 250
 jump_height_px = 80.0
 second_jump_height_px = 80.0
@@ -409,7 +399,7 @@ metadata/_aseprite_wizard_source_file_hash_ = "0ff1b8b3268b3ac4c87746195d0f0762"
 
 [node name="Hitbox" type="Area2D" parent="AnimatedSprite2D"]
 script = ExtResource("4_0157h")
-entity_resource = SubResource("Resource_v4dkc")
+entity_resource = ExtResource("2_km8od")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/Hitbox"]
 position = Vector2(13, 19)

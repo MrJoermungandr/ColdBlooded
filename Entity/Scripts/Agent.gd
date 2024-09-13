@@ -49,7 +49,10 @@ func move(new_velocity: Vector2, delta: float) -> void:
 	move_and_slide()
 	_moved_this_frame = true
 
-func take_damage(amount: int): #TODO maybe need to do something with state
+func take_damage(amount: int, type: EntityResource.dmg_type): #TODO maybe need to do something with state
+	if(frozen and type == EntityResource.dmg_type.PIERCE):
+		death.emit()
+		queue_free() #TODO emit particles
 	if entity_resource.health - amount <= 0:
 		death.emit()
 		queue_free() #TODO proper dying

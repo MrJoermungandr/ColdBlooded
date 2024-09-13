@@ -18,6 +18,6 @@ func _on_area_entered(hitbox: Hitbox) -> void:
 	if hitbox == null or hitbox.owner == owner:
 		return
 	if(owner.has_method(&"take_damage")):	#StringName is faster to compare
-		owner.take_damage(hitbox.entity_resource.attack_damage)
+		owner.take_damage(hitbox.entity_resource.attack_damage, hitbox.entity_resource.attack_type)
 	else:
 		printerr("Attack Target '" + hitbox.owner.name + "' doesn't have take_damage method!")

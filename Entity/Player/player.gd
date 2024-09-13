@@ -171,7 +171,7 @@ func _use_normal_hitbox():
 	normal_collision.set_deferred("disabled", false)
 	vertical_pinch_collision.set_deferred("disabled", true)
 
-func take_damage(amount: int) -> void:
+func take_damage(amount: int, type: EntityResource.dmg_type) -> void:
 	if entity_resource.health - amount <= 0:
 		entity_resource.health = 0
 		death.emit() # TODO proper death handling

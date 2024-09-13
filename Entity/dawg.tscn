@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://biyepj0wc6lid"]
+[gd_scene load_steps=28 format=3 uid="uid://biyepj0wc6lid"]
 
 [ext_resource type="Script" path="res://Entity/Scripts/Agent.gd" id="1_ovl54"]
 [ext_resource type="Script" path="res://Entity/ResourceEntity.gd" id="2_dh287"]
@@ -12,6 +12,7 @@
 script = ExtResource("2_dh287")
 health = 10
 attack_damage = 5
+attack_type = 0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_siuvi"]
 atlas = ExtResource("3_ng8tv")
