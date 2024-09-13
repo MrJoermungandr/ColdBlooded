@@ -45,19 +45,20 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_vma84")
 
 [node name="Checkpoints" type="Node2D" parent="."]
 
-[node name="Checkpoint" parent="Checkpoints" instance=ExtResource("5_ug2k1")]
-position = Vector2(0, 6)
-
 [node name="Checkpoint2" parent="Checkpoints" instance=ExtResource("5_ug2k1")]
-position = Vector2(2052, -37)
-
-[node name="Checkpoint3" parent="Checkpoints" instance=ExtResource("5_ug2k1")]
-position = Vector2(4766, -608)
+position = Vector2(2053, -25)
 
 [node name="Checkpoint4" parent="Checkpoints" instance=ExtResource("5_ug2k1")]
-position = Vector2(6765, -150)
+position = Vector2(6766, -138)
+
+[node name="Checkpoint3" parent="Checkpoints" instance=ExtResource("5_ug2k1")]
+position = Vector2(4750, -595)
+
+[node name="Checkpoint" parent="Checkpoints" instance=ExtResource("5_ug2k1")]
+position = Vector2(-160, 13)
 
 [node name="Player" parent="." instance=ExtResource("2_ei7nv")]
+position = Vector2(-164, -69)
 
 [node name="Finish" parent="." instance=ExtResource("4_dbkcu")]
 position = Vector2(9167, -376)
@@ -143,6 +144,7 @@ position = Vector2(1940, -141)
 position = Vector2(2032, -141)
 
 [node name="Hitbox" type="Area2D" parent="."]
+position = Vector2(24, -1)
 script = ExtResource("9_udhgs")
 entity_resource = SubResource("Resource_1vdx4")
 
