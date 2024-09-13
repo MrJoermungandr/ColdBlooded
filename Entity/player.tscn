@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://binwmx30pxpv0"]
+[gd_scene load_steps=47 format=3 uid="uid://binwmx30pxpv0"]
 
 [ext_resource type="Script" path="res://Entity/Player/player.gd" id="1_hm2ln"]
 [ext_resource type="Script" path="res://Entity/ResourceEntity.gd" id="2_eg8ip"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" path="res://Entity/Player/attack_primary_state.gd" id="7_u46eh"]
 [ext_resource type="Script" path="res://Entity/Player/move_state.gd" id="8_flhde"]
 [ext_resource type="Script" path="res://Entity/Player/ice_breath_state.gd" id="11_cpjsi"]
+[ext_resource type="Script" path="res://Entity/Player/pierce_state.gd" id="12_tb0c8"]
 
 [sub_resource type="Resource" id="Resource_b576n"]
 script = ExtResource("2_eg8ip")
@@ -262,7 +263,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [&"Kick"]
+"values": [&"idle"]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -337,11 +338,40 @@ tracks/1/keys = {
 }]
 }
 
+[sub_resource type="Animation" id="Animation_dgeld"]
+resource_name = "pierce"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D/Hitbox/CollisionShape2D:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.433333, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, false, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Pierce"]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_rolf6"]
 _data = {
 "RESET": SubResource("Animation_0y6x3"),
 "attack": SubResource("Animation_cx2j7"),
-"ice_breath": SubResource("Animation_jp3s6")
+"ice_breath": SubResource("Animation_jp3s6"),
+"pierce": SubResource("Animation_dgeld")
 }
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
@@ -360,7 +390,7 @@ glide_gravity = 130.0
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_e5hdi")
-animation = &"Kick"
+animation = &"idle"
 metadata/_aseprite_wizard_config_ = {
 "layer": "",
 "o_ex_p": "",
@@ -448,3 +478,6 @@ script = ExtResource("7_u46eh")
 
 [node name="ice_breath" type="LimboState" parent="LimboHSM"]
 script = ExtResource("11_cpjsi")
+
+[node name="pierce_attack" type="LimboState" parent="LimboHSM"]
+script = ExtResource("12_tb0c8")
