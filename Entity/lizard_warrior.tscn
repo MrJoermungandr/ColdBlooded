@@ -1,0 +1,250 @@
+[gd_scene load_steps=23 format=3 uid="uid://b3vh1e40rek0k"]
+
+[ext_resource type="Script" path="res://Entity/LizardScientist/lizard_scientist.gd" id="1_0hs6o"]
+[ext_resource type="Resource" uid="uid://bmvqcf48va72" path="res://Entity/LizardScientist/LizardScientistResource.tres" id="2_50uf2"]
+[ext_resource type="Texture2D" uid="uid://b8b5ul83jf8ol" path="res://Entity/240913_WarriorLizard.png" id="3_nqp0d"]
+[ext_resource type="Texture2D" uid="uid://dbrgvqh8cs72x" path="res://Entity/LizardScientist/fire_particle.png" id="4_or4b7"]
+[ext_resource type="Script" path="res://Entity/Scripts/hitbox.gd" id="5_bu68n"]
+[ext_resource type="Texture2D" uid="uid://2gvarng7dil0" path="res://Entity/LizardScientist/LizardIce.png" id="6_fyg3s"]
+[ext_resource type="Script" path="res://Entity/Scripts/hurtbox.gd" id="7_c0fry"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_13dke"]
+atlas = ExtResource("3_nqp0d")
+region = Rect2(48, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iy2nv"]
+atlas = ExtResource("3_nqp0d")
+region = Rect2(96, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f18kg"]
+atlas = ExtResource("3_nqp0d")
+region = Rect2(0, 96, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m3kmk"]
+atlas = ExtResource("3_nqp0d")
+region = Rect2(48, 96, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l5qes"]
+atlas = ExtResource("3_nqp0d")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2vuyk"]
+atlas = ExtResource("3_nqp0d")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qoodq"]
+atlas = ExtResource("3_nqp0d")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_to3by"]
+atlas = ExtResource("3_nqp0d")
+region = Rect2(0, 48, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4vgmg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_13dke")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iy2nv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f18kg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m3kmk")
+}],
+"loop": true,
+"name": &"blast",
+"speed": 6.25
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l5qes")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2vuyk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qoodq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_to3by")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 6.25
+}]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_7s273"]
+particle_flag_disable_z = true
+spread = 16.364
+initial_velocity_min = 174.11
+initial_velocity_max = 194.2
+gravity = Vector3(0, 0, 0)
+hue_variation_min = -0.03
+hue_variation_max = 0.2
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2vmtn"]
+height = 36.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ltwpo"]
+radius = 13.0
+height = 44.0
+
+[sub_resource type="Animation" id="Animation_iylps"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite/GPUParticles2D:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite/Hitbox/CollisionPolygon2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite:animation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"idle"]
+}
+
+[sub_resource type="Animation" id="Animation_7ai40"]
+resource_name = "attack"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite/GPUParticles2D:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite/Hitbox/CollisionPolygon2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.433333, 0.466667, 0.966667, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [true, true, false, false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite:animation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"fireBreath"]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hvlsm"]
+_data = {
+"RESET": SubResource("Animation_iylps"),
+"attack": SubResource("Animation_7ai40")
+}
+
+[node name="LizardScientist" type="CharacterBody2D" groups=["damageable", "freezeable"]]
+script = ExtResource("1_0hs6o")
+entity_resource = ExtResource("2_50uf2")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_4vgmg")
+animation = &"idle"
+flip_h = true
+metadata/_aseprite_wizard_config_ = {
+"layer": "",
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": true,
+"slice": "",
+"source": "res://Entity/LizardWarrior/240913_WarriorLizard.aseprite"
+}
+metadata/_aseprite_wizard_interface_config_ = {
+"layer_section": true
+}
+metadata/_aseprite_wizard_source_file_hash_ = "cc5774b9f0e40c4105f1eca401b45691"
+
+[node name="PlayerDetectArea" type="Area2D" parent="Sprite"]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sprite/PlayerDetectArea"]
+polygon = PackedVector2Array(0, 0, 162, 30, 162, -50)
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Sprite"]
+position = Vector2(9, 1)
+emitting = false
+amount = 200
+process_material = SubResource("ParticleProcessMaterial_7s273")
+texture = ExtResource("4_or4b7")
+one_shot = true
+randomness = 0.3
+trail_enabled = true
+
+[node name="Hitbox" type="Area2D" parent="Sprite"]
+script = ExtResource("5_bu68n")
+entity_resource = ExtResource("2_50uf2")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sprite/Hitbox"]
+polygon = PackedVector2Array(0, 0, 162, 30, 162, -50)
+disabled = true
+
+[node name="IceSprite" type="Sprite2D" parent="Sprite"]
+visible = false
+texture = ExtResource("6_fyg3s")
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 6)
+shape = SubResource("CapsuleShape2D_2vmtn")
+
+[node name="Hurtbox" type="Area2D" parent="."]
+script = ExtResource("7_c0fry")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2(0, 6)
+shape = SubResource("CapsuleShape2D_ltwpo")
+debug_color = Color(0.110532, 0.64142, 0.246814, 0.419608)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_hvlsm")
+}
+
+[connection signal="body_entered" from="Sprite/PlayerDetectArea" to="." method="_on_player_detect_area_body_entered"]
