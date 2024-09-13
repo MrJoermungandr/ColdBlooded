@@ -180,6 +180,7 @@ entity_resource = SubResource("Resource_1kyr4")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
+position = Vector2(0, -13)
 sprite_frames = SubResource("SpriteFrames_epfhp")
 animation = &"Bite"
 frame_progress = 0.984791
@@ -199,14 +200,17 @@ metadata/_aseprite_wizard_interface_config_ = {
 metadata/_aseprite_wizard_source_file_hash_ = "cbd7d57895819d9cd115e9c514de4348"
 
 [node name="RayCast2D" type="RayCast2D" parent="Sprite"]
+position = Vector2(0, 13)
 target_position = Vector2(27, 0)
 
 [node name="DetectionZone" type="Area2D" parent="Sprite"]
+position = Vector2(0, 13)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sprite/DetectionZone"]
 polygon = PackedVector2Array(10, 0, 144, 18, 144, -18)
 
 [node name="Hitbox" type="Area2D" parent="Sprite"]
+position = Vector2(0, 13)
 script = ExtResource("5_0h4rt")
 entity_resource = SubResource("Resource_1kyr4")
 
