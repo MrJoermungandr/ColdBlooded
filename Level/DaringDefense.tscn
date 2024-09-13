@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://c61igk5y63x15"]
+[gd_scene load_steps=17 format=4 uid="uid://c61igk5y63x15"]
 
 [ext_resource type="Script" path="res://Level/Scripts/Level.gd" id="1_coki6"]
 [ext_resource type="PackedScene" uid="uid://dfkbaywuheaxy" path="res://Level/Environments/NorthPole/Background.tscn" id="2_k1teh"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" path="res://Entity/Scripts/hitbox.gd" id="6_g7d6m"]
 [ext_resource type="Script" path="res://Entity/ResourceEntity.gd" id="7_1nowd"]
 [ext_resource type="PackedScene" uid="uid://biyepj0wc6lid" path="res://Entity/dawg.tscn" id="10_x1nmd"]
+[ext_resource type="PackedScene" uid="uid://27svej1x5ixq" path="res://Entity/lizard_scientist.tscn" id="11_6v0p7"]
 [ext_resource type="PackedScene" uid="uid://begacd8q0v2sq" path="res://Level/Asset/Finish.tscn" id="11_p4ng0"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aurrr"]
@@ -100,6 +101,9 @@ position = Vector2(7352, -288)
 [node name="Coin10" parent="Coins" instance=ExtResource("3_2v4jj")]
 position = Vector2(6279, -360)
 
+[node name="Coin11" parent="Coins" instance=ExtResource("3_2v4jj")]
+position = Vector2(5935, -93)
+
 [node name="Hitbox" type="Area2D" parent="."]
 position = Vector2(0, -266.585)
 script = ExtResource("6_g7d6m")
@@ -122,6 +126,30 @@ position = Vector2(4516, -53)
 
 [node name="Dawg4" parent="Enemies" instance=ExtResource("10_x1nmd")]
 position = Vector2(1923, -582)
+
+[node name="LizardScientist" parent="Enemies" instance=ExtResource("11_6v0p7")]
+position = Vector2(-319, -456)
+
+[node name="LizardScientist" parent="Enemies/LizardScientist" instance=ExtResource("11_6v0p7")]
+position = Vector2(1478, -108)
+
+[node name="LizardScientist2" parent="Enemies" instance=ExtResource("11_6v0p7")]
+position = Vector2(2483, -599)
+
+[node name="LizardScientist3" parent="Enemies" instance=ExtResource("11_6v0p7")]
+position = Vector2(6004, -105)
+
+[node name="LizardScientist4" parent="Enemies" instance=ExtResource("11_6v0p7")]
+position = Vector2(6155, -7)
+
+[node name="LizardScientist5" parent="Enemies" instance=ExtResource("11_6v0p7")]
+position = Vector2(7476, -315)
+
+[node name="LizardScientist6" parent="Enemies" instance=ExtResource("11_6v0p7")]
+position = Vector2(5104, -183)
+
+[node name="Dawg5" parent="Enemies" instance=ExtResource("10_x1nmd")]
+position = Vector2(2294, -140)
 
 [node name="Finish" parent="." instance=ExtResource("11_p4ng0")]
 position = Vector2(7562, -316)

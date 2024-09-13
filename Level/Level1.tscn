@@ -86,6 +86,30 @@ position = Vector2(2944, -452)
 [node name="LizardScientist2" parent="Enemies" instance=ExtResource("9_kygwf")]
 position = Vector2(1860, -36)
 
+[node name="Dawg2" parent="Enemies" instance=ExtResource("8_bgogt")]
+position = Vector2(3522, -166)
+
+[node name="LizardScientist3" parent="Enemies" instance=ExtResource("9_kygwf")]
+position = Vector2(5532, -639)
+
+[node name="LizardScientist4" parent="Enemies" instance=ExtResource("9_kygwf")]
+position = Vector2(6103, -168)
+
+[node name="LizardScientist5" parent="Enemies" instance=ExtResource("9_kygwf")]
+position = Vector2(6447, 423)
+
+[node name="LizardScientist6" parent="Enemies" instance=ExtResource("9_kygwf")]
+position = Vector2(4293, 425)
+
+[node name="Dawg3" parent="Enemies" instance=ExtResource("8_bgogt")]
+position = Vector2(4905, -588)
+
+[node name="LizardScientist7" parent="Enemies" instance=ExtResource("9_kygwf")]
+position = Vector2(9264, -422)
+
+[node name="LizardScientist8" parent="Enemies" instance=ExtResource("9_kygwf")]
+position = Vector2(6984, -219)
+
 [node name="Coins" type="Node2D" parent="."]
 
 [node name="Coin" parent="Coins" instance=ExtResource("6_d7i11")]
