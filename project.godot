@@ -10,7 +10,8 @@ config_version=5
 
 [application]
 
-config/name="ColdBlooded"
+config/name="Cold Blooded 2077"
+config/version="1.0.0"
 run/main_scene="res://MainMenu.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"

@@ -27,24 +27,12 @@ func _generate_name() -> String:
 # Called each time this task is ticked (aka executed).
 func _tick(_delta: float) -> Status:
 	if went_left:
-		var offset = fallback_steps_px
-		while offset < position_right_relative:
-			var pos = Vector2(initial_pos.x + position_right_relative - offset, agent.global_position.y)
-			if not agent.is_good_position(pos):
-				offset += fallback_steps_px
-				continue
-			blackboard.set_var(position_var, pos)
-			went_left = false
-			return SUCCESS
-		return FAILURE
+		var pos = Vector2(initial_pos.x + position_right_relative, agent.global_position.y)
+		blackboard.set_var(position_var, pos)
+		went_left = false
+		return SUCCESS
 	else:
-		var offset = fallback_steps_px
-		while offset < position_left_relative:
-			var pos = Vector2((initial_pos.x - position_left_relative) + offset, agent.global_position.y)
-			if not agent.is_good_position(pos):
-				offset += fallback_steps_px
-				continue
-			blackboard.set_var(position_var, pos)
-			went_left = true
-			return SUCCESS
-		return FAILURE
+		var pos = Vector2(initial_pos.x - position_left_relative, agent.global_position.y)
+		blackboard.set_var(position_var, pos)
+		went_left = true
+		return SUCCESS

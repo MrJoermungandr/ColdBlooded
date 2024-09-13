@@ -20,6 +20,7 @@ background_color = Color(0.154868, 0.0967931, 0.197616, 1)
 script = ExtResource("11_wq4bt")
 health = 1000
 attack_damage = 500
+attack_type = 0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uhm08"]
 size = Vector2(200000, 200)
