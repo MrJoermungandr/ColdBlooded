@@ -62,12 +62,26 @@ class SWITCHES:
 			const OVER50HP = 502123208
 			const UNDER50HP = 193829906
 
+	class GROUND:
+		const GROUP = 2528658256
+
+		class SWITCH:
+			const ONGROUND = 1200033591
+			const OFFGROUND = 223416773
+
 	const _dict = {
 		"PlayerHealth": {
 			"GROUP": 151362964,
 			"SWITCH": {
 				"Over50Hp": 502123208,
-				"Under50Hp": 193829906
+				"Under50Hp": 193829906,
+			}
+		},
+		"Ground": {
+			"GROUP": 2528658256,
+			"SWITCH": {
+				"OnGround": 1200033591,
+				"OffGround": 223416773
 			}
 		}
 	}
