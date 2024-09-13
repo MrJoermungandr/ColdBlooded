@@ -45,3 +45,6 @@ func submit_new_run(run:LevelRun):
 	
 	#finally save resource
 	ResourceSaver.save(save)
+
+func save_res():
+	ResourceSaver.save(save,"user://save.tres")

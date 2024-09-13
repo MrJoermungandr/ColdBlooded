@@ -60,9 +60,15 @@ func check_logged_in(result,response_code,headers,body):
 		print(JSON.parse_string(body.get_string_from_utf8()))
 		var parsed_body=JSON.parse_string(body.get_string_from_utf8())
 		GameManger.save.jwt=parsed_body.access_token
-		ResourceSaver.save(GameManger.save)
+		GameManger.save_res()
+		#ResourceSaver.save(GameManger.save)
 		is_logged_in=true
 	if response_code==202: #ACCEPTED
+		#print(JSON.parse_string(body.get_string_from_utf8()))
+		#var parsed_body=JSON.parse_string(body.get_string_from_utf8())
+		#GameManger.save.jwt=parsed_body.access_token
+		#GameManger.save_res()
+		#ResourceSaver.save(GameManger.save)
 		is_logged_in=true
 		
 func login(username:String,password:String):
