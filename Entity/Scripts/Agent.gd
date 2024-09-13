@@ -101,5 +101,5 @@ func _on_detection_zone_body_entered(body: Node2D):
 		bt_player.restart()
 
 func play_sound_melee_attack():
-	AudioManager.sound_enemy_melee(self)
+	AudioManager.sound_enemy_melee()
 	

@@ -54,15 +54,12 @@ func sound_player_ice_blast():
 func sound_player_hit():
 	Wwise.post_event("PlayerHit",self)
 #Enemy
-func sound_enemy_melee(enemy :Object):
-	Wwise.register_game_obj(enemy,"Enemy")
-	Wwise.post_event("EnemyMelee",enemy)
-func sound_enemy_lazer_blast(enemy:Object):
-	Wwise.register_game_obj(enemy,"Enemy")
-	Wwise.post_event("EnemyLazerBlast",enemy)
-func sound_enemy_flame_blast(enemy:Object):
-	Wwise.register_game_obj(enemy,"Enemy")
-	Wwise.post_event("EnemyFlameBlast",enemy)
+func sound_enemy_melee():
+	Wwise.post_event("EnemyMelee",self)
+func sound_enemy_lazer_blast():
+	Wwise.post_event("EnemyLazerBlast",self)
+func sound_enemy_flame_blast():
+	Wwise.post_event("EnemyFlameBreath",self)
 	
 	
 	

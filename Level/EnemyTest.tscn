@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://6b01or2cjsi4" path="res://Level/EnemyTest/dummy_enemy.tscn" id="5_x0pt6"]
 [ext_resource type="Script" path="res://Entity/ResourceEntity.gd" id="6_whugy"]
 [ext_resource type="PackedScene" uid="uid://biyepj0wc6lid" path="res://Entity/dawg.tscn" id="7_f7qf4"]
-[ext_resource type="PackedScene" uid="uid://c2herjuy21cx5" path="res://Entity/lizard_scientist.tscn" id="8_cn8cs"]
+[ext_resource type="PackedScene" uid="uid://27svej1x5ixq" path="res://Entity/lizard_scientist.tscn" id="8_cn8cs"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yg0h4"]
 texture = ExtResource("3_6kr4e")
