@@ -5,6 +5,7 @@ func _enter() -> void:
 		dispatch(EVENT_FINISHED)
 		return
 	agent.animation_player.play(&"ice_breath")
+	AudioManager.sound_player_ice_blast()
 	if $"../../AnimatedSprite2D/IceBreathRayCast".is_colliding():
 		var collider = $"../../AnimatedSprite2D/IceBreathRayCast".get_collider()
 		if collider is Node2D and collider.is_in_group(&"freezeable") and collider.has_method(&"freeze"):

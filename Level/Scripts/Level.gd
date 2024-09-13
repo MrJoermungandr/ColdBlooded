@@ -62,9 +62,11 @@ func _process(delta):
 	
 	#Make unsigned to work in both direcitons
 	if abs(player.global_position.y) > abs(finish_half_point):
-		banger_percussion()
+		banger_percussion(!already_called)
 		already_called=true
-
+	if already_called && (abs(player.global_position.y)+10.0 < abs(finish_half_point)):
+		banger_percussion(!already_called)
+		already_called=false
 func on_level_finished():
 	var finish_time:float=elapsed_time
 
@@ -92,14 +94,19 @@ func register_coin(coin):
 func register_coin_pickup(position:Vector2):
 	coins[position]=true
 	collected_coins+=1
+	AudioManager.sound_coin()
 
 func checkpoint_pickup(new_respawn_position:Vector2):
 	respawn_position=new_respawn_position
-
+	#Fornow
+	AudioManager.sound_coin()
 
 func respawn_player():
 	#SAFETY: array access 0 should be fine since only 1 player is active at a time
 	get_tree().get_nodes_in_group("player")[0].respawn_player(respawn_position)
 	
-func banger_percussion():
-	pass
+func banger_percussion(start:bool):
+	if start:
+		AudioManager.set_switch_under50hp()
+	else:
+		AudioManager.set_switch_over50hp()

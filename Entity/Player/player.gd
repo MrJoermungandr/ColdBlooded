@@ -128,10 +128,12 @@ func _handle_jump_and_glide(is_on_ground: bool) -> void:
 			velocity.y = jump_velocity
 			has_jumped = true
 			animated_sprite_2d.play(&"Jump")
+			AudioManager.sound_jump()
 			_use_vertical_pinch_hitbox()
 		elif not has_double_jumped:
 			velocity.y = second_jump_velocity
 			animated_sprite_2d.play(&"Jump")
+			AudioManager.sound_jump()
 			_use_vertical_pinch_hitbox()
 			has_double_jumped = true
 	if Input.is_action_pressed("move_jump"):
@@ -174,10 +176,12 @@ func _use_normal_hitbox():
 func take_damage(amount: int, type: EntityResource.dmg_type) -> void:
 	if entity_resource.health - amount <= 0:
 		entity_resource.health = 0
+		AudioManager.sound_player_death()
 		death.emit() # TODO proper death handling
 		state_machine.set_active(false)
 		$Label.text = "dead"
 		return
+	AudioManager.sound_player_hit()
 	entity_resource.health -= amount
 
 func respawn_player(position:Vector2):

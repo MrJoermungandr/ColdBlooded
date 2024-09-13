@@ -1,5 +1,16 @@
 Event	ID	Name			Wwise Object Path	Notes
+	51740264	PlayerRightFoot			\Default Work Unit\SFX\PlayerRightFoot	
+	261543715	PlayerIceBlast			\Default Work Unit\SFX\PlayerIceBlast	
+	1656947812	PlayerDeath			\Default Work Unit\SFX\PlayerDeath	
+	1731774001	EnemyMelee			\Default Work Unit\SFX\EnemyMelee	
+	2424622641	PlayerLeftFoot			\Default Work Unit\SFX\PlayerLeftFoot	
+	3193916302	EnemyFlameBreath			\Default Work Unit\SFX\EnemyFlameBreath	
+	3603273110	Coin			\Default Work Unit\SFX\Coin	
+	3831688773	PlayerHit			\Default Work Unit\SFX\PlayerHit	
+	3833651337	Jump			\Default Work Unit\SFX\Jump	
 	3991942870	Music			\Default Work Unit\Music	
+	4011402401	EnemyLazerBlast			\Default Work Unit\SFX\EnemyLazerBlast	
+	4225616770	PlayerMelee			\Default Work Unit\SFX\PlayerMelee	
 
 State Group	ID	Name			Wwise Object Path	Notes
 	4091656514	Gamestate			\Default Work Unit\Gamestate	
@@ -10,29 +21,46 @@ State	ID	Name	State Group			Notes
 	3604647259	MainMenu	Gamestate			
 	4158285989	GameOver	Gamestate			
 
+Game Parameter	ID	Name			Wwise Object Path	Notes
+	2346531308	MusicVolume			\Default Work Unit\MusicVolume	
+	2369900608	PausedLowPass			\Default Work Unit\PausedLowPass	
+	2948158961	AnnoyanceVolume			\Default Work Unit\AnnoyanceVolume	
+	3873835272	SoundVolume			\Default Work Unit\SoundVolume	
+
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	14775498	lazer_attack	C:\Users\Murat\Documents\WwiseProjects\ColdBlooded\.cache\Linux\SFX\lazer_attack_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Combat\Enemy\lazer_attack		37340
+	33941630	ice_blast	C:\Users\Murat\Documents\WwiseProjects\ColdBlooded\.cache\Linux\SFX\ice_blast_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Combat\Player\ice_blast		98996
 	34137502	2_Melodie1_perc	C:\Users\Murat\Documents\WwiseProjects\ColdBlooded\.cache\Linux\SFX\2_Melodie1_perc_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\GameMusic\Level\Level\2_Melodie1_perc		1983584
 	111481455	8_LABS	C:\Users\Murat\Documents\WwiseProjects\ColdBlooded\.cache\Linux\SFX\8_LABS_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\GameMusic\MainMenu_tempo82\MainMenu_part2_tempo82\8_LABS		2904160
 	124129460	LEVEL8_LABS	C:\Users\Murat\Documents\WwiseProjects\ColdBlooded\.cache\Linux\SFX\LEVEL8_LABS_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\GameMusic\Level\Level\LEVEL8_LABS		1983584
+	172180609	beak_attack	C:\Users\Murat\Documents\WwiseProjects\ColdBlooded\.cache\Linux\SFX\melee_player_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Combat\Player\beak_attack		28696
 	227400665	5_INTROLcold_tubular	C:\Users\Murat\Documents\WwiseProjects\ColdBlooded\.cache\Linux\SFX\5_INTROLcold_tubular_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\GameMusic\Level\Level_01\5_INTROLcold_tubular		2380896
 	241401795	6_INTROLLABS	C:\Users\Murat\Documents\WwiseProjects\ColdBlooded\.cache\Linux\SFX\6_INTROLLABS_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\GameMusic\Level\Level_02\6_INTROLLABS		2380896
 	245311227	82_120LABS	C:\Users\Murat\Documents\WwiseProjects\ColdBlooded\.cache\Linux\SFX\82_120LABS_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\GameMusic\MainMenu_tempo82-120\MainMenu_part1_tempo82-120\82_120LABS		2316384
-	278917607	4_bass	C:\Users\Murat\Documents\WwiseProjects\ColdBlooded\.cache\Linux\SFX\4_bass_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\GameMusic\Defeated\Credits_random\4_bass		7055456
+	278917607	4_bass	C:\Users\Murat\Documents\WwiseProjects\ColdBlooded\.cache\Linux\SFX\4_bass_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\GameMusic\GameOver\Credits_random\4_bass		7055456
 	350147986	82-120_tubular	C:\Users\Murat\Documents\WwiseProjects\ColdBlooded\.cache\Linux\SFX\82-120_tubular_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\GameMusic\MainMenu_tempo82-120\MainMenu_part2_tempo82-120\82-120_tubular		2316384
 	376396768	9_bassdrum01_ogg	C:\Users\Murat\Documents\WwiseProjects\ColdBlooded\.cache\Linux\SFX\10_kick_soft01.ogg_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\GameMusic\Level\Level\9_bassdrum01_ogg		1983584
 	401462957	9_bassdrum01_ogg	C:\Users\Murat\Documents\WwiseProjects\ColdBlooded\.cache\Linux\SFX\9_bassdrum01.ogg_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\GameMusic\Level\Level\9_bassdrum01_ogg		1983584
+	405697582	player_left	C:\Users\Murat\Documents\WwiseProjects\ColdBlooded\.cache\Linux\SFX\left_foot_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Annoying\player_left		950
+	416686077	jump	C:\Users\Murat\Documents\WwiseProjects\ColdBlooded\.cache\Linux\SFX\jump_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Annoying\jump		46128
+	476787400	coin	C:\Users\Murat\Documents\WwiseProjects\ColdBlooded\.cache\Linux\SFX\coin_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Annoying\coin		23668
 	533405117	82-120_bass	C:\Users\Murat\Documents\WwiseProjects\ColdBlooded\.cache\Linux\SFX\82-120_bass_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\GameMusic\MainMenu_tempo82-120\MainMenu_part1_tempo82-120\82-120_bass		2316384
 	560667452	2_Melodie1_perc	C:\Users\Murat\Documents\WwiseProjects\ColdBlooded\.cache\Linux\SFX\3_Melodie2_perc_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\GameMusic\Level\Level\2_Melodie1_perc		1983584
+	563210133	melee_attack	C:\Users\Murat\Documents\WwiseProjects\ColdBlooded\.cache\Linux\SFX\melee_enemy_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Combat\Enemy\melee_attack		28696
 	591635588	LEVEL6_bass	C:\Users\Murat\Documents\WwiseProjects\ColdBlooded\.cache\Linux\SFX\LEVEL6_bass_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\GameMusic\Level\Level\LEVEL6_bass		1983584
 	604069602	7_cold_tubular	C:\Users\Murat\Documents\WwiseProjects\ColdBlooded\.cache\Linux\SFX\7_cold_tubular_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\GameMusic\MainMenu_tempo82\MainMenu_part2_tempo82\7_cold_tubular		2904160
 	610834370	6_bass	C:\Users\Murat\Documents\WwiseProjects\ColdBlooded\.cache\Linux\SFX\6_bass_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\GameMusic\MainMenu_tempo82\MainMenu_part1_tempo82\6_bass		2904160
-	617288256	3_atmos	C:\Users\Murat\Documents\WwiseProjects\ColdBlooded\.cache\Linux\SFX\3_atmos_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\GameMusic\Defeated\Credits_random\3_atmos		7055456
+	617288256	3_atmos	C:\Users\Murat\Documents\WwiseProjects\ColdBlooded\.cache\Linux\SFX\3_atmos_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\GameMusic\GameOver\Credits_random\3_atmos		7055456
 	666510089	1_Metro_Atmos	C:\Users\Murat\Documents\WwiseProjects\ColdBlooded\.cache\Linux\SFX\1_Metro_Atmos_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\GameMusic\MainMenu_tempo82\MainMenu_part1_tempo82\1_Metro_Atmos		2904160
 	805837529	1_INTROLMetro_Atmos	C:\Users\Murat\Documents\WwiseProjects\ColdBlooded\.cache\Linux\SFX\1_INTROLMetro_Atmos_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\GameMusic\Level\Level_01\1_INTROLMetro_Atmos		2380896
+	828027013	player_hit	C:\Users\Murat\Documents\WwiseProjects\ColdBlooded\.cache\Linux\SFX\player_hit_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Combat\Player\player_hit		19142
 	835914928	4_INTROLbass	C:\Users\Murat\Documents\WwiseProjects\ColdBlooded\.cache\Linux\SFX\4_INTROLbass_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\GameMusic\Level\Level_02\4_INTROLbass		2380896
 	900512793	82-120_Metro_Atmos	C:\Users\Murat\Documents\WwiseProjects\ColdBlooded\.cache\Linux\SFX\82-120_Metro_Atmos_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\GameMusic\MainMenu_tempo82-120\MainMenu_part2_tempo82-120\82-120_Metro_Atmos		2316384
 	932260568	LEVEL1_Metro_Atmos	C:\Users\Murat\Documents\WwiseProjects\ColdBlooded\.cache\Linux\SFX\LEVEL1_Metro_Atmos_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\GameMusic\Level\Level\LEVEL1_Metro_Atmos		1983584
-	1006056377	1_perc	C:\Users\Murat\Documents\WwiseProjects\ColdBlooded\.cache\Linux\SFX\1_perc_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\GameMusic\Defeated\Credits_random\1_perc		7055456
+	933573512	player_death	C:\Users\Murat\Documents\WwiseProjects\ColdBlooded\.cache\Linux\SFX\player_death_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Combat\Player\player_death		46128
+	977684766	flame_breath	C:\Users\Murat\Documents\WwiseProjects\ColdBlooded\.cache\Linux\SFX\flame_attack_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Combat\Enemy\flame_breath		159824
+	1006056377	1_perc	C:\Users\Murat\Documents\WwiseProjects\ColdBlooded\.cache\Linux\SFX\1_perc_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\GameMusic\GameOver\Credits_random\1_perc		7055456
 	1011155736	LEVEL7_cold_tubular	C:\Users\Murat\Documents\WwiseProjects\ColdBlooded\.cache\Linux\SFX\LEVEL7_cold_tubular_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\GameMusic\Level\Level\LEVEL7_cold_tubular		1983584
-	1019764805	2_tubular bells	C:\Users\Murat\Documents\WwiseProjects\ColdBlooded\.cache\Linux\SFX\2_tubular bells_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\GameMusic\Defeated\Credits_random\2_tubular bells		7055456
+	1019764805	2_tubular bells	C:\Users\Murat\Documents\WwiseProjects\ColdBlooded\.cache\Linux\SFX\2_tubular bells_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\GameMusic\GameOver\Credits_random\2_tubular bells		7055456
+	1033244791	player_right	C:\Users\Murat\Documents\WwiseProjects\ColdBlooded\.cache\Linux\SFX\right_foot_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Annoying\player_right		866
 
