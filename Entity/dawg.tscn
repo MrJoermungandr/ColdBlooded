@@ -151,6 +151,18 @@ tracks/0/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"idle"]
+}
 
 [sub_resource type="Animation" id="Animation_y6h0c"]
 resource_name = "attack"
@@ -165,7 +177,19 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.0333333, 0.366667, 0.4, 0.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 1,
-"values": [true, false, false, true, true]
+"values": [false, false, false, true, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Bite"]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2b1qf"]
@@ -182,8 +206,7 @@ entity_resource = SubResource("Resource_1kyr4")
 texture_filter = 1
 position = Vector2(0, -13)
 sprite_frames = SubResource("SpriteFrames_epfhp")
-animation = &"Bite"
-frame_progress = 0.984791
+animation = &"idle"
 flip_h = true
 metadata/_aseprite_wizard_config_ = {
 "layer": "",
