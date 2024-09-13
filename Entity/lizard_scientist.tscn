@@ -179,6 +179,7 @@ _data = {
 
 [node name="LizardScientist" type="CharacterBody2D" groups=["damageable", "freezeable"]]
 script = ExtResource("1_j6r1t")
+patrol_cooldown_time_sec = 4.0
 entity_resource = ExtResource("2_88q3f")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]

@@ -5,5 +5,5 @@
 [resource]
 script = ExtResource("1_t7hbp")
 health = 10
-attack_damage = 2
+attack_damage = 4
 attack_type = 0
