@@ -84,6 +84,18 @@ action = "move_jump"
 layout_mode = 2
 action = "attack_primary"
 
+[node name="Pierce_attack" parent="VBoxContainer/TabContainer/Controls/MarginContainer/VBoxContainer" instance=ExtResource("3_ba1bm")]
+layout_mode = 2
+action = "attack_pierce"
+
+[node name="IceBreath" parent="VBoxContainer/TabContainer/Controls/MarginContainer/VBoxContainer" instance=ExtResource("3_ba1bm")]
+layout_mode = 2
+action = "attack_ice_breath"
+
+[node name="Pause" parent="VBoxContainer/TabContainer/Controls/MarginContainer/VBoxContainer" instance=ExtResource("3_ba1bm")]
+layout_mode = 2
+action = "pause_game"
+
 [node name="Sound" type="TabBar" parent="VBoxContainer/TabContainer"]
 visible = false
 layout_mode = 2
