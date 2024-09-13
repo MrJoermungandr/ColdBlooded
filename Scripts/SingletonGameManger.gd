@@ -7,14 +7,13 @@ var save: GameSave
 func _ready():
 	process_mode=PROCESS_MODE_ALWAYS
 	#try to load game save
-	var loaded_save:GameSave=load("user://save.tres")
 	#if there is no resource yet make one and save
-	if loaded_save==null:
+	if not FileAccess.file_exists("user://save.tres"):
 		var new_save=GameSave.new()
 		ResourceSaver.save(new_save,"user://save.tres")
-		loaded_save=new_save
-	#initialize the variable
-	save=loaded_save
+		save=new_save
+		return
+	save = load("user://save.tres")
 
 
 func submit_new_run(run:LevelRun):
