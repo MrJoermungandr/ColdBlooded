@@ -1,9 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://boc1xvuxh2gmr"]
 
 [ext_resource type="Script" path="res://Level/Asset/Checkpoint/Checkpoint.gd" id="1_7nnpc"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_fldj6"]
-size = Vector2(50, 50)
+[ext_resource type="Texture2D" uid="uid://wn1dafvtxhyr" path="res://Level/Asset/checkpoint.png" id="2_pcyd6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5hbvv"]
 size = Vector2(50, 50)
@@ -12,7 +10,25 @@ size = Vector2(50, 50)
 script = ExtResource("1_7nnpc")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = SubResource("PlaceholderTexture2D_fldj6")
+texture_filter = 1
+position = Vector2(0, 1)
+texture = ExtResource("2_pcyd6")
+metadata/_aseprite_wizard_config_ = {
+"i_mode": 1,
+"keep_anim_length": false,
+"layer": "",
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": true,
+"player": "",
+"slice": "",
+"source": "res://Level/Asset/Checkpoint/checkpoint.aseprite"
+}
+metadata/_aseprite_wizard_interface_config_ = {
+"layer_section": true
+}
+metadata/_aseprite_wizard_source_file_hash_ = "cfb6fe3f3e46764272220a3fea046f73"
 
 [node name="Area2D" type="Area2D" parent="."]
 
