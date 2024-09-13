@@ -99,3 +99,7 @@ func _on_detection_zone_body_entered(body: Node2D):
 	if body.is_in_group("player"):
 		bt_player.blackboard.set_var(&"target", body)
 		bt_player.restart()
+
+func play_sound_melee_attack():
+	AudioManager.sound_enemy_melee()
+	

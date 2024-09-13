@@ -62,10 +62,10 @@ func _process(delta):
 	elapsed_time += delta
 
 	#Make unsigned to work in both direcitons
-	if abs(player.global_position.y) > abs(finish_half_point):
+	if abs(player.global_position.x) > abs(finish_half_point):
 		banger_percussion(!already_called)
 		already_called = true
-	if already_called && (abs(player.global_position.y) + 10.0 < abs(finish_half_point)):
+	if already_called && (abs(player.global_position.x) + 100.0 < abs(finish_half_point)):
 		banger_percussion(!already_called)
 		already_called = false
 func on_level_finished():

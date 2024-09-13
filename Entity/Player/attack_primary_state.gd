@@ -10,6 +10,7 @@ func _enter() -> void:
 		return
 	$"../../Label".text = "attack"
 	agent.animation_player.play(&"attack", -1, 2.0)
+	AudioManager.sound_player_melee()
 	await agent.animation_player.animation_finished
 	agent.state_machine.dispatch(EVENT_FINISHED)
 

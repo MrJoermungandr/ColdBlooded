@@ -66,6 +66,7 @@ func _on_patrol_enter():
 
 func _on_attack_enter():
 	animation_player.play(&"attack")
+	AudioManager.sound_enemy_flame_blast()
 	await animation_player.animation_finished
 	hsm.dispatch(hsm.EVENT_FINISHED)
 
