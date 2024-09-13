@@ -119,6 +119,18 @@ tracks/1/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite:animation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"idle"]
+}
 
 [sub_resource type="Animation" id="Animation_7ai40"]
 resource_name = "attack"
@@ -146,6 +158,18 @@ tracks/1/keys = {
 "update": 1,
 "values": [true, true, false, false, true]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite:animation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"fireBreath"]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_hvlsm"]
 _data = {
@@ -161,7 +185,6 @@ entity_resource = ExtResource("2_88q3f")
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_ftsjt")
 animation = &"idle"
-frame_progress = 0.996566
 flip_h = true
 metadata/_aseprite_wizard_config_ = {
 "layer": "",
@@ -185,7 +208,7 @@ collision_mask = 4
 polygon = PackedVector2Array(0, 0, 162, 30, 162, -50)
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Sprite"]
-position = Vector2(6, -2)
+position = Vector2(9, 1)
 emitting = false
 amount = 200
 process_material = SubResource("ParticleProcessMaterial_7s273")

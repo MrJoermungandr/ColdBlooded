@@ -7,6 +7,8 @@ var patrol_timer: Timer
 @export
 var entity_resource: EntityResource
 
+var ice_death_particles: PackedScene = preload("res://Entity/ice_death_particles.tscn")
+
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 @onready
@@ -53,14 +55,14 @@ func _initialize_hsm():
 	hsm.add_transition(patrol_state, attack_state, &"attack_started")
 	hsm.add_transition(attack_state, patrol_state, attack_state.EVENT_FINISHED)
 	hsm.add_transition(hsm.ANYSTATE, frozen_state, &"frozen_started")
-	hsm.add_transition(frozen_state, patrol_state, frozen_state.EVENT_FINISHED)
 
 	hsm.initial_state = patrol_state
 	hsm.initialize(self)
 	hsm.set_active(true)
 
-func _on_patrol_enter():# TODO play animation and stuff
+func _on_patrol_enter():
 	patrol_timer.start()
+	sprite.play(&"idle")
 
 func _on_attack_enter():
 	animation_player.play(&"attack")
@@ -74,6 +76,7 @@ func _on_patrol_timer_timeout():
 
 func _on_frozen_enter():
 	$Sprite/IceSprite.visible = true
+	animation_player.stop()
 	sprite.stop()
 
 func _on_player_detect_area_body_entered(body: Node2D) -> void:
@@ -85,6 +88,10 @@ func _on_player_detect_area_body_entered(body: Node2D) -> void:
 func take_damage(amount: int, type: EntityResource.dmg_type):
 	if type == 1 and hsm.get_active_state() == frozen_state:
 		death.emit() #TODO particle fx
+		var death_particles: GPUParticles2D = ice_death_particles.instantiate()
+		death_particles.global_position = global_position
+		get_tree().root.add_child(death_particles)
+		death_particles.emitting = true
 		queue_free()
 		return
 	if entity_resource.health - amount <= 0:
