@@ -124,11 +124,11 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w4opf"]
 size = Vector2(20, 22)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_jkquf"]
-size = Vector2(20, 22)
+[sub_resource type="CircleShape2D" id="CircleShape2D_uaeom"]
+radius = 11.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v8jcb"]
-size = Vector2(20, 22)
+size = Vector2(38, 22)
 
 [sub_resource type="BlackboardPlan" id="BlackboardPlan_adeud"]
 var/speed/name = &"speed"
@@ -215,18 +215,19 @@ script = ExtResource("5_0h4rt")
 entity_resource = SubResource("Resource_1kyr4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/Hitbox"]
-position = Vector2(20, -1)
+position = Vector2(29, -1)
 shape = SubResource("RectangleShape2D_w4opf")
 disabled = true
 debug_color = Color(1, 0, 0, 0.419608)
 
 [node name="IceSprite" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(0, -21)
 texture = ExtResource("6_tfb6y")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -1)
-shape = SubResource("RectangleShape2D_jkquf")
+shape = SubResource("CircleShape2D_uaeom")
 
 [node name="Hurtbox" type="Area2D" parent="."]
 script = ExtResource("6_hbkb7")
