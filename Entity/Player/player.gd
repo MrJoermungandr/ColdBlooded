@@ -75,6 +75,8 @@ var _inital_health = entity_resource.health
 
 signal death
 
+signal damage_taken(entity_resource:EntityResource)
+
 func _ready() -> void:
 	coyote_timer.one_shot = true
 	coyote_timer.wait_time = coyote_time_seconds
@@ -86,6 +88,8 @@ func _ready() -> void:
 	ice_breath_cooldown_timer.one_shot = true
 	ice_breath_cooldown_timer.wait_time = ice_breath_cooldown_seconds
 	add_child(ice_breath_cooldown_timer)
+	
+	damage_taken.emit(entity_resource)
 
 func _init_state_machine():
 	state_machine.add_transition(idle_state, move_state, &"move_started")
@@ -182,7 +186,11 @@ func take_damage(amount: int, type: EntityResource.dmg_type) -> void:
 		$Label.text = "dead"
 		return
 	AudioManager.sound_player_hit()
+	var tween=create_tween()
+	tween.tween_property($AnimatedSprite2D, "self_modulate", Color.RED, .5)
+	tween.tween_property($AnimatedSprite2D, "self_modulate", Color.WHITE, 2)
 	entity_resource.health -= amount
+	damage_taken.emit(entity_resource)
 
 func respawn_player(position:Vector2):
 	global_position=position

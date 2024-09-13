@@ -50,6 +50,9 @@ position = Vector2(2085, -145)
 [node name="Checkpoint2" parent="Checkpoints" instance=ExtResource("3_cy16a")]
 position = Vector2(4616, -64)
 
+[node name="Checkpoint3" parent="Checkpoints" instance=ExtResource("3_cy16a")]
+position = Vector2(-1, 10)
+
 [node name="Player" parent="." instance=ExtResource("3_rnqds")]
 
 [node name="Workaround forBackground" type="WorldEnvironment" parent="."]

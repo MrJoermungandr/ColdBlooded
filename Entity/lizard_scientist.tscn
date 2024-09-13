@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://c2herjuy21cx5"]
+[gd_scene load_steps=23 format=3 uid="uid://27svej1x5ixq"]
 
 [ext_resource type="Script" path="res://Entity/LizardScientist/lizard_scientist.gd" id="1_j6r1t"]
 [ext_resource type="Texture2D" uid="uid://dbrgvqh8cs72x" path="res://Entity/LizardScientist/fire_particle.png" id="2_7k07m"]
@@ -87,7 +87,7 @@ hue_variation_min = -0.03
 hue_variation_max = 0.2
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2vmtn"]
-height = 44.0
+height = 36.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ltwpo"]
 radius = 13.0

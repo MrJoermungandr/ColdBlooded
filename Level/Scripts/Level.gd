@@ -55,6 +55,7 @@ func _ready() -> void:
 	#SAFETY: array access 0 should be fine since only 1 player is active at a time
 	get_tree().get_nodes_in_group("player")[0].death.connect(respawn_player)
 	player = get_tree().get_nodes_in_group("player")[0]
+	player.damage_taken.connect(playing_ui.player_health_changed)
 
 var already_called = false
 func _process(delta):
