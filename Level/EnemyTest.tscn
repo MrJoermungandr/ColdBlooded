@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://bl02ivg1kub5k"]
+[gd_scene load_steps=12 format=4 uid="uid://bl02ivg1kub5k"]
 
 [ext_resource type="Script" path="res://Level/Scripts/Level.gd" id="1_qxmr5"]
 [ext_resource type="PackedScene" uid="uid://binwmx30pxpv0" path="res://Entity/player.tscn" id="2_1jrbp"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://6b01or2cjsi4" path="res://Level/EnemyTest/dummy_enemy.tscn" id="5_x0pt6"]
 [ext_resource type="Script" path="res://Entity/ResourceEntity.gd" id="6_whugy"]
 [ext_resource type="PackedScene" uid="uid://biyepj0wc6lid" path="res://Entity/dawg.tscn" id="7_f7qf4"]
+[ext_resource type="PackedScene" uid="uid://c2herjuy21cx5" path="res://Entity/lizard_scientist.tscn" id="8_cn8cs"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yg0h4"]
 texture = ExtResource("3_6kr4e")
@@ -280,3 +281,6 @@ entity_resource = SubResource("Resource_v4t7f")
 
 [node name="Dawg" parent="." instance=ExtResource("7_f7qf4")]
 position = Vector2(268, 619)
+
+[node name="LizardScientist" parent="." instance=ExtResource("8_cn8cs")]
+position = Vector2(135, 319)

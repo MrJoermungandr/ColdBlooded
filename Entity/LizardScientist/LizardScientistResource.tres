@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="EntityResource" load_steps=2 format=3 uid="uid://bmvqcf48va72"]
+
+[ext_resource type="Script" path="res://Entity/ResourceEntity.gd" id="1_t7hbp"]
+
+[resource]
+script = ExtResource("1_t7hbp")
+health = 10
+attack_damage = 2
+attack_type = 0
