@@ -36,7 +36,7 @@ scale = Vector2(4, 4)
 texture = ExtResource("3_4jy3t")
 
 [node name="Foreground" type="Parallax2D" parent="."]
-repeat_size = Vector2(3940, 0)
+repeat_size = Vector2(3936, 0)
 repeat_times = 5
 
 [node name="Sprite2D" type="Sprite2D" parent="Foreground"]
