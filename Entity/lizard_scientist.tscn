@@ -17,8 +17,8 @@ animations = [{
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_7s273"]
 particle_flag_disable_z = true
 spread = 16.364
-initial_velocity_min = 156.25
-initial_velocity_max = 156.25
+initial_velocity_min = 174.11
+initial_velocity_max = 194.2
 gravity = Vector3(0, 0, 0)
 hue_variation_min = -0.03
 hue_variation_max = 0.2
@@ -46,6 +46,8 @@ amount = 200
 process_material = SubResource("ParticleProcessMaterial_7s273")
 texture = ExtResource("2_7k07m")
 one_shot = true
+randomness = 0.3
+trail_enabled = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 6)
