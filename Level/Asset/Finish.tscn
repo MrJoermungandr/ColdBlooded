@@ -1,9 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://begacd8q0v2sq"]
 
 [ext_resource type="Script" path="res://Level/Asset/Finish/Finish.gd" id="1_3m7gq"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_uomx5"]
-size = Vector2(50, 50)
+[ext_resource type="Texture2D" uid="uid://83bte0f1k5u2" path="res://Level/Asset/core.png" id="2_ids1u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xqgte"]
 size = Vector2(50, 51)
@@ -13,7 +11,25 @@ script = ExtResource("1_3m7gq")
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = SubResource("PlaceholderTexture2D_uomx5")
+texture_filter = 1
+position = Vector2(1, 1)
+texture = ExtResource("2_ids1u")
+metadata/_aseprite_wizard_config_ = {
+"i_mode": 1,
+"keep_anim_length": false,
+"layer": "",
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": true,
+"player": "",
+"slice": "",
+"source": "res://Level/Asset/Finish/core.aseprite"
+}
+metadata/_aseprite_wizard_interface_config_ = {
+"layer_section": true
+}
+metadata/_aseprite_wizard_source_file_hash_ = "5fdec55db32cbb6a7faac3938f868098"
 
 [node name="Area" type="Area2D" parent="."]
 
