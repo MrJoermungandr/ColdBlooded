@@ -184,7 +184,7 @@
 				</AcousticTexture>
 			</AcousticTextures>
 		</SoundBank>
-		<SoundBank Id="1647770721" Type="User" Language="SFX" Hash="{A202DAD9-6EDB-F740-7D10-364BAB026842}">
+		<SoundBank Id="1647770721" Type="User" Language="SFX" Hash="{932D69D3-C03F-2F2C-9BF0-420A637907B0}">
 			<ShortName>Soundbank1</ShortName>
 			<Path>Soundbank1.bnk</Path>
 			<Media>
@@ -244,10 +244,6 @@
 					<ShortName>left_foot.wav</ShortName>
 					<CachePath>SFX/left_foot_818F3B66.wem</CachePath>
 				</File>
-				<File Id="416686077" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>jump.wav</ShortName>
-					<CachePath>SFX/jump_818F3B66.wem</CachePath>
-				</File>
 				<File Id="476787400" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>coin.wav</ShortName>
 					<CachePath>SFX/coin_818F3B66.wem</CachePath>
@@ -279,6 +275,10 @@
 				<File Id="617288256" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>3_atmos.wav</ShortName>
 					<CachePath>SFX/3_atmos_FBC78EF0.wem</CachePath>
+				</File>
+				<File Id="628587958" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>jump_alternative.wav</ShortName>
+					<CachePath>SFX/jump_alternative_818F3B66.wem</CachePath>
 				</File>
 				<File Id="666510089" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>1_Metro_Atmos.wav</ShortName>
@@ -352,7 +352,7 @@
 				</Event>
 				<Event Id="3833651337" Name="Jump">
 					<MediaRefs>
-						<MediaRef Id="416686077"/>
+						<MediaRef Id="628587958"/>
 					</MediaRefs>
 				</Event>
 				<Event Id="3991942870" Name="Music">
@@ -457,5 +457,5 @@
 			</SwitchGroups>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{DC7FC771-F9B4-3031-E616-34F671A73F20}</FileHash>
+	<FileHash>{D47D3550-D305-9E3B-FE73-ADFF2B67FD1C}</FileHash>
 </SoundBanksInfo>
