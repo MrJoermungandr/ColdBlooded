@@ -26,16 +26,15 @@ func set_switch_under50hp():
 #GameParameters
 func set_sound_volume(volume: float):
 	Wwise.set_rtpc_value("SoundVolume",volume,null)
-	Wwise.post_event("PlayerDeath",self)
 func set_music_volume(volume:float):
 	Wwise.set_rtpc_value("MusicVolume",volume,null)
 func set_annoyance_volume(volume:float):
 	Wwise.set_rtpc_value("AnnoyanceVolume",volume,null)
-	Wwise.post_event("Jump",self)
 func set_paused():
 	Wwise.set_rtpc_value("PausedLowPass",86.0,null)
 func set_unpaused():
 	Wwise.set_rtpc_value("PausedLowPass",0.0,null)
+
 #SFX Events
 #Player
 func sound_coin():

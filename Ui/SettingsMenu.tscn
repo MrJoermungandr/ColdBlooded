@@ -140,6 +140,8 @@ text = "Back"
 
 [connection signal="toggled" from="VBoxContainer/TabContainer/Graphics/MarginContainer/VBoxContainer/FullscreenToggle" to="." method="_on_fullscreen_toggle_toggled"]
 [connection signal="value_changed" from="VBoxContainer/TabContainer/Sound/MarginContainer/VBoxContainer/MusicSlider" to="VBoxContainer/TabContainer/Sound" method="_on_music_slider_changed"]
+[connection signal="drag_ended" from="VBoxContainer/TabContainer/Sound/MarginContainer/VBoxContainer/SoundSlider" to="VBoxContainer/TabContainer/Sound" method="_on_sound_slider_stop"]
 [connection signal="value_changed" from="VBoxContainer/TabContainer/Sound/MarginContainer/VBoxContainer/SoundSlider" to="VBoxContainer/TabContainer/Sound" method="_on_sound_slider_changed"]
+[connection signal="drag_ended" from="VBoxContainer/TabContainer/Sound/MarginContainer/VBoxContainer/AnnoyanceSlider" to="VBoxContainer/TabContainer/Sound" method="_on_annoyance_slider_stop"]
 [connection signal="value_changed" from="VBoxContainer/TabContainer/Sound/MarginContainer/VBoxContainer/AnnoyanceSlider" to="VBoxContainer/TabContainer/Sound" method="_on_annoyance_slider_changed"]
 [connection signal="pressed" from="VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]
