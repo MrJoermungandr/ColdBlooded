@@ -6,13 +6,14 @@ func _setup() -> void:
 
 ## Called when state is entered.
 func _enter() -> void:
+	agent.entity_resource.attack_type = EntityResource.dmg_type.PIERCE
 	agent.animation_player.play(&"pierce")
 	await agent.animation_player.animation_finished
 	dispatch(EVENT_FINISHED)
 
 ## Called when state is exited.
 func _exit() -> void:
-	pass
+	agent.entity_resource.attack_type = EntityResource.dmg_type.NORMAL
 
 ## Called each frame when this state is active.
 func _update(delta: float) -> void:
