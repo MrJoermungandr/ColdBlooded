@@ -380,6 +380,7 @@ glide_gravity = 130.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
+position = Vector2(0, 0.5)
 sprite_frames = SubResource("SpriteFrames_e5hdi")
 animation = &"idle"
 metadata/_aseprite_wizard_config_ = {

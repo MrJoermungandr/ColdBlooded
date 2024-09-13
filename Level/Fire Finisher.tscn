@@ -1,6 +1,89 @@
-[gd_scene load_steps=2 format=3 uid="uid://pd556s8m8oy8"]
+[gd_scene load_steps=15 format=4 uid="uid://pd556s8m8oy8"]
 
 [ext_resource type="Script" path="res://Level/Scripts/Level.gd" id="1_sxylh"]
+[ext_resource type="PackedScene" uid="uid://btm0vhy5xqhri" path="res://Level/Environments/OilPlatform/Background.tscn" id="2_8gf1r"]
+[ext_resource type="PackedScene" uid="uid://boc1xvuxh2gmr" path="res://Level/Asset/Checkpoint.tscn" id="3_kbfkf"]
+[ext_resource type="PackedScene" uid="uid://binwmx30pxpv0" path="res://Entity/player.tscn" id="3_q43kd"]
+[ext_resource type="TileSet" uid="uid://88qlf7f1eruq" path="res://Level/Environments/OilPlatform/OilPlatformFull.tres" id="4_aiif5"]
+[ext_resource type="Script" path="res://Entity/Scripts/hitbox.gd" id="4_ptles"]
+[ext_resource type="TileSet" uid="uid://dplfv3tgpgl4f" path="res://Level/Environments/OilPlatform/OilPlatformSmall.tres" id="5_6350u"]
+[ext_resource type="Script" path="res://Entity/ResourceEntity.gd" id="5_18060"]
+[ext_resource type="PackedScene" uid="uid://dcsg0ol3dhsx7" path="res://Level/Asset/Coin.tscn" id="7_yvqsr"]
+[ext_resource type="PackedScene" uid="uid://biyepj0wc6lid" path="res://Entity/dawg.tscn" id="8_x0jh5"]
+[ext_resource type="PackedScene" uid="uid://27svej1x5ixq" path="res://Entity/lizard_scientist.tscn" id="9_rdr1e"]
+
+[sub_resource type="Environment" id="Environment_g0k56"]
+background_mode = 1
+background_color = Color(0.154868, 0.0967931, 0.197616, 1)
+
+[sub_resource type="Resource" id="Resource_ocjkd"]
+script = ExtResource("5_18060")
+health = 1000
+attack_damage = 500
+attack_type = 0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8woru"]
+size = Vector2(200000, 200)
 
 [node name="4 Fire Finisher" type="Node2D"]
 script = ExtResource("1_sxylh")
+
+[node name="Background" parent="." instance=ExtResource("2_8gf1r")]
+position = Vector2(0, -178.64)
+
+[node name="Checkpoints" type="Node2D" parent="."]
+
+[node name="Checkpoint" parent="Checkpoints" instance=ExtResource("3_kbfkf")]
+position = Vector2(-10, -24)
+
+[node name="Player" parent="." instance=ExtResource("3_q43kd")]
+position = Vector2(3, -27.455)
+
+[node name="Workaround forBackground" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_g0k56")
+
+[node name="WorkaroundForBackground" type="Camera3D" parent="."]
+
+[node name="Full" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAD//wAAAAADAAAAAAAAAAAAAAADAAAAAAABAAAAAAADAAAAAAD+/wAAAAADAAAAAAD9/wAAAAADAAAAAAACAAAAAAADAAAAAAACAP//AAABAAEAAAD9/wEAAAACAAAAAAD9/wIAAAACAAAAAAD9/wMAAAACAAAAAAD+/wMAAAACAAAAAAD+/wIAAAACAAAAAAD+/wEAAAACAAAAAAD//wMAAAACAAAAAAD//wIAAAACAAAAAAD//wEAAAACAAAAAAAAAAIAAAACAAAAAAAAAAEAAAACAAAAAAAAAAMAAAACAAAAAAABAAIAAAACAAAAAAABAAEAAAACAAAAAAABAAMAAAACAAAAAAACAAMAAAACAAAAAAACAAIAAAACAAAAAAACAAEAAAACAAAAAAD2/wAAAAADAAAAAAD1/wAAAAADAAAAAAD0/wAAAAADAAAAAADz/wAAAAADAAAAAADz/wEAAAACAAAAAAD0/wEAAAACAAAAAAD1/wEAAAACAAAAAAD2/wEAAAACAAAAAADz/wIAAAACAAAAAAD0/wIAAAACAAAAAAD1/wIAAAACAAAAAAD2/wIAAAACAAAAAADz/wMAAAACAAAAAAD0/wMAAAACAAAAAAD1/wMAAAACAAAAAAD2/wMAAAACAAAAAADU//b/AAAAAAEAAADS//b/AAAAAAEAAADT//b/AAAAAAEAAADR//b/AAAAAAEAAADQ//b/AAAAAAEAAADQ//X/AAAAAAEAAADS//X/AAAAAAEAAADR//X/AAAAAAEAAADT//X/AAAAAAEAAADP//b/AAAAAAEAAADQ//T/AAAAAAEAAADP//X/AAAAAAEAAADR//T/AAAAAAEAAADJ//P/AAAAAAEAAADI//P/AAAAAAEAAADH//P/AAAAAAEAAADG//L/AAAAAAEAAADG//P/AAAAAAEAAADF//P/AAAAAAEAAADH//L/AAAAAAEAAADI//L/AAAAAAEAAAC//+//AAAAAAEAAAC///D/AAAAAAEAAAC+/+//AAAAAAEAAAC+//D/AAAAAAEAAAC9//H/AAAAAAEAAAC+//H/AAAAAAEAAAC9//D/AAAAAAEAAAC9/+//AAAAAAEAAAC8//D/AAAAAAEAAAC8//H/AAAAAAEAAAC7//D/AAAAAAEAAAC7//H/AAAAAAEAAAC8//L/AAAAAAEAAAC9//L/AAAAAAEAAAC+//L/AAAAAAEAAAC6//H/AAAAAAEAAADX/wAAAAABAAAAAADW/wAAAAABAAAAAADV/wAAAAABAAAAAADU/wAAAAABAAAAAADO/wIAAAABAAIAAADN/wIAAAABAAIAAADM/wIAAAABAAIAAADL/wIAAAABAAIAAADJ//7/AAADAAAAAADI//7/AAADAAAAAADH//7/AAADAAAAAADG//7/AAADAAAAAADF//7/AAADAAAAAADE//7/AAADAAAAAADJ//3/AAABAAEAAADD//7/AAADAAAAAADC//7/AAADAAAAAADB//7/AAADAAAAAADB//v/AAACAAEAAADB//z/AAABAAEAAADB//3/AAABAAEAAADC//3/AAABAAEAAADB////AAACAAAAAADB/wAAAAACAAAAAADC/wAAAAACAAAAAADC////AAACAAAAAADD////AAACAAAAAADD/wAAAAACAAAAAADE/wAAAAACAAAAAADE////AAACAAAAAADF////AAACAAAAAADF/wAAAAACAAAAAADG/wAAAAACAAAAAADG////AAACAAAAAADH////AAACAAAAAADH/wAAAAACAAAAAADI/wAAAAACAAAAAADI////AAACAAAAAADJ////AAACAAAAAADJ/wAAAAACAAAAAADL/wMAAAAAAAAAAADL/wQAAAAAAAAAAADM/wQAAAAAAAAAAADM/wMAAAAAAAAAAADN/wQAAAAAAAAAAADO/wQAAAAAAAAAAADO/wMAAAAAAAAAAADN/wMAAAAAAAAAAADU/wEAAAAAAAAAAADU/wIAAAAAAAAAAADV/wEAAAAAAAAAAADV/wIAAAAAAAAAAADW/wIAAAAAAAAAAADW/wEAAAAAAAAAAADX/wIAAAAAAAAAAADX/wEAAAAAAAAAAAC8//v/AAAAAAIAAAC7//v/AAAAAAIAAAC6//v/AAAAAAIAAAC5//v/AAAAAAIAAAC4//v/AAAAAAIAAAC4//z/AAACAAAAAAC4//3/AAACAAAAAAC5//3/AAACAAAAAAC5//z/AAACAAAAAAC6//3/AAACAAAAAAC6//z/AAACAAAAAAC7//3/AAACAAAAAAC7//z/AAACAAAAAAC8//3/AAACAAAAAAC8//z/AAACAAAAAACy//n/AAABAAAAAACx//n/AAABAAAAAACw//n/AAABAAAAAACz//n/AAABAAAAAAC0//n/AAABAAAAAACw////AAABAAAAAACx////AAABAAAAAACy////AAABAAAAAACz////AAABAAAAAAC0////AAABAAAAAACw/wAAAAAAAAAAAACx/wAAAAAAAAAAAACy/wAAAAAAAAAAAACz/wAAAAAAAAAAAAC0/wAAAAAAAAAAAACw//r/AAAAAAAAAACx//r/AAAAAAAAAACy//r/AAAAAAAAAACz//r/AAAAAAAAAAC0//r/AAAAAAAAAAA=")
+tile_set = ExtResource("4_aiif5")
+
+[node name="Small" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AADn//z/BAAAAAEAAADn//3/BAADAAAAAADn//7/BAADAAAAAADc//r/BAAAAAEAAADc//v/BAADAAAAAADc//z/BAADAAAAAADU//z/BAACAAEAAADT//z/BAACAAEAAADS//z/BAACAAEAAADR//z/BAACAAEAAADQ//z/BAACAAEAAADQ//3/BAABAAEAAADR//3/BAABAAEAAADS//3/BAABAAEAAADT//3/BAABAAEAAADU//3/BAABAAEAAADU//7/BAABAAEAAADT//7/BAABAAEAAADS//7/BAABAAEAAADR//7/BAABAAEAAADQ//7/BAABAAEAAADQ//v/BAAAAAIAAADR//v/BAAAAAIAAADS//v/BAAAAAIAAADT//v/BAAAAAIAAADU//v/BAAAAAIAAADe/wEABAAAAAAAAADe/wIABAAAAAAAAADe/wMABAAAAAAAAADd/wIABAAAAAAAAADd/wMABAAAAAAAAADc/wIABAAAAAAAAADc/wMABAAAAAAAAADf/wMABAAAAAAAAADb/wMABAAAAAAAAADT/wEABAAAAAAAAADU/wEABAAAAAAAAADV/wEABAAAAAAAAADU/wIABAAAAAAAAADT/wIABAAAAAAAAADS/wIABAAAAAAAAADS/wEABAAAAAAAAADT/wMABAAAAAAAAADS/wMABAAAAAAAAADR/wEABAAAAAAAAADR/wIABAAAAAAAAADO//7/BAABAAEAAADO//z/BAACAAEAAADO//3/BAABAAEAAADP//z/BAACAAEAAADN//z/BAACAAEAAADM//z/BAACAAEAAADL//z/BAACAAEAAADP//7/BAABAAEAAADP//3/BAABAAEAAADN//7/BAABAAEAAADM//7/BAABAAEAAADM//3/BAABAAEAAADN//3/BAABAAEAAADL//7/BAABAAEAAADL//3/BAABAAEAAADL/wEABAACAAEAAADL/wIABAABAAEAAADL/wMABAABAAEAAADO//n/BAAAAAEAAADN//n/BAAAAAEAAADM//n/BAAAAAEAAADK//T/BAAAAAAAAADK//X/BAAAAAAAAADK//b/BAAAAAAAAADJ//b/BAAAAAAAAADJ//X/BAAAAAAAAADJ//T/BAAAAAAAAADI//T/BAAAAAAAAADI//P/BAAAAAAAAADH//P/BAAAAAAAAADH//T/BAAAAAAAAADI//X/BAAAAAAAAAA=")
+tile_set = ExtResource("5_6350u")
+
+[node name="Coins" type="Node2D" parent="."]
+
+[node name="Coin" parent="Coins" instance=ExtResource("7_yvqsr")]
+position = Vector2(-830, -188)
+
+[node name="Coin2" parent="Coins" instance=ExtResource("7_yvqsr")]
+position = Vector2(-1470, 9)
+
+[node name="Coin3" parent="Coins" instance=ExtResource("7_yvqsr")]
+position = Vector2(-2876, -626)
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="Dawg" parent="Enemies" instance=ExtResource("8_x0jh5")]
+position = Vector2(-2539, -93)
+
+[node name="LizardScientist" parent="Enemies" instance=ExtResource("9_rdr1e")]
+position = Vector2(-3329, -296)
+
+[node name="Dawg2" parent="Enemies" instance=ExtResource("8_x0jh5")]
+position = Vector2(-3320, -60)
+
+[node name="LizardScientist2" parent="Enemies" instance=ExtResource("9_rdr1e")]
+position = Vector2(-483, -34)
+
+[node name="LizardScientist3" parent="Enemies" instance=ExtResource("9_rdr1e")]
+position = Vector2(-1431, -133)
+
+[node name="Hitbox" type="Area2D" parent="."]
+script = ExtResource("4_ptles")
+entity_resource = SubResource("Resource_ocjkd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(11, 657)
+shape = SubResource("RectangleShape2D_8woru")
