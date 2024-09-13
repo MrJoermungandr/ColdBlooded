@@ -366,6 +366,7 @@ _data = {
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 position = Vector2(0, -14.555)
+collision_layer = 5
 script = ExtResource("1_hm2ln")
 entity_resource = ExtResource("2_km8od")
 speed = 250
@@ -379,6 +380,7 @@ glide_gravity = 130.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
+position = Vector2(0, 0.5)
 sprite_frames = SubResource("SpriteFrames_e5hdi")
 animation = &"idle"
 metadata/_aseprite_wizard_config_ = {

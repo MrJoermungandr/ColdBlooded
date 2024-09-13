@@ -8,6 +8,7 @@ func _setup() -> void:
 func _enter() -> void:
 	agent.entity_resource.attack_type = EntityResource.dmg_type.PIERCE
 	agent.animation_player.play(&"pierce")
+	AudioManager.sound_player_melee()
 	await agent.animation_player.animation_finished
 	dispatch(EVENT_FINISHED)
 

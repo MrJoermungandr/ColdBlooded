@@ -10,7 +10,8 @@ config_version=5
 
 [application]
 
-config/name="ColdBlooded"
+config/name="Cold Blooded 2077"
+config/version="1.0.0"
 run/main_scene="res://MainMenu.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
@@ -54,7 +55,7 @@ folder_colors={
 
 [global_group]
 
-damageable="should implement _take_damage(amount: int, type: EntityResource.dmg_type)"
+damageable="should implement take_damage(amount: int, type: EntityResource.dmg_type)"
 freezeable="can be freezed and should implement freeze()"
 
 [gui]
@@ -122,6 +123,7 @@ attack_pierce={
 
 2d_physics/layer_1="World"
 2d_physics/layer_2="DamageInteraction"
+2d_physics/layer_3="Player"
 
 [rendering]
 

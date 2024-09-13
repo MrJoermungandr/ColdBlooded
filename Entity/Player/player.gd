@@ -75,6 +75,8 @@ var _inital_health = entity_resource.health
 
 signal death
 
+signal damage_taken(entity_resource:EntityResource)
+
 func _ready() -> void:
 	coyote_timer.one_shot = true
 	coyote_timer.wait_time = coyote_time_seconds
@@ -86,6 +88,8 @@ func _ready() -> void:
 	ice_breath_cooldown_timer.one_shot = true
 	ice_breath_cooldown_timer.wait_time = ice_breath_cooldown_seconds
 	add_child(ice_breath_cooldown_timer)
+	
+	damage_taken.emit(entity_resource)
 
 func _init_state_machine():
 	state_machine.add_transition(idle_state, move_state, &"move_started")
@@ -128,10 +132,12 @@ func _handle_jump_and_glide(is_on_ground: bool) -> void:
 			velocity.y = jump_velocity
 			has_jumped = true
 			animated_sprite_2d.play(&"Jump")
+			AudioManager.sound_jump()
 			_use_vertical_pinch_hitbox()
 		elif not has_double_jumped:
 			velocity.y = second_jump_velocity
 			animated_sprite_2d.play(&"Jump")
+			AudioManager.sound_jump()
 			_use_vertical_pinch_hitbox()
 			has_double_jumped = true
 	if Input.is_action_pressed("move_jump"):
@@ -174,11 +180,17 @@ func _use_normal_hitbox():
 func take_damage(amount: int, type: EntityResource.dmg_type) -> void:
 	if entity_resource.health - amount <= 0:
 		entity_resource.health = 0
+		AudioManager.sound_player_death()
 		death.emit() # TODO proper death handling
 		state_machine.set_active(false)
 		$Label.text = "dead"
 		return
+	AudioManager.sound_player_hit()
+	var tween=create_tween()
+	tween.tween_property($AnimatedSprite2D, "self_modulate", Color.RED, .5)
+	tween.tween_property($AnimatedSprite2D, "self_modulate", Color.WHITE, 2)
 	entity_resource.health -= amount
+	damage_taken.emit(entity_resource)
 
 func respawn_player(position:Vector2):
 	global_position=position

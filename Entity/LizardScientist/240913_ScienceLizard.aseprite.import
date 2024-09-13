@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://deuho38j5t2k3"
+path="res://.godot/imported/240913_ScienceLizard.aseprite-092be55c1286c9a94ae8d667ff3a8229.res"
+
+[deps]
+
+source_file="res://Entity/LizardScientist/240913_ScienceLizard.aseprite"
+dest_files=["res://.godot/imported/240913_ScienceLizard.aseprite-092be55c1286c9a94ae8d667ff3a8229.res"]
+
+[params]
+
