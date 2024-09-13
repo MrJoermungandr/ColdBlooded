@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://i1twq4tsorap"]
+
+[ext_resource type="Texture2D" uid="uid://dlhkilllva6rp" path="res://Entity/IceDeathParticles/snowflake_particle.png" id="1_iut8k"]
+[ext_resource type="Script" path="res://Entity/Player/ice_death_particles.gd" id="2_44a80"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ygg8c"]
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+spread = 90.0
+initial_velocity_min = 80.36
+initial_velocity_max = 80.36
+gravity = Vector3(0, 98, 0)
+hue_variation_min = -0.07
+hue_variation_max = -2.23517e-08
+
+[node name="IceDeathParticles" type="GPUParticles2D"]
+emitting = false
+amount = 50
+process_material = SubResource("ParticleProcessMaterial_ygg8c")
+texture = ExtResource("1_iut8k")
+one_shot = true
+explosiveness = 0.75
+randomness = 1.0
+script = ExtResource("2_44a80")
