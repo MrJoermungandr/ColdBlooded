@@ -54,6 +54,12 @@
 						<Switch Id="502123208" Name="Over50Hp"/>
 					</Switches>
 				</SwitchGroup>
+				<SwitchGroup Id="2528658256" Name="Ground">
+					<Switches>
+						<Switch Id="223416773" Name="OffGround"/>
+						<Switch Id="1200033591" Name="OnGround"/>
+					</Switches>
+				</SwitchGroup>
 			</SwitchGroups>
 			<AcousticTextures>
 				<AcousticTexture Id="504532776" Name="Brick">
@@ -184,7 +190,7 @@
 				</AcousticTexture>
 			</AcousticTextures>
 		</SoundBank>
-		<SoundBank Id="1647770721" Type="User" Language="SFX" Hash="{932D69D3-C03F-2F2C-9BF0-420A637907B0}">
+		<SoundBank Id="1647770721" Type="User" Language="SFX" Hash="{1C738AFE-90A9-C7B7-B3C3-FF20B5AE4E42}">
 			<ShortName>Soundbank1</ShortName>
 			<Path>Soundbank1.bnk</Path>
 			<Media>
@@ -454,8 +460,14 @@
 						<Switch Id="502123208" Name="Over50Hp"/>
 					</Switches>
 				</SwitchGroup>
+				<SwitchGroup Id="2528658256" Name="Ground">
+					<Switches>
+						<Switch Id="223416773" Name="OffGround"/>
+						<Switch Id="1200033591" Name="OnGround"/>
+					</Switches>
+				</SwitchGroup>
 			</SwitchGroups>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{168E16B0-B33B-0823-41B2-ECCF67EDEB03}</FileHash>
+	<FileHash>{98FC7A67-14E7-1F8F-09E6-24EBCFC77285}</FileHash>
 </SoundBanksInfo>
