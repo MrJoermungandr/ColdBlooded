@@ -1,0 +1,34 @@
+[gd_scene load_steps=4 format=3 uid="uid://c2herjuy21cx5"]
+
+[ext_resource type="Texture2D" uid="uid://hbm12j8fon1d" path="res://Entity/LizardScientist/scienceLizardTemp.png" id="1_r41ph"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qljnl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_r41ph")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2vmtn"]
+height = 44.0
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_qljnl")
+flip_h = true
+
+[node name="PlayerDetectArea" type="Area2D" parent="Sprite"]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sprite/PlayerDetectArea"]
+polygon = PackedVector2Array(0, 0, 162, 30, 162, -50)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 6)
+shape = SubResource("CapsuleShape2D_2vmtn")
