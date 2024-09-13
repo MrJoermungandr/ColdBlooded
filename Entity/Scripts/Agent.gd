@@ -35,6 +35,10 @@ func _post_physics_process(delta) -> void:
 			velocity.y += GRAVITY * delta
 		move_and_slide()
 	_moved_this_frame = false
+	if velocity.is_zero_approx():
+		sprite.play(&"idle")
+	else:
+		sprite.play(&"Walk")
 
 func freeze() -> void:
 	frozen = true

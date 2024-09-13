@@ -124,11 +124,11 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w4opf"]
 size = Vector2(20, 22)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_jkquf"]
-size = Vector2(20, 22)
+[sub_resource type="CircleShape2D" id="CircleShape2D_uaeom"]
+radius = 11.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v8jcb"]
-size = Vector2(20, 22)
+size = Vector2(38, 22)
 
 [sub_resource type="BlackboardPlan" id="BlackboardPlan_adeud"]
 var/speed/name = &"speed"
@@ -151,6 +151,18 @@ tracks/0/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"idle"]
+}
 
 [sub_resource type="Animation" id="Animation_y6h0c"]
 resource_name = "attack"
@@ -165,7 +177,19 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.0333333, 0.366667, 0.4, 0.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 1,
-"values": [true, false, false, true, true]
+"values": [false, false, false, true, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Bite"]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2b1qf"]
@@ -182,8 +206,7 @@ entity_resource = SubResource("Resource_1kyr4")
 texture_filter = 1
 position = Vector2(0, -13)
 sprite_frames = SubResource("SpriteFrames_epfhp")
-animation = &"Bite"
-frame_progress = 0.984791
+animation = &"idle"
 flip_h = true
 metadata/_aseprite_wizard_config_ = {
 "layer": "",
@@ -215,18 +238,19 @@ script = ExtResource("5_0h4rt")
 entity_resource = SubResource("Resource_1kyr4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/Hitbox"]
-position = Vector2(20, -1)
+position = Vector2(29, -1)
 shape = SubResource("RectangleShape2D_w4opf")
 disabled = true
 debug_color = Color(1, 0, 0, 0.419608)
 
 [node name="IceSprite" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(0, -21)
 texture = ExtResource("6_tfb6y")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -1)
-shape = SubResource("RectangleShape2D_jkquf")
+shape = SubResource("CircleShape2D_uaeom")
 
 [node name="Hurtbox" type="Area2D" parent="."]
 script = ExtResource("6_hbkb7")
